@@ -11,7 +11,7 @@ import { Layout } from "../../styles/layout";
 import { toast } from "react-toastify";
 
 export const Cadastrar = ({ authenticated }) => {
-  const Esquema = yup.object().shape({
+  const Schema = yup.object().shape({
     name: yup.string().required("name is required"),
     email: yup
       .string()
@@ -36,9 +36,9 @@ export const Cadastrar = ({ authenticated }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(Esquema) });
+  } = useForm({ resolver: yupResolver(Schema) });
 
-  const Enviar = (data) => {
+  const Sender = (data) => {
     api
       .post("/users", data)
       .then((response) => {
@@ -59,7 +59,7 @@ export const Cadastrar = ({ authenticated }) => {
   return (
     <Layout>
       <Content>
-        <Formulario onSubmit={handleSubmit(Enviar)}>
+        <Formulario onSubmit={handleSubmit(Sender)}>
           <h1>Cadastro</h1>
           <Input
             label="Usuário"
