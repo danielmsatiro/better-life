@@ -15,6 +15,7 @@ li {
 :root{
     --light-purple: #A5A6F6;
     --purple: #5D5FEF;
+    --purple-logo: #7879F1;
     --dark-purple: #1F161E;
     --green: #55B79D;
     --light-green: #ACE5E3;
