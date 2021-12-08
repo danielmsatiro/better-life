@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
-import axios from "axios";
+import api from "../../services/api";
 
 import jwt_decode from "jwt-decode";
 
@@ -11,11 +11,15 @@ export const UserProvider = ({ children }) => {
 
   const login = (info) => {
     // info é o que vem do formulário
-    axios
-      .post("https://kenzie-habits.herokuapp.com/sessions/", info)
-      .then((response) => {
-        const { access } = response.data;
-        setUser(jwt_decode(access));
-      });
+    api.post("/sessions/", info).then((response) => {
+      const { access } = response.data;
+      setUser(jwt_decode(access));
+    });
   };
+
+  return (
+    <UserContext.Provider value={{ user, login }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
