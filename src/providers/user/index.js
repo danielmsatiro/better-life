@@ -7,18 +7,20 @@ import jwt_decode from "jwt-decode";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [decoded, setDecoded] = useState(null);
+  const [userID, setUserID] = useState({});
 
   const login = (info) => {
     // info é o que vem do formulário
     api.post("/sessions/", info).then((response) => {
       const { access } = response.data;
-      setUser(jwt_decode(access));
+      setDecoded(jwt_decode(access));
+      setUserID(decoded.user_id);
     });
   };
 
   return (
-    <UserContext.Provider value={{ user, login }}>
+    <UserContext.Provider value={{ userID, login }}>
       {children}
     </UserContext.Provider>
   );
