@@ -5,21 +5,18 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../service/api";
-import Formulario from "../../components/Formulario";
+import Form from "../../components/Form";
 import { Content } from "./style";
 import { Layout } from "../../styles/layout";
 import { toast } from "react-toastify";
 
-export const Cadastrar = ({ authenticated }) => {
+export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
-    name: yup.string().required("name is required"),
+    username: yup.string().required("name is required"),
     email: yup
       .string()
       .required("email is required")
       .email("email inválido", "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/"),
-    course_module: yup.string().required("course_module is required"),
-    bio: yup.string().required("Bio is required"),
-    contact: yup.string().required("contact is required"),
     password: yup
       .string()
       .required("password is required")
@@ -59,13 +56,17 @@ export const Cadastrar = ({ authenticated }) => {
   return (
     <Layout>
       <Content>
-        <Formulario onSubmit={handleSubmit(Sender)}>
-          <h1>Cadastro</h1>
+        <Form onSubmit={handleSubmit(Sender)}>
+          <h1>Sign up</h1>
+          <p>
+            Já possui cadastro?
+            <span onClick={() => history.push("/login")}>login</span>
+          </p>
           <Input
             label="Usuário"
-            nome="name"
+            nome="username"
             register={register}
-            error={errors.name?.message}
+            error={errors.username?.message}
           />
 
           <Input
@@ -74,18 +75,7 @@ export const Cadastrar = ({ authenticated }) => {
             register={register}
             error={errors.email?.message}
           />
-          <Input
-            label="Bio"
-            nome="bio"
-            register={register}
-            error={errors.bio?.message}
-          />
-          <Input
-            label="Contato"
-            nome="contact"
-            register={register}
-            error={errors.contact?.message}
-          />
+
           <Input
             label="Senha"
             nome="password"
@@ -98,12 +88,8 @@ export const Cadastrar = ({ authenticated }) => {
             register={register}
             error={errors.password_confirmation?.message}
           />
-          <Button type="submit">Enviar</Button>
-        </Formulario>
-        <p>
-          Já tem conta? Faça{" "}
-          <span onClick={() => history.push("/login")}>login</span>
-        </p>
+          <Button type="submit">Criar conta</Button>
+        </Form>
       </Content>
     </Layout>
   );
