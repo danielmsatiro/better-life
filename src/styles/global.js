@@ -27,6 +27,9 @@ li {
     --error: #FF0000;
     --error-light: #FFEBEB;
     --yellow: #FBDC8E;
+    --purple-shadow: rgba(93,95,239,0.5);
+    --green-shadow: rgba(85,183,157,0.5);
+    --dark-shadow: rgba(31,22,30, 0.5);
 
 }
 

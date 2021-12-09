@@ -5,11 +5,6 @@ export const Content = styled.div`
   height: auto;
   margin: auto;
 
-  /* h1.bigHeader {
-    display: none;
-    font-family: "Pacifico", cursive;
-  } */
-
   .advice {
     width: 100%;
     text-align: left;
@@ -17,7 +12,7 @@ export const Content = styled.div`
   }
 
   h2 {
-    color: var(--roxo);
+    color: var(--purple);
   }
 
   p {
@@ -25,7 +20,7 @@ export const Content = styled.div`
     color: black;
   }
   span {
-    color: var(--roxo-claro);
+    color: var(--light-purple);
   }
 
   .doll {
