@@ -9,19 +9,26 @@ export const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(() => {
+    const token = localStorage.getItem("@betterlife:token");
+    const id = localStorage.getItem("@betterlife:id");
+
+    if (token && id) {
+      return { token, id };
+    }
+
+    return {};
+  });
 
   const login = (info) => {
     // info é o que vem do formulário
     api.post("/sessions/", info).then((response) => {
       const { access } = response.data;
 
-      setUser({ id: jwt_decode(access).user_id, token: access });
-
       localStorage.clear();
       localStorage.setItem("@betterlife:token", JSON.stringify(access));
       localStorage.setItem(
-        "@betterlife:user",
+        "@betterlife:id",
         JSON.stringify(jwt_decode(access).user_id)
       );
     });
