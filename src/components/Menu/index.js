@@ -21,11 +21,11 @@ function DashboardMenu(){
 
             <div>
 
-            <h1>Better Life</h1>
+            <h1 className="menu_logo">Better Life</h1>
 
             {/* details = menu do mobile */}
-            <details >
-                <summary>
+            <details className="menu_details">
+                <summary className="menu_details_summary">
                     <AiOutlineMenu className="menu_icon"/>
                 </summary>
 
