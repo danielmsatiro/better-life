@@ -17,7 +17,7 @@ export const ContainerMenu = styled.section`
         display: none;
     }
 
-    h1{
+    .menu_logo{
         color: white;
         margin-left: 20px;
         font-family: "pacifico";
@@ -25,13 +25,13 @@ export const ContainerMenu = styled.section`
         font-weight: 100;
     }
 
-    details{
+    .menu_details{
         position: absolute;
         right: 20px;
         top: 10px;
     }
 
-    summary{
+    .menu_details_summary{
         position: absolute;
         right: 0px;
     }
@@ -119,7 +119,7 @@ export const ContainerMenu = styled.section`
             background-color: var(--green);
         }
 
-        h1{
+        .menu_logo{
             margin-left: 10px;
         }
 
