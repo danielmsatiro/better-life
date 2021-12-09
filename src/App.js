@@ -1,5 +1,11 @@
+import SingIn from "./pages/SingIn";
+
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <SingIn />
+    </div>
+  );
 }
 
 export default App;

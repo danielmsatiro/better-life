@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { UserContext } from "../../providers/user";
+import { useAuth, UserContext } from "../../providers/user";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Container } from "./styles";
+import Container from "./styles";
 
 const SingIn = () => {
-  const { userID, login } = useContext(UserContext);
+  const { user, login } = useAuth();
 
   const schema = yup.object().shape({
     username: yup.string().required("O nome de usuário é obrigatório"),
@@ -23,9 +23,18 @@ const SingIn = () => {
     resolver: yupResolver(schema),
   });
 
+  const submit = () => {
+    login({
+      username: "gabriel-kenzie",
+      password: "123456",
+    });
+  };
+
   return (
     <Container>
-      <div>oi</div>
+      <form onSubmit={handleSubmit(submit)}>
+        <button onClick={submit}>Click</button>
+      </form>
     </Container>
   );
 };
