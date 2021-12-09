@@ -1,8 +1,8 @@
 import Group from "rc-image/lib/PreviewGroup";
 import { Switch } from "react-router";
-import { Dashboard } from "../pages/Dashboard";
+import Dashboard from "../pages/Dashboard";
 import Groups from "../pages/Groups";
-import SignUp from "../pages/SignUp";
+import { SignUp } from "../pages/SignUp";
 import SingIn from "../pages/SingIn";
 
 import { Route } from "./route";
