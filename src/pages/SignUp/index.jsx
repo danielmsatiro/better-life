@@ -107,3 +107,4 @@ export const SignUp = ({ authenticated }) => {
     </Layout>
   );
 };
+

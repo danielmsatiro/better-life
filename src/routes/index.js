@@ -1,18 +1,20 @@
-import "react-toastify/dist/ReactToastify.css";
-import { Switch, Route } from "react-router-dom";
-import { SignUp } from "../pages/SignUp";
+import Group from "rc-image/lib/PreviewGroup";
+import { Switch } from "react-router";
+import { Dashboard } from "../pages/Dashboard";
+import Groups from "../pages/Groups";
+import SignUp from "../pages/SignUp";
+import SingIn from "../pages/SingIn";
 
-function Routes() {
+import { Route } from "./route";
+
+export const Routes = () => {
   return (
     <Switch>
-      {/* <Route exact path="/">
-        <Home />
-      </Route> */}
-      <Route path="/">
-        <SignUp />
-      </Route>
+      <Route exact path="/" component={SingIn} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/dashboard" componet={Dashboard} isPrivate />
+      <Route path="/groups" componet={Groups} isPrivate />
+      <Route path="/group" componet={Group} isPrivate />
     </Switch>
   );
-}
-
-export default Routes;
+};
