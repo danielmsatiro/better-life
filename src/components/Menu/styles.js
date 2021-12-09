@@ -5,7 +5,7 @@ export const ContainerMenu = styled.section`
     .menu_box{
         width: 100%;
         height: 60px;
-        background-color: #1F161E;
+        background-color: var(--dark-purple);
     }
 
 
@@ -20,6 +20,9 @@ export const ContainerMenu = styled.section`
     h1{
         color: white;
         margin-left: 20px;
+        font-family: "pacifico";
+        font-size: 31px;
+        font-weight: 100;
     }
 
     details{
@@ -67,6 +70,11 @@ export const ContainerMenu = styled.section`
         display: flex;
         align-items: center;      
         cursor: pointer;  
+
+
+        font-family: Ubuntu;
+        font-size: 18px;
+        font-weight: 500;
     }
 
     .menu_icon_subMenu{
@@ -108,11 +116,11 @@ export const ContainerMenu = styled.section`
             display: block;
             width: 100%;
             height: 5vh;
-            background-color: #55B79D;
+            background-color: var(--green);
         }
 
         h1{
-            margin-left: 20px;
+            margin-left: 10px;
         }
 
         .menu_icon{
@@ -121,6 +129,7 @@ export const ContainerMenu = styled.section`
 
         .menu_dashboard_desktop{
             width: 100%;
+            margin-top: 20px;
 
             display: flex;
             flex-direction: column;
@@ -130,6 +139,10 @@ export const ContainerMenu = styled.section`
             color: white;
             height: 30px;
             cursor: pointer;
+
+            font-family: Ubuntu;
+            font-size: 18px;
+            font-weight: 500;
 
             display: flex;
             align-items: center;
@@ -151,6 +164,7 @@ export const ContainerMenu = styled.section`
             border-top: solid white 1px;
             margin: 20px auto;
             padding-top: 10px;
+            font-size: 14px;
         }
     }
 
