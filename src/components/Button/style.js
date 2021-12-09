@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  background: var(--roxo);
+  background: var(--purple);
   color: white;
   height: 40px;
   border-radius: 0.5rem;
@@ -13,10 +13,11 @@ export const Container = styled.button`
   font-family: "Ubuntu", sans-serif;
   font-size: 0.8em;
 
-  :hover {
-    border: 2px solid var(--second-color);
-    background-color: var(--primary-color);
-    color: var(--oscuro);
+  &:hover {
+    border: 2px solid var(--purple);
+    background-color: var(--light-green);
+    color: var(--purple);
+    box-shadow: 0 0 0.5em 0.5em var(--purple-shadow);
   }
 
   @media (min-width: 769px) {

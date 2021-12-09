@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.form`
   background: white;
-  color: var(--roxo-claro);
+  color: var(--light-purple);
   width: 300px;
   height: auto;
   margin: 80px auto;
   border-radius: 20px;
   padding: 1rem 0;
   transition: 0.5s;
-  box-shadow: 0 0 0.3rem 0.3rem var(--primary-shadow);
+  box-shadow: 0 0 0.5em 0.5em var(--purple-shadow);
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
   text-align: center;

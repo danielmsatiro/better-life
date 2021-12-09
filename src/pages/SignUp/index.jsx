@@ -4,7 +4,7 @@ import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../service/api";
+import { api } from "../../services/api";
 import Form from "../../components/Form";
 import { Content } from "./style";
 import { Layout } from "../../styles/layout";
@@ -13,18 +13,16 @@ import boneca from "../../assets/img/woman-writing.png";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
-    username: yup.string().required("name is required"),
+    username: yup.string() /*.required("name is required")*/,
     email: yup
       .string()
-      .required("email is required")
+      // .required("email is required")
       .email("email inválido", "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/"),
-    password: yup
+    password: yup.string(),
+    /* .required("password is required")
+      .min(6, "minimum is 6 numbers")*/ password_confirmation: yup
       .string()
-      .required("password is required")
-      .min(6, "minimum is 6 numbers"),
-    password_confirmation: yup
-      .string()
-      .required("password_confirmation is required")
+      // .required("password_confirmation is required")
       .oneOf([yup.ref("password")], "Senhas diferentes"),
   });
 
@@ -44,13 +42,17 @@ export const SignUp = ({ authenticated }) => {
       .then((response) => {
         console.log(response.data);
         toast.success("Usuário cadastrado com sucesso!");
-        return history.push("/login");
+        return history.push("/");
       })
-      .catch((err) =>
+      .catch((error) => {
+        console.log(error.response.data);
         toast.error(
-          "Alguma informação está errada. Por favor intente novamente!"
-        )
-      );
+          error.response.data.username && error.response.data.username[0]
+        );
+        toast.error(
+          error.response.data.password && error.response.data.password[0]
+        );
+      });
   };
 
   if (authenticated) {
@@ -68,7 +70,7 @@ export const SignUp = ({ authenticated }) => {
             <h2>Sign up</h2>
             <p>
               Já possui cadastro?
-              <span onClick={() => history.push("/login")}> Sign up</span>
+              <span onClick={() => history.push("/")}> Sign up</span>
             </p>
           </div>
 
@@ -107,4 +109,3 @@ export const SignUp = ({ authenticated }) => {
     </Layout>
   );
 };
-

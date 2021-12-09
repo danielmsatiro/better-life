@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: auto;
   margin: auto;
   padding: 0.6rem 0 0;
-  color: var(--oscuro);
+  color: var(--dark-purple);
   font-size: 0.8rem;
 
   text-align: center;
@@ -16,15 +16,16 @@ export const Container = styled.div`
     margin: auto;
     padding-left: 1rem;
     border-radius: 5px;
-    border: 1px solid var(--roxo-claro);
+    border: 1px solid var(--light-gray);
     font-family: "Ubuntu", sans-serif;
     font-style: italic;
-    background-color: var(--claro);
-    &:hover {
-      box-shadow: 0.4rem 0.4rem 0.4rem var(--primary-shadow);
-    }
 
-    @media (min-width: 769px) {
+    &:hover {
+      box-shadow: 0.4rem 0.4rem 0.4rem var(--purple-shadow);
+    }
+  }
+  @media (min-width: 769px) {
+    input {
       height: 50px;
     }
   }
