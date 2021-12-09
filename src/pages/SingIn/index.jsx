@@ -44,7 +44,7 @@ const SingIn = () => {
             <h2>Sign in</h2>
             <p>
               Ainda não é cadastrado?{" "}
-              <span onClick={() => history.push("/login")}> Sign up</span>
+              <span onClick={() => history.push("/signup")}> Sign up</span>
             </p>
           </div>
 

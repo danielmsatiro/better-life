@@ -3,11 +3,6 @@ import styled from "styled-components";
 export const Content = styled.div`
   position: relative;
 
-  /* h1.bigHeader {
-    display: none;
-    font-family: "Pacifico", cursive;
-  } */
-
   .advice {
     width: 75%;
   }
