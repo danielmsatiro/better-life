@@ -1,9 +1,12 @@
 // import { Container } from './styles';
+import DashboardMenu from "../../components/Menu";
 
 
 const Dashboard = () => {
   return (
-  <div></div> 
+  <div>
+    <DashboardMenu/>
+  </div> 
   )
 };
 

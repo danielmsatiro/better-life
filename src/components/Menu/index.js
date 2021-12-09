@@ -1,11 +1,16 @@
 import { useHistory } from "react-router-dom";
 
 import { ContainerMenu } from "./styles";
+
 import {AiOutlineMenu, AiFillHome} from "react-icons/ai"
 import {MdGroups, MdLogout} from "react-icons/md"
 
+import { useContext } from "react";
+import { UserContext } from "../../providers/user";
 
 function DashboardMenu(){
+    const {logout} = useContext(UserContext)
+   
     const history = useHistory()
 
     return (
@@ -52,7 +57,7 @@ function DashboardMenu(){
                 </div>
             </div>
 
-                <span className="sub_menu__link_desktop logout_menu_desktop">
+                <span onClick={() => logout } className="sub_menu__link_desktop logout_menu_desktop">
                     <MdLogout className="menu_icon_subMenu_desktop logout_icon"/>
                     Logout
                 </span>
