@@ -13,18 +13,16 @@ import boneca from "../../assets/img/woman-writing.png";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
-    username: yup.string().required("name is required"),
+    username: yup.string() /*.required("name is required")*/,
     email: yup
       .string()
-      .required("email is required")
+      // .required("email is required")
       .email("email inválido", "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/"),
-    password: yup
+    password: yup.string(),
+    /* .required("password is required")
+      .min(6, "minimum is 6 numbers")*/ password_confirmation: yup
       .string()
-      .required("password is required")
-      .min(6, "minimum is 6 numbers"),
-    password_confirmation: yup
-      .string()
-      .required("password_confirmation is required")
+      // .required("password_confirmation is required")
       .oneOf([yup.ref("password")], "Senhas diferentes"),
   });
 
@@ -44,13 +42,17 @@ export const SignUp = ({ authenticated }) => {
       .then((response) => {
         console.log(response.data);
         toast.success("Usuário cadastrado com sucesso!");
-        return history.push("/login");
+        return history.push("/");
       })
-      .catch((err) =>
+      .catch((error) => {
+        console.log(error.response.data);
         toast.error(
-          "Alguma informação está errada. Por favor intente novamente!"
-        )
-      );
+          error.response.data.username && error.response.data.username[0]
+        );
+        toast.error(
+          error.response.data.password && error.response.data.password[0]
+        );
+      });
   };
 
   if (authenticated) {
@@ -59,43 +61,44 @@ export const SignUp = ({ authenticated }) => {
 
   return (
     <Layout>
-      <header>
-        <h1 className="bigHeader">Better Life</h1>
-      </header>
       <Content>
         <Form onSubmit={handleSubmit(Sender)}>
           <div className="advice">
             <h2>Sign up</h2>
             <p>
               Já possui cadastro?
-              <span onClick={() => history.push("/login")}> Sign up</span>
+              <span onClick={() => history.push("/")}> Sign in</span>
             </p>
           </div>
 
           <Input
-            placeholder="Nome do usuário"
+            placeholder="jhondoe"
             nome="username"
+            label={"Nome de Usuário"}
             register={register}
             error={errors.username?.message}
           />
 
           <Input
-            placeholder="Email"
+            placeholder="jhondoe@mail.com"
             nome="email"
+            label={"Email"}
             register={register}
             error={errors.email?.message}
           />
 
           <Input
-            placeholder="Senha"
             nome="password"
+            label={"Senha"}
             register={register}
+            type="password"
             error={errors.password?.message}
           />
           <Input
-            placeholder="Confirmar senha"
             nome="password_confirmation"
+            label={"Confirmar senha"}
             register={register}
+            type="password"
             error={errors.password_confirmation?.message}
           />
           <Button type="submit">Criar conta</Button>
