@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  width: 100%;
-  height: auto;
-  margin: auto;
+  position: relative;
 
   /* h1.bigHeader {
     display: none;
@@ -11,21 +9,24 @@ export const Content = styled.div`
   } */
 
   .advice {
-    width: 100%;
-    text-align: left;
-    padding-left: 1.5em;
+    width: 75%;
   }
 
   h2 {
-    color: var(--roxo);
+    color: var(--light-purple);
+    font-style: italic;
+    font-size: 2.5rem;
   }
 
   p {
-    font-size: 0.6em;
+    margin: 5px 0;
+    font-size: 0.8em;
     color: black;
   }
+
   span {
-    color: var(--roxo-claro);
+    color: var(--light-purple);
+    font-weight: 900;
   }
 
   .doll {
@@ -33,12 +34,11 @@ export const Content = styled.div`
   }
 
   @media (min-width: 769px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     .doll {
-      display: block;
+      display: inherit;
+      position: absolute;
+      top: 10%;
+      left: 92%;
     }
   }
 `;
