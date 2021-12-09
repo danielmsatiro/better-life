@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Container from "./styles";
+import LastActivities from "../../components/LastActivities";
 
 const SingIn = () => {
   const { user, login } = useAuth();
@@ -34,6 +35,7 @@ const SingIn = () => {
     <Container>
       <form onSubmit={handleSubmit(submit)}>
         <button onClick={submit}>Click</button>
+        <LastActivities />
       </form>
     </Container>
   );
