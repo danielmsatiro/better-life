@@ -14,5 +14,8 @@ export const Container = styled.form`
   font-family: "Ubuntu", sans-serif;
 
   @media (min-width: 769px) {
+    span:hover {
+      cursor: pointer;
+    }
   }
 `;

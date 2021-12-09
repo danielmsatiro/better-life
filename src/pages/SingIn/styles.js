@@ -10,35 +10,42 @@ const Container = styled.div`
 
   .advice {
     width: 75%;
-  }
 
-  h2 {
-    color: var(--light-purple);
-    font-style: italic;
-    font-size: 2.5rem;
-  }
+    h2 {
+      color: var(--light-purple);
+      font-style: italic;
+      font-size: 2.5rem;
+    }
 
-  p {
-    margin: 5px 0;
-    font-size: 0.8em;
-    color: black;
-  }
+    p {
+      margin: 5px 0;
+      font-size: 0.8em;
+      color: black;
+    }
 
-  span {
-    color: var(--light-purple);
-    font-weight: 900;
+    span {
+      color: var(--light-purple);
+      font-weight: 900;
+    }
   }
 `;
 
 const Image = styled.img`
   position: absolute;
   display: none;
+  z-index: -1;
   left: 5%;
   bottom: 0;
   width: 600px;
 
   @media (min-width: 769px) {
     display: inherit;
+
+    .advice {
+      span:hover {
+        cursor: pointer;
+      }
+    }
   }
 `;
 
