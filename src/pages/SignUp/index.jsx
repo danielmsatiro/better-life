@@ -4,7 +4,7 @@ import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../service/api";
+import { api } from "../../services/api";
 import Form from "../../components/Form";
 import { Content } from "./style";
 import { Layout } from "../../styles/layout";
@@ -107,4 +107,3 @@ export const SignUp = ({ authenticated }) => {
     </Layout>
   );
 };
-
