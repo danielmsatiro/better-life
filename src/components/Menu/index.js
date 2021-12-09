@@ -23,21 +23,28 @@ function DashboardMenu(){
 
             <h1>Better Life</h1>
 
-            <details>
+            {/* details = menu do mobile */}
+            <details >
                 <summary>
                     <AiOutlineMenu className="menu_icon"/>
                 </summary>
 
                 <nav className="sub_menu">
-                    <span onClick={() => history.push("/dashboard")} className="sub_menu__link">
+                    <span 
+                        onClick={() => history.push("/dashboard")} 
+                        className="sub_menu__link">
                         <AiFillHome className="menu_icon_subMenu"/>
                         Home
                     </span>
-                    <span onClick={() => history.push("/groups")} className="sub_menu__link">
+                    <span 
+                        onClick={() => history.push("/groups")} 
+                        className="sub_menu__link">
                         <MdGroups className="menu_icon_subMenu_group_icon"/>
                         Grupos
-                    </span>
-                    <span className="sub_menu__link logout_menu">
+                    </span>                    
+                    <span 
+                        onClick={() => logout }
+                        className="sub_menu__link logout_menu">
                         <MdLogout className="menu_icon_subMenu logout_icon"/>
                     Logout
                     </span>
@@ -46,18 +53,24 @@ function DashboardMenu(){
 
             <div className="menu_dashboard_desktop">
                 
-                    <span onClick={() => history.push("/dashboard")} className="sub_menu__link_desktop">
+                    <span 
+                        onClick={() => history.push("/dashboard")} 
+                        className="sub_menu__link_desktop">
                         <AiFillHome className="menu_icon_subMenu_desktop"/>
                         Home
                     </span>
-                    <span onClick={() => history.push("/groups")} className="sub_menu__link_desktop">
+                    <span 
+                        onClick={() => history.push("/groups")} 
+                        className="sub_menu__link_desktop">
                         <MdGroups className="menu_icon_subMenu_desktop group_icon"/>
                         Grupos
                     </span>
                 </div>
             </div>
 
-                <span onClick={() => logout } className="sub_menu__link_desktop logout_menu_desktop">
+                <span 
+                    onClick={() => logout } 
+                    className="sub_menu__link_desktop logout_menu_desktop">
                     <MdLogout className="menu_icon_subMenu_desktop logout_icon"/>
                     Logout
                 </span>
