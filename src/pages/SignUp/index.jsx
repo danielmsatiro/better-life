@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../services/api";
+import Header from "../../components/Header";
 import Form from "../../components/Form";
 import { Content } from "./style";
 import { Layout } from "../../styles/layout";
 import { toast } from "react-toastify";
-import boneca from "../../assets/img/woman-writing.png";
+import boneca from "../../assets/img/woman-writing.svg";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
@@ -61,6 +62,7 @@ export const SignUp = ({ authenticated }) => {
 
   return (
     <Layout>
+      <Header />
       <Content>
         <Form onSubmit={handleSubmit(Sender)}>
           <div className="advice">
