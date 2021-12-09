@@ -1,32 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: auto;
-  height: auto;
-  margin: auto;
-  padding: 0.6rem 0 0;
-  color: var(--dark-purple);
-  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
 
-  text-align: center;
+  label {
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
 
   input {
-    width: 80%;
-    height: 40px;
     margin: auto;
+    padding: 10px;
     padding-left: 1rem;
     border-radius: 5px;
-    border: 1px solid var(--light-gray);
+    border: 2px solid var(--light-gray);
     font-family: "Ubuntu", sans-serif;
     font-style: italic;
+    font-size: 0.9rem;
+    background-color: var(--claro);
 
-    &:hover {
-      box-shadow: 0.4rem 0.4rem 0.4rem var(--purple-shadow);
+    &:focus {
+      outline: none;
+      border: 2px solid var(--dark-purple);
+      transition: 0.3s;
     }
-  }
-  @media (min-width: 769px) {
-    input {
-      height: 50px;
+
+    &:not(:focus) {
+      transition: 0.3s;
+    }
+
+    &:focus::placeholder {
+      transition: 0.3s;
+      opacity: 0;
+      transform: translateX(5px);
+    }
+
+    &:not(:focus)::placeholder {
+      transition: 0.3s;
+    }
+
+    @media (min-width: 769px) {
     }
   }
 `;
