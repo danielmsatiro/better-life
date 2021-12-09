@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-body, div, h1{
+body, div, h1, h2, p, button{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -13,6 +13,7 @@ li {
 }
 
 :root{
+
     --light-purple: #A5A6F6;
     --purple: #5D5FEF;
     --purple-logo: #7879F1;
@@ -26,10 +27,13 @@ li {
     --error: #FF0000;
     --error-light: #FFEBEB;
     --yellow: #FBDC8E;
+
 }
 
 body{
     font-size: 16px;
+    width: 100vw;
+    height: 100vh;
     color: var();
     background-color: var();
 }
