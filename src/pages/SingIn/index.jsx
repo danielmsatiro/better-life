@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 
 import { Layout } from "../../styles/layout";
+import Header from "../../components/Header";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -38,6 +39,7 @@ const SingIn = () => {
 
   return (
     <Layout>
+      <Header />
       <Container>
         <Form onSubmit={handleSubmit(submit)}>
           <div className="advice">
