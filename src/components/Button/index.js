@@ -1,7 +1,7 @@
 import { Container } from "./style";
 
-const Button = ({ children, whiteSchema, ...rest }) => (
-  <Container whiteSchema={whiteSchema} type="button" {...rest}>
+const Button = ({ children, ...rest }) => (
+  <Container type="button" {...rest}>
     {children}
   </Container>
 );

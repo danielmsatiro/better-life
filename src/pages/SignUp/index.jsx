@@ -4,11 +4,12 @@ import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import api from "../../service/api";
+import { api } from "../../service/api";
 import Form from "../../components/Form";
 import { Content } from "./style";
 import { Layout } from "../../styles/layout";
 import { toast } from "react-toastify";
+import boneca from "../../assets/img/woman-writing.png";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
@@ -36,9 +37,12 @@ export const SignUp = ({ authenticated }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const Sender = (data) => {
+    console.log(data);
+    const { username, email, password } = data;
     api
-      .post("/users", data)
+      .post("/users/", { username, email, password })
       .then((response) => {
+        console.log(response.data);
         toast.success("Usuário cadastrado com sucesso!");
         return history.push("/login");
       })
@@ -55,41 +59,50 @@ export const SignUp = ({ authenticated }) => {
 
   return (
     <Layout>
+      <header>
+        <h1 className="bigHeader">Better Life</h1>
+      </header>
       <Content>
         <Form onSubmit={handleSubmit(Sender)}>
-          <h1>Sign up</h1>
-          <p>
-            Já possui cadastro?
-            <span onClick={() => history.push("/login")}>login</span>
-          </p>
+          <div className="advice">
+            <h2>Sign up</h2>
+            <p>
+              Já possui cadastro?
+              <span onClick={() => history.push("/login")}> Sign up</span>
+            </p>
+          </div>
+
           <Input
-            label="Usuário"
+            placeholder="Nome do usuário"
             nome="username"
             register={register}
             error={errors.username?.message}
           />
 
           <Input
-            label="Email"
+            placeholder="Email"
             nome="email"
             register={register}
             error={errors.email?.message}
           />
 
           <Input
-            label="Senha"
+            placeholder="Senha"
             nome="password"
             register={register}
             error={errors.password?.message}
           />
           <Input
-            label="Confirmar senha"
+            placeholder="Confirmar senha"
             nome="password_confirmation"
             register={register}
             error={errors.password_confirmation?.message}
           />
           <Button type="submit">Criar conta</Button>
         </Form>
+        <div className="doll">
+          <img src={boneca} alt="" />
+        </div>
       </Content>
     </Layout>
   );

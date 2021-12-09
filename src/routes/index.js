@@ -8,7 +8,7 @@ function Routes() {
       {/* <Route exact path="/">
         <Home />
       </Route> */}
-      <Route path="/signup">
+      <Route path="/">
         <SignUp />
       </Route>
     </Switch>
