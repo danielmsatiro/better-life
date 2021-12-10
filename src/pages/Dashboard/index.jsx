@@ -1,8 +1,10 @@
 // import { Container } from './styles';
 import { useState } from "react";
 
-import DashboardMenu from "../../components/Menu";
 import ConfModal from "../../components/ConfModal";
+
+import LastActivities from "../../components/LastActivities";
+import DashboardMenu from "../../components/Menu";
 
 const Dashboard = () => {
   const [delHabit, setDelHabit] = useState(false);
@@ -16,6 +18,7 @@ const Dashboard = () => {
       <DashboardMenu />
       <ConfModal isOpen={delHabit} setIsOpen={handleDelHabit} />
       <button onClick={() => setDelHabit(true)}>Open Modal</button>
+      <LastActivities />
     </div>
   );
 };
