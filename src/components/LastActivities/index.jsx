@@ -3,8 +3,8 @@ import { Container } from "./styles";
 import ButtonGroup from "../ButtonGroup";
 import { Content } from "./styles";
 
-/* import { useMyGroups } from "../../providers/mygroups"; */
-
+import { useMyGroups } from "../../providers/mygroups";
+/* ARRAY FIXO DE TESTE
 const myGroups = [
   {
     id: 847,
@@ -89,11 +89,13 @@ const myGroups = [
       },
     ],
   },
-];
+]; */
 
 const LastActivities = () => {
-  /* const myGroups = useMyGroups(); */
+  const { myGroups } = useMyGroups();
+  console.log(myGroups);
 
+  console.log(myGroups.some((item) => item.activities?.length > 0));
   return (
     <Container>
       <h2>Últimas atividades cadastradas</h2>

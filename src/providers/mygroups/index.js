@@ -12,7 +12,6 @@ export const MyGroupsProvider = ({ children }) => {
   const [myGroups, setMyGroups] = useState(() => []);
 
   const getMyGroups = () => {
-    console.log("authorization no getMyGroups=>", `Bearer ${user.token}`);
     api
       .get("/groups/subscriptions/", {
         headers: {
@@ -28,7 +27,7 @@ export const MyGroupsProvider = ({ children }) => {
   }, []);
 
   return (
-    <MyGroupsContext.Provider value={(myGroups, getMyGroups)}>
+    <MyGroupsContext.Provider value={{ myGroups, getMyGroups }}>
       {children}
     </MyGroupsContext.Provider>
   );
