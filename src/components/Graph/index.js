@@ -1,6 +1,11 @@
 import {Chart} from "react-google-charts";
 
+import { useContext } from "react";
+import { UserContext } from "../../providers/user";
+
 function HabitsGraph(){
+    const {user} = useContext(UserContext)
+    console.log(user.id)
     return(
         <div>
             <Chart
@@ -11,15 +16,15 @@ function HabitsGraph(){
                 loader={<div>Loading Chart</div>}
                 data={[
                     ['Task', 'Hours per Day'],
-                    ['Cultura', 2],
-                    ['Família', 2],
-                    ['Saúde', 11],
-                    ['Trabalho', 2],
+                    ['Cultura', 0],
+                    ['Família', 0],
+                    ['Saúde', 2],
+                    ['Trabalho', 1],
                 ]}
                 options={{
                     title: '',
                     // Just add this option
-                    pieHole: 0.3,
+                    pieHole: 0.2,
                 }}
                 rootProps={{ 'data-testid': '3' }}
             />
