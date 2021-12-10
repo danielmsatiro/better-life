@@ -3,16 +3,25 @@ import { CardHeader, Container } from "./style";
 import Button from "../Button";
 // import Input from "../Input";
 
-const Card = ({ Children }) => {
+const Card = ({ Children, titulo, action, actionFunction, deleteFunction }) => {
   return (
     <Container>
       <CardHeader>
         <div className="action">
-          <span>Titulo</span>
+          <span>{titulo}</span>
         </div>
         <div className="button-holder">
-          <Button className="exec">Button</Button>
-          <Button className="delete">X</Button>
+          <Button className="exec" onClick={() => actionFunction()}>
+            {action}
+          </Button>
+          <Button
+            className="delete"
+            onClick={() => {
+              deleteFunction();
+            }}
+          >
+            X
+          </Button>
         </div>
       </CardHeader>
       {/* Aqui dev ir um Children <Form className="card-form"></Form> 
