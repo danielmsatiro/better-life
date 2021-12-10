@@ -5,7 +5,14 @@ const Container = styled.div`
 
   p {
     width: 300px;
+    margin-bottom: 20px;
     text-align: center;
+  }
+
+  @media (min-width: 769px) {
+    button:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -18,7 +25,7 @@ const BlackBar1 = styled.div`
 const BlackBar2 = styled.div`
   padding: 20px;
   background-color: var(--dark-purple);
-  border-radius: 10px 10px 0 0;
+  border-radius: 0 0 10px 10px;
 `;
 
 const MainContent = styled.div`

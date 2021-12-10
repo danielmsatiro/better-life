@@ -19,7 +19,7 @@ const ConfModal = ({ text, action, isOpen, setIsOpen }) => {
           <p>{text}</p>
           <ButtonsNest>
             <Button1 onClick={action}>Sim</Button1>
-            <Button2 onClick={setIsOpen(false)}>Não</Button2>
+            <Button2 onClick={() => setIsOpen(false)}>Não</Button2>
           </ButtonsNest>
         </MainContent>
         <BlackBar2 />
