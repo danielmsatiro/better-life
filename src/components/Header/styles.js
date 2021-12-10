@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
-export const Layout = styled.div`
+const Container = styled.div`
   width: 100%;
-  height: 100%;
+  padding: 30px 40px;
+  background-color: #fff;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   @media (min-width: 769px) {
+    justify-content: flex-start;
   }
 `;
+
+export default Container;

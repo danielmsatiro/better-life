@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { api } from "../../services/api";
 
@@ -9,6 +9,8 @@ export const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
+  const [userName, setUserName] = useState("")
+
   const [user, setUser] = useState(() => {
     const token = localStorage.getItem("@betterlife:token");
     const id = localStorage.getItem("@betterlife:id");
@@ -39,8 +41,18 @@ export const UserProvider = ({ children }) => {
     setUser("")
   }
 
+  const getUserName = () => {
+    api
+      .get(`/users/${user.id}/`)
+      .then((response) => setUserName(response.data.username))    
+  }
+
+  useEffect(() => {
+    getUserName();
+  }, [])
+
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout, userName }}>
       {children}
     </UserContext.Provider>
   );

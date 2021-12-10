@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../services/api";
+import Header from "../../components/Header";
 import Form from "../../components/Form";
 import { Content } from "./style";
 import { Layout } from "../../styles/layout";
 import { toast } from "react-toastify";
-import boneca from "../../assets/img/woman-writing.png";
+import boneca from "../../assets/img/woman-writing.svg";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
@@ -63,47 +64,49 @@ export const SignUp = ({ authenticated }) => {
 
   return (
     <Layout>
-      <header>
-        <h1 className="bigHeader">Better Life</h1>
-      </header>
+      <Header />
       <Content>
         <Form onSubmit={handleSubmit(Sender)}>
           <div className="advice">
             <h2>Sign up</h2>
             <p>
               Já possui cadastro?
-              <span onClick={() => history.push("/")}> Sign up</span>
+              <span onClick={() => history.push("/")}> Sign in</span>
             </p>
           </div>
 
           <Input
+
             label="Usuário"
-            placeholder=""
+            placeholder="jhondoe"
             nome="username"
             register={register}
             error={errors.username?.message}
           />
 
           <Input
+
             label="Email"
-            placeholder=""
+            placeholder="jhondoe@mail.com"
             nome="email"
             register={register}
             error={errors.email?.message}
           />
 
           <Input
+
             label="Senha"
-            placeholder=""
             nome="password"
             register={register}
+            type="password"
             error={errors.password?.message}
           />
           <Input
+
             label="Confirmar senha"
-            placeholder=""
             nome="password_confirmation"
             register={register}
+            type="password"
             error={errors.password_confirmation?.message}
           />
           <Button type="submit">Criar conta</Button>

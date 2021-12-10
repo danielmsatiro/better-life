@@ -1,40 +1,48 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
+  position: relative;
   width: 100%;
-  height: auto;
-  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .advice {
-    width: 100%;
-    text-align: left;
-    padding-left: 1.5em;
+    width: 75%;
   }
 
   h2 {
-    color: var(--purple);
+    color: var(--light-purple);
+    font-style: italic;
+    font-size: 2.5rem;
   }
 
   p {
-    font-size: 0.6em;
+    margin: 5px 0;
+    font-size: 0.8em;
     color: black;
   }
+
   span {
     color: var(--light-purple);
     cursor: pointer;
+    font-weight: 900;
+
   }
 
   .doll {
     display: none;
+    z-index: -1;
+    height: 600px;
   }
 
   @media (min-width: 769px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     .doll {
-      display: block;
+      display: inherit;
+      position: absolute;
+      top: 20%;
+      left: 60%;
     }
   }
 `;
