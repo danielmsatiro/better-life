@@ -23,5 +23,6 @@ export const Container = styled.button`
   }
 
   @media (min-width: 769px) {
+    cursor: pointer;
   }
 `;

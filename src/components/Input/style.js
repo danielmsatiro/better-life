@@ -1,16 +1,23 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 90%;
+  height: auto;
+  margin: auto;
+  padding: 0.6em 0 0;
+  color: var(--dark-purple);
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
-  margin: 5px 0;
-
-  label {
-    font-size: 0.9rem;
-    margin: 5px 0;
-  }
+  justify-content: space-evenly;
+  align-items: flex-start;
 
   input {
+    width: 90%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
     margin: auto;
     padding: 10px;
     padding-left: 1rem;

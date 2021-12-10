@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .advice {
     width: 75%;
@@ -21,19 +26,23 @@ export const Content = styled.div`
 
   span {
     color: var(--light-purple);
+    cursor: pointer;
     font-weight: 900;
+
   }
 
   .doll {
     display: none;
+    z-index: -1;
+    height: 600px;
   }
 
   @media (min-width: 769px) {
     .doll {
       display: inherit;
       position: absolute;
-      top: 10%;
-      left: 92%;
+      top: 20%;
+      left: 60%;
     }
   }
 `;

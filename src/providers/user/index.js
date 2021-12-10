@@ -9,7 +9,7 @@ export const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-  const [userName, setUserName] = useState("")
+  const [userName, setUserName] = useState("");
 
   const [user, setUser] = useState(() => {
     const token = localStorage.getItem("@betterlife:token");
@@ -27,6 +27,8 @@ export const UserProvider = ({ children }) => {
     api.post("/sessions/", info).then((response) => {
       const { access } = response.data;
 
+      setUser({ token: access, id: jwt_decode(access).user_id });
+
       localStorage.clear();
       localStorage.setItem("@betterlife:token", JSON.stringify(access));
       localStorage.setItem(
@@ -37,19 +39,20 @@ export const UserProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.clear()
-    setUser("")
-  }
+    localStorage.clear();
+    setUser("");
+    console.log("saiu")
+  };
 
   const getUserName = () => {
     api
       .get(`/users/${user.id}/`)
-      .then((response) => setUserName(response.data.username))    
-  }
+      .then((response) => setUserName(response.data.username));
+  };
 
   useEffect(() => {
     getUserName();
-  }, [])
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, login, logout, userName }}>
