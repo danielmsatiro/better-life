@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 
 import { useAuth } from "../user";
@@ -8,24 +8,25 @@ export const MyGroupsContext = createContext();
 export const useMyGroups = () => useContext(MyGroupsContext);
 
 export const MyGroupsProvider = ({ children }) => {
-  const { token } = useAuth();
+  const { user } = useAuth();
   const [myGroups, setMyGroups] = useState(() => []);
 
-  const getMyGroups = (token) => {
+  const getMyGroups = () => {
+    console.log("authorization no getMyGroups=>", `Bearer ${user.token}`);
     api
       .get("/groups/subscriptions/", {
         headers: {
-          authorization: `Bearer ${token}`,
+          authorization: `Bearer ${user.token}`,
         },
       })
       .then((response) => setMyGroups(response.data))
       .catch((err) => console.log(err));
   };
 
-  if (token) {
-    getMyGroups(token);
-  }
-  
+  useEffect(() => {
+    getMyGroups();
+  }, []);
+
   return (
     <MyGroupsContext.Provider value={(myGroups, getMyGroups)}>
       {children}

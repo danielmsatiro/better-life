@@ -1,14 +1,14 @@
 // import { Container } from './styles';
+import LastActivities from "../../components/LastActivities";
 import DashboardMenu from "../../components/Menu";
-import HabitsGraph from "../../components/Graph";
 
 const Dashboard = () => {
   return (
-  <div>
-    <DashboardMenu/>
-    <HabitsGraph/>
-  </div> 
-  )
+    <div>
+      <DashboardMenu />
+      <LastActivities />
+    </div>
+  );
 };
 
 export default Dashboard;
