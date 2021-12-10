@@ -13,16 +13,18 @@ import boneca from "../../assets/img/woman-writing.png";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
-    username: yup.string() /*.required("name is required")*/,
+    username: yup.string().required("name is required"),
     email: yup
       .string()
-      // .required("email is required")
+      .required("email is required")
       .email("email inválido", "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/"),
-    password: yup.string(),
-    /* .required("password is required")
-      .min(6, "minimum is 6 numbers")*/ password_confirmation: yup
+    password: yup
       .string()
-      // .required("password_confirmation is required")
+      .required("password is required")
+      .min(6, "minimum is 6 numbers"),
+    password_confirmation: yup
+      .string()
+      .required("password_confirmation is required")
       .oneOf([yup.ref("password")], "Senhas diferentes"),
   });
 
