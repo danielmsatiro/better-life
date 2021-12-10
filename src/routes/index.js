@@ -12,9 +12,9 @@ export const Routes = () => {
     <Switch>
       <Route exact path="/" component={SingIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/dashboard" componet={Dashboard} isPrivate />
-      <Route path="/groups" componet={Groups} isPrivate />
-      <Route path="/group" componet={Group} isPrivate />
+      <Route path="/dashboard" component={Dashboard} isPrivate />
+      <Route path="/groups" component={Groups} isPrivate />
+      <Route path="/group" component={Group} isPrivate />
     </Switch>
   );
 };

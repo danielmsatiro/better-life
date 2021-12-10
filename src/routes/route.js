@@ -1,9 +1,8 @@
-/* import { useSelector } from "react-redux"; */
 import { Redirect, Route as ReactDOMRoute } from "react-router";
-/* import { useAuth } from "../providers/user"; */
+import { useAuth } from "../providers/user";
 
-export const Route = ({ isPrivate = false, componet: Component, ...rest }) => {
-  const { token } = ""; /* useAuth() */ //Aqui eu uso um hook exportado do provider
+export const Route = ({ isPrivate = false, component: Component, ...rest }) => {
+  const { user } = useAuth();
 
   /*  a rota é privada e usuário não tá logado = login 
         rota privada usuário logado = ok
@@ -19,7 +18,7 @@ export const Route = ({ isPrivate = false, componet: Component, ...rest }) => {
     <ReactDOMRoute
       {...rest}
       render={() => {
-        return isPrivate === !!token ? (
+        return isPrivate === !!user.token ? (
           <Component />
         ) : (
           <Redirect to={isPrivate ? "/" : "/dashboard"} />
