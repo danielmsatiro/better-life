@@ -41,7 +41,6 @@ export const UserProvider = ({ children }) => {
   const logout = () => {
     localStorage.clear();
     setUser("");
-    console.log("saiu")
   };
 
   const getUserName = () => {

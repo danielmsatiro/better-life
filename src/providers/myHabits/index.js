@@ -3,7 +3,7 @@ import { api } from "../../services/api";
 
 import { useAuth } from "../user";
 
-export const MyGroupsContext = createContext();
+export const MyHabitsContext = createContext();
 
 export const useMyGroups = () => useContext(MyGroupsContext);
 
