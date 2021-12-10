@@ -14,16 +14,18 @@ import boneca from "../../assets/img/woman-writing.svg";
 
 export const SignUp = ({ authenticated }) => {
   const Schema = yup.object().shape({
-    username: yup.string() /*.required("name is required")*/,
+    username: yup.string().required("name is required"),
     email: yup
       .string()
-      // .required("email is required")
+      .required("email is required")
       .email("email inválido", "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/"),
-    password: yup.string(),
-    /* .required("password is required")
-      .min(6, "minimum is 6 numbers")*/ password_confirmation: yup
+    password: yup
       .string()
-      // .required("password_confirmation is required")
+      .required("password is required")
+      .min(6, "minimum is 6 numbers"),
+    password_confirmation: yup
+      .string()
+      .required("password_confirmation is required")
       .oneOf([yup.ref("password")], "Senhas diferentes"),
   });
 
@@ -74,31 +76,35 @@ export const SignUp = ({ authenticated }) => {
           </div>
 
           <Input
+
+            label="Usuário"
             placeholder="jhondoe"
             nome="username"
-            label={"Nome de Usuário"}
             register={register}
             error={errors.username?.message}
           />
 
           <Input
+
+            label="Email"
             placeholder="jhondoe@mail.com"
             nome="email"
-            label={"Email"}
             register={register}
             error={errors.email?.message}
           />
 
           <Input
+
+            label="Senha"
             nome="password"
-            label={"Senha"}
             register={register}
             type="password"
             error={errors.password?.message}
           />
           <Input
+
+            label="Confirmar senha"
             nome="password_confirmation"
-            label={"Confirmar senha"}
             register={register}
             type="password"
             error={errors.password_confirmation?.message}
