@@ -1,16 +1,15 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../../services/api";
 
-// import { useAuth } from "../user";
+import { useAuth } from "../user";
 
 export const MyHabitsContext = createContext();
 
 export const useMyHabits = () => useContext(MyHabitsContext);
 
 export const MyHabitsProvider = ({ children }) => {
-//   const { token } = useAuth();
+  const { token } = useAuth();
   const [myHabits, setMyHabits] = useState(() => []);
-  const [token] = useState(JSON.parse(localStorage.getItem("@betterlife:token")) || "")
   console.log(token)
 
   const getMyHabits = () => {
@@ -20,7 +19,7 @@ export const MyHabitsProvider = ({ children }) => {
           authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => console.log(response.data))
+      .then((response) => setMyHabits(response.data))
       .catch((err) => console.log(err));
   };
 
