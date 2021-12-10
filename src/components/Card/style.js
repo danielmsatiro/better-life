@@ -40,7 +40,7 @@ export const CardHeader = styled.div`
     &.exec {
       width: 60px;
     }
-    &.delete {
+    &.close {
       width: 20px;
     }
   }

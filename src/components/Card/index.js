@@ -1,9 +1,7 @@
 import { CardHeader, Container } from "./style";
-// import Form from "../Form";
 import Button from "../Button";
-// import Input from "../Input";
 
-const Card = ({ Children, titulo, action, actionFunction, deleteFunction }) => {
+const Card = ({ children, titulo, action, actionFunction, closeFunction }) => {
   return (
     <Container>
       <CardHeader>
@@ -14,19 +12,13 @@ const Card = ({ Children, titulo, action, actionFunction, deleteFunction }) => {
           <Button className="exec" onClick={() => actionFunction()}>
             {action}
           </Button>
-          <Button
-            className="delete"
-            onClick={() => {
-              deleteFunction();
-            }}
-          >
+          <Button className="close" onClick={() => closeFunction()}>
             X
           </Button>
         </div>
       </CardHeader>
-      {/* Aqui dev ir um Children <Form className="card-form"></Form> 
-          Não esqueça descomentar as importações do Form e Input*/}
-      {Children}
+      {/* Aqui dev ir um Children <Form className="card-form"></Form> */}
+      {children}
     </Container>
   );
 };
