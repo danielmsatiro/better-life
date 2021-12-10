@@ -12,7 +12,10 @@ export const Container = styled.form`
   box-shadow: 0 0 0.5em 0.5em var(--purple-shadow);
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
   @media (min-width: 769px) {
     width: 400px;

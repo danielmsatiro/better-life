@@ -21,6 +21,7 @@ export const Content = styled.div`
   }
   span {
     color: var(--light-purple);
+    cursor: pointer;
   }
 
   .doll {

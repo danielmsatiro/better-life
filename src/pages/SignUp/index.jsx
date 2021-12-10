@@ -77,27 +77,31 @@ export const SignUp = ({ authenticated }) => {
           </div>
 
           <Input
-            placeholder="Nome do usuário"
+            label="Usuário"
+            placeholder=""
             nome="username"
             register={register}
             error={errors.username?.message}
           />
 
           <Input
-            placeholder="Email"
+            label="Email"
+            placeholder=""
             nome="email"
             register={register}
             error={errors.email?.message}
           />
 
           <Input
-            placeholder="Senha"
+            label="Senha"
+            placeholder=""
             nome="password"
             register={register}
             error={errors.password?.message}
           />
           <Input
-            placeholder="Confirmar senha"
+            label="Confirmar senha"
+            placeholder=""
             nome="password_confirmation"
             register={register}
             error={errors.password_confirmation?.message}
