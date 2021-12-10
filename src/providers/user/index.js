@@ -9,7 +9,7 @@ export const UserContext = createContext();
 export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-  const [userName, setUserName] = useState("")
+  const [userName, setUserName] = useState("");
 
   const [user, setUser] = useState(() => {
     const token = localStorage.getItem("@betterlife:token");
@@ -37,19 +37,19 @@ export const UserProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.clear()
-    setUser("")
-  }
+    localStorage.clear();
+    setUser("");
+  };
 
   const getUserName = () => {
     api
       .get(`/users/${user.id}/`)
-      .then((response) => setUserName(response.data.username))    
-  }
+      .then((response) => setUserName(response.data.username));
+  };
 
   useEffect(() => {
     getUserName();
-  }, [])
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, login, logout, userName }}>

@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { useAuth, UserContext } from "../../providers/user";
+import { useAuth } from "../../providers/user";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -36,6 +35,8 @@ const SingIn = () => {
   const submit = (data) => {
     login(data);
   };
+
+  console.log(user);
 
   return (
     <Layout>
