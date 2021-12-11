@@ -25,9 +25,49 @@ export const MyHabitsProvider = ({ children }) => {
   useEffect(() => {
     getMyHabits();
   }, []);
-  
+
+  /* Cadastro de novo hábito */
+
+  const createHabit = (data) => {
+    api
+      .post(`/habits/`, data, {
+        headers: {
+          authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((_) => getMyHabits())
+      .catch((err) => console.log("Requisição createHabit:", err));
+  };
+
+  /* Edição de hábito */
+
+  const editHabit = (data, habit_id) => {
+    api
+      .patch(`/habits/${habit_id}/`, data, {
+        headers: {
+          authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((_) => getMyHabits())
+      .catch((err) => console.log("Requisição editHabit:", err));
+  };
+
+  /* Exclusão de hábito */
+  const deleteHabit = (habit_id) => {
+    api
+      .delete(`/habits/${habit_id}/`, {
+        headers: {
+          authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((_) => getMyHabits())
+      .catch((err) => console.log("Requisição deleteHabit:", err));
+  };
+
   return (
-    <MyHabitsContext.Provider value={(myHabits)}>
+    <MyHabitsContext.Provider
+      value={{ myHabits, createHabit, editHabit, deleteHabit }}
+    >
       {children}
     </MyHabitsContext.Provider>
   );
