@@ -5,6 +5,7 @@ export const Container = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px 10px;
   text-align: center;
   h2 {
@@ -26,14 +27,19 @@ export const Container = styled.div`
   }
 
   @media (min-width: 769px) {
+    position: absolute;
+    left: 70%;
+    width: 200px;
+
     color: black;
-    width: 265px;
+
     border: 1px solid var(--dark-purple);
     background-color: var(--light-green);
     border-radius: 10px;
+
     h2,
     h4 {
-      font-size: 20px;
+      font-size: 15px;
     }
     h4 {
       white-space: pre-wrap;

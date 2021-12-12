@@ -12,6 +12,7 @@ export const Container = styled.div`
   font-size: 18px;
   line-height: 21px;
   overflow: auto;
+
   div {
     background: #1f161e;
     border-radius: 10px 10px 0px 0px;
@@ -21,6 +22,14 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 5px 30px 5px 15px;
+  }
+
+  @media (min-width: 769px) {
+    font-size: 0.8rem;
+
+    div {
+      height: 30px;
+    }
   }
 `;
 

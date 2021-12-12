@@ -23,10 +23,10 @@ export const Container = styled.button`
   @media (min-width: 769px) {
     background: var(--green);
     color: var(--dark-purple);
-    font-size: 20px;
-    height: 40px;
+    font-size: 15px;
+    padding: 10px;
     max-width: none;
-    width: 200px;
+    width: 150px;
     border-radius: 10px;
     border: 1px solid var(--dark-purple);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);

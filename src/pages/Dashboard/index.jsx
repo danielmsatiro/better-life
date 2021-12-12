@@ -1,15 +1,20 @@
-// import { Container } from './styles';
+import { Layout, Container, Main, Header } from "./styles";
 import HabitsCards from "../../components/HabitsCards";
 import LastActivities from "../../components/LastActivities";
 import DashboardMenu from "../../components/Menu";
 
 const Dashboard = () => {
   return (
-    <div>
-      <DashboardMenu />
-      <LastActivities />
-      <HabitsCards />
-    </div>
+    <Layout>
+      <Header />
+      <Container>
+        <DashboardMenu />
+        <Main>
+          <LastActivities />
+          <HabitsCards />
+        </Main>
+      </Container>
+    </Layout>
   );
 };
 
