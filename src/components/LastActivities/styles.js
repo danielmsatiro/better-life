@@ -33,7 +33,6 @@ export const Container = styled.div`
 
     color: black;
 
-    border: 1px solid var(--dark-purple);
     background-color: var(--light-green);
     border-radius: 10px;
 
