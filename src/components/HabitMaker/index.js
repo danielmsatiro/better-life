@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
 
-export const HabitMaker = () => {
+export const HabitMaker = ({ closeFunction }) => {
   const Difficulty = ["Fácil", "Médio", "Díficil"];
   const Category = ["Saude", "Leitura"];
   const Frequency = ["Diário", "Semanal", "Mensal", "Anual"];
@@ -26,7 +26,11 @@ export const HabitMaker = () => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   return (
-    <Card titulo="Criar Novo Habito" action="Criar">
+    <Card
+      titulo="Criar Novo Habito"
+      action="Criar"
+      closeFunction={closeFunction}
+    >
       <Container>
         <Form className="card-form" onSubmit={() => handleSubmit()}>
           <Input
