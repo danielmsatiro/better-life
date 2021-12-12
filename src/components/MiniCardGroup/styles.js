@@ -44,6 +44,7 @@ export const SubContent1 = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
   h4 {
     font-size: 18px;
     color: var(--green);
@@ -63,6 +64,7 @@ export const SubContent1 = styled.div`
 `;
 
 export const SubContent2 = styled.div`
+  margin-top: 10px;
   h5 {
     font-size: 14px;
   }
