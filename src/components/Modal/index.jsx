@@ -25,10 +25,10 @@ const Modal = ({ children, isOpen, setIsOpen }) => {
           transform: "translate(-50%, -50%)",
           background: "#fff",
           color: "#333",
-          borderRadius: "8px",
-          width: "536px",
+          borderRadius: "0",
+          width: "auto",
           border: "none",
-          padding: "48px",
+          padding: "0",
         },
         overlay: {
           backgroundColor: "var(--purple-shadow)",
