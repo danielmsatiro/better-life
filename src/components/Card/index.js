@@ -12,7 +12,7 @@ const Card = ({ children, titulo, action, actionFunction, closeFunction }) => {
           <Button className="exec" onClick={() => actionFunction()}>
             {action}
           </Button>
-          <Button className="close" onClick={() => closeFunction()}>
+          <Button className="close" onClick={closeFunction}>
             X
           </Button>
         </div>

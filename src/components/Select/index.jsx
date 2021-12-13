@@ -7,8 +7,10 @@ function Select({ label, register, nome, options, error, ...rest }) {
         {label} {!!error && <span>: {error}</span>}
       </div>
       <select {...register(nome)} {...rest}>
-        {options.map((item) => (
-          <option value={item}>{item}</option>
+        {options.map((item, index) => (
+          <option key={index} value={item}>
+            {item}
+          </option>
         ))}
       </select>
     </Container>
