@@ -5,8 +5,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 
-import { toast } from "react-toastify";
-
 import { Layout } from "../../styles/layout";
 import Header from "../../components/Header";
 import Form from "../../components/Form";

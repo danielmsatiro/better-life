@@ -4,6 +4,8 @@ import { api } from "../../services/api";
 
 import jwt_decode from "jwt-decode";
 
+import { toast } from "react-toastify";
+
 export const UserContext = createContext();
 
 export const useAuth = () => useContext(UserContext);
@@ -24,15 +26,21 @@ export const UserProvider = ({ children }) => {
 
   const login = (info) => {
     // info é o que vem do formulário
-    api.post("/sessions/", info).then((response) => {
-      const { access } = response.data;
+    api
+      .post("/sessions/", info)
+      .then((response) => {
+        const { access } = response.data;
 
-      setUser({ token: access, id: jwt_decode(access).user_id });
+        setUser({ token: access, id: jwt_decode(access).user_id });
 
-      localStorage.clear();
-      localStorage.setItem("@betterlife:token", access);
-      localStorage.setItem("@betterlife:id", jwt_decode(access).user_id);
-    });
+        localStorage.clear();
+        localStorage.setItem("@betterlife:token", access);
+        localStorage.setItem("@betterlife:id", jwt_decode(access).user_id);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        toast.error("Usuário ou senha inválidos!");
+      });
   };
 
   const logout = () => {
