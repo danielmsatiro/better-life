@@ -21,7 +21,7 @@ export const MyHabitsProvider = ({ children }) => {
       .then((response) => setMyHabits(response.data))
       .catch((err) => console.log(err));
   };
-  console.log("oi");
+  console.log("aoba");
 
   function findCategory(category) {
     return myHabits.filter((item) => item.category === category);
