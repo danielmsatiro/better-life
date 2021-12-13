@@ -1,17 +1,17 @@
-import {Chart} from "react-google-charts";
+import { Chart } from "react-google-charts";
 
 import { useContext } from "react";
 import { MyHabitsContext } from "../../providers/myHabits";
 
 import { useEffect, useState } from "react";
 
-function HabitsGraph(){
-    const {myHabits} = useContext(MyHabitsContext)
-    const [track, setTrack] = useState(false)
+function HabitsGraph() {
+  const { myHabits } = useContext(MyHabitsContext);
+  const [track, setTrack] = useState(false);
 
-    function findCategory(category) {
-        return myHabits.filter((item) => item.category === category);
-    }
+  function findCategory(category) {
+    return myHabits.filter((item) => item.category === category);
+  }
 
     const DomesticosCategoryInitial    = findCategory("Domésticos")
     const EspiritualCategoryInitial    = findCategory("Espiritual")
@@ -95,4 +95,4 @@ function HabitsGraph(){
     )
 }
 
-export default HabitsGraph
+export default HabitsGraph;
