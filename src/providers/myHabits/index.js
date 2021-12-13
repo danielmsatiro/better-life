@@ -10,7 +10,7 @@ export const useMyHabits = () => useContext(MyHabitsContext);
 export const MyHabitsProvider = ({ children }) => {
   const { user } = useAuth();
   const [myHabits, setMyHabits] = useState([]);
-  console.log(myHabits, "provider")
+  console.log(myHabits, "provider");
   const getMyHabits = () => {
     api
       .get("/habits/personal/", {
@@ -21,7 +21,7 @@ export const MyHabitsProvider = ({ children }) => {
       .then((response) => setMyHabits(response.data))
       .catch((err) => console.log(err));
   };
-  console.log('oi')
+  console.log("oi");
 
   function findCategory(category) {
     return myHabits.filter((item) => item.category === category);
@@ -37,13 +37,13 @@ export const MyHabitsProvider = ({ children }) => {
   // const [SaudeCategory, setSaudeCategory]                = useState(SaudeCategoryInitial)
 
   // const updateGraph = () => {
-      // setDomésticosCategory(findCategory("Domésticos"));
-      // setEspiritualCategory(findCategory("Espiritual"));
-      // setIntelectualCategory(findCategory("Intelectual"));
-      // setLazerCategory(findCategory("Lazer"));
-      // setProfissionalCategory(findCategory("Profissional"));
-      // setSaudeCategory(findCategory("Saúde"));
-      // console.log(SaudeCategory, "Update")
+  // setDomésticosCategory(findCategory("Domésticos"));
+  // setEspiritualCategory(findCategory("Espiritual"));
+  // setIntelectualCategory(findCategory("Intelectual"));
+  // setLazerCategory(findCategory("Lazer"));
+  // setProfissionalCategory(findCategory("Profissional"));
+  // setSaudeCategory(findCategory("Saúde"));
+  // console.log(SaudeCategory, "Update")
   // }
 
   useEffect(() => {
