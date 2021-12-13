@@ -21,17 +21,20 @@ export const MyHabitsProvider = ({ children }) => {
       .then((response) => setMyHabits(response.data))
       .catch((err) => console.log(err));
   };
+  console.log('oi')
 
   function findCategory(category) {
     return myHabits.filter((item) => item.category === category);
   }
+
+  // const SaudeCategoryInitial         = findCategory("Saúde")
 
   // const [DomesticosCategory, setDomésticosCategory]      = useState(DomesticosCategoryInitial)
   // const [EspiritualCategory, setEspiritualCategory]      = useState(EspiritualCategoryInitial)
   // const [IntelectualCategory , setIntelectualCategory]   = useState(IntelectualCategoryInitial)
   // const [LazerCategory   , setLazerCategory]             = useState(LazerCategoryInitial)
   // const [ProfissionalCategory, setProfissionalCategory]  = useState(ProfissionalCategoryInitial)
-  const [SaudeCategory, setSaudeCategory]                = useState([])
+  // const [SaudeCategory, setSaudeCategory]                = useState(SaudeCategoryInitial)
 
   // const updateGraph = () => {
       // setDomésticosCategory(findCategory("Domésticos"));
@@ -45,7 +48,7 @@ export const MyHabitsProvider = ({ children }) => {
 
   useEffect(() => {
     getMyHabits();
-    setSaudeCategory(findCategory("Saúde"));
+    // setSaudeCategory(findCategory("Saúde"));
   }, []);
 
   /* Cadastro de novo hábito */
@@ -88,7 +91,7 @@ export const MyHabitsProvider = ({ children }) => {
 
   return (
     <MyHabitsContext.Provider
-      value={{ myHabits, createHabit, editHabit, deleteHabit, SaudeCategory }}
+      value={{ myHabits, createHabit, editHabit, deleteHabit }}
     >
       {children}
     </MyHabitsContext.Provider>

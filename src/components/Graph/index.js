@@ -6,7 +6,8 @@ import { MyHabitsContext } from "../../providers/myHabits";
 import { useEffect, useState } from "react";
 
 function HabitsGraph(){
-    const {SaudeCategory ,myHabits} = useContext(MyHabitsContext)
+    const {myHabits} = useContext(MyHabitsContext)
+    const [track, setTrack] = useState(false)
 
     function findCategory(category) {
         return myHabits.filter((item) => item.category === category);
@@ -17,29 +18,32 @@ function HabitsGraph(){
     // const IntelectualCategoryInitial   = findCategory("Intelectual")
     // const LazerCategoryInitial         = findCategory("Lazer")
     // const ProfissionalCategoryInitial  = findCategory("Profissional")
-    // const SaudeCategoryInitial         = findCategory("Saúde")
+    const SaudeCategoryInitial         = findCategory("Saúde")
 
     // const [DomesticosCategory, setDomésticosCategory]      = useState(DomesticosCategoryInitial)
     // const [EspiritualCategory, setEspiritualCategory]      = useState(EspiritualCategoryInitial)
     // const [IntelectualCategory , setIntelectualCategory]   = useState(IntelectualCategoryInitial)
     // const [LazerCategory   , setLazerCategory]             = useState(LazerCategoryInitial)
     // const [ProfissionalCategory, setProfissionalCategory]  = useState(ProfissionalCategoryInitial)
-    // const [SaudeCategory, setSaudeCategory]                = useState(SaudeCategoryInitial)
+    const [SaudeCategory, setSaudeCategory]                = useState(SaudeCategoryInitial)
 
-    // const updateGraph = () => {
+    const updateGraph = () => {
     //     setDomésticosCategory(findCategory("Domésticos"));
     //     setEspiritualCategory(findCategory("Espiritual"));
     //     setIntelectualCategory(findCategory("Intelectual"));
     //     setLazerCategory(findCategory("Lazer"));
     //     setProfissionalCategory(findCategory("Profissional"));
-    //     setSaudeCategory(findCategory("Saúde"));
-    //     console.log("opa")
-    // }
+        setSaudeCategory(findCategory("Saúde"));
+        // console.log("opa")
+    }
     // console.log(SaudeCategory)
 
-    // useEffect(() => {
-    //     updateGraph()
-    //   }, []);
+    useEffect(() => {
+        updateGraph()
+        setTrack(true)
+      }, []);
+      console.log(track)
+      console.log("att")
 
 
     return(
@@ -75,7 +79,7 @@ function HabitsGraph(){
                     // ['Intelectual',     IntelectualCategoryInitial.length],
                     // ['Lazer',           LazerCategoryInitial.length],
                     // ['Profissional',    ProfissionalCategoryInitial.length],
-                    ['Saúde',           SaudeCategory.length],
+                    ['Saúde',              !setTrack ? SaudeCategory.length : SaudeCategoryInitial.length],
                 ]}
                 options={{
                     width: '300px',
