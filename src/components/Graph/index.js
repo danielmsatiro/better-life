@@ -59,6 +59,8 @@ function HabitsGraph(){
                         title: '',
                         // Just add this option
                         pieHole: 0.0,
+                        backgroundColor: 'none',
+                        pieSliceBorderColor: "transparent"
                     }}
                     rootProps={{ 'data-testid': '3' }}
                 />
