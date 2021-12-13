@@ -2,6 +2,7 @@
 import HabitsCards from "../../components/HabitsCards";
 import LastActivities from "../../components/LastActivities";
 import DashboardMenu from "../../components/Menu";
+import HabitsGraph from "../../components/Graph";
 
 const Dashboard = () => {
   return (
@@ -9,6 +10,7 @@ const Dashboard = () => {
       <DashboardMenu />
       <LastActivities />
       <HabitsCards />
+      <HabitsGraph/>
     </div>
   );
 };
