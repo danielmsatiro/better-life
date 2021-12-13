@@ -43,7 +43,7 @@ function DashboardMenu(){
                         Grupos
                     </span>                    
                     <span 
-                        onClick={() => logout }
+                        onClick={ logout }
                         className="sub_menu__link logout_menu">
                         <MdLogout className="menu_icon_subMenu logout_icon"/>
                     Logout
@@ -69,7 +69,7 @@ function DashboardMenu(){
             </div>
 
                 <span 
-                    onClick={() => logout } 
+                    onClick={ logout } 
                     className="sub_menu__link_desktop logout_menu_desktop">
                     <MdLogout className="menu_icon_subMenu_desktop logout_icon"/>
                     Logout
