@@ -9,8 +9,8 @@ export const useMyHabits = () => useContext(MyHabitsContext);
 
 export const MyHabitsProvider = ({ children }) => {
   const { user } = useAuth();
-  const [myHabits, setMyHabits] = useState(() => []);
-
+  const [myHabits, setMyHabits] = useState([]);
+  console.log(myHabits, "provider")
   const getMyHabits = () => {
     api
       .get("/habits/personal/", {
@@ -22,8 +22,30 @@ export const MyHabitsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  function findCategory(category) {
+    return myHabits.filter((item) => item.category === category);
+  }
+
+  // const [DomesticosCategory, setDomésticosCategory]      = useState(DomesticosCategoryInitial)
+  // const [EspiritualCategory, setEspiritualCategory]      = useState(EspiritualCategoryInitial)
+  // const [IntelectualCategory , setIntelectualCategory]   = useState(IntelectualCategoryInitial)
+  // const [LazerCategory   , setLazerCategory]             = useState(LazerCategoryInitial)
+  // const [ProfissionalCategory, setProfissionalCategory]  = useState(ProfissionalCategoryInitial)
+  const [SaudeCategory, setSaudeCategory]                = useState([])
+
+  // const updateGraph = () => {
+      // setDomésticosCategory(findCategory("Domésticos"));
+      // setEspiritualCategory(findCategory("Espiritual"));
+      // setIntelectualCategory(findCategory("Intelectual"));
+      // setLazerCategory(findCategory("Lazer"));
+      // setProfissionalCategory(findCategory("Profissional"));
+      // setSaudeCategory(findCategory("Saúde"));
+      // console.log(SaudeCategory, "Update")
+  // }
+
   useEffect(() => {
     getMyHabits();
+    setSaudeCategory(findCategory("Saúde"));
   }, []);
 
   /* Cadastro de novo hábito */
@@ -66,7 +88,7 @@ export const MyHabitsProvider = ({ children }) => {
 
   return (
     <MyHabitsContext.Provider
-      value={{ myHabits, createHabit, editHabit, deleteHabit }}
+      value={{ myHabits, createHabit, editHabit, deleteHabit, SaudeCategory }}
     >
       {children}
     </MyHabitsContext.Provider>
