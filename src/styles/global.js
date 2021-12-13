@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-body, div, h1, h2, p, button{
+body, div, h1, h2, p, button,ul{
     box-sizing: border-box;
     margin: 0;
     padding: 0;

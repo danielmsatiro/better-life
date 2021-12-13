@@ -27,12 +27,11 @@ export const UserProvider = ({ children }) => {
     api.post("/sessions/", info).then((response) => {
       const { access } = response.data;
 
+      setUser({ token: access, id: jwt_decode(access).user_id });
+
       localStorage.clear();
-      localStorage.setItem("@betterlife:token", JSON.stringify(access));
-      localStorage.setItem(
-        "@betterlife:id",
-        JSON.stringify(jwt_decode(access).user_id)
-      );
+      localStorage.setItem("@betterlife:token", access);
+      localStorage.setItem("@betterlife:id", jwt_decode(access).user_id);
     });
   };
 

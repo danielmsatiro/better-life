@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
   width: 90%;
   height: auto;
   margin: auto;
@@ -16,9 +15,9 @@ export const Container = styled.div`
   input {
     width: 90%;
     height: 40px;
-  display: flex;
-  flex-direction: column;
-  margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
     margin: auto;
     padding: 10px;
     padding-left: 1rem;
