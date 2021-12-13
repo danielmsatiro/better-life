@@ -5,6 +5,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 
+import { toast } from "react-toastify";
+
 import { Layout } from "../../styles/layout";
 import Header from "../../components/Header";
 import Form from "../../components/Form";
@@ -36,8 +38,6 @@ const SingIn = () => {
     login(data);
   };
 
-  console.log(user);
-
   return (
     <Layout>
       <Header />
@@ -54,12 +54,14 @@ const SingIn = () => {
           <Input
             register={register}
             nome={"username"}
+            error={errors.username?.message}
             label={"Nome de usuário"}
             placeholder={"jhondoe"}
           />
           <Input
             register={register}
             nome={"password"}
+            error={errors.password?.message}
             label={"Senha"}
             type="password"
           />
