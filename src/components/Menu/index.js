@@ -15,6 +15,8 @@ function DashboardMenu() {
 
   return (
     <ContainerMenu>
+      <div className="top_strap"></div>
+
       <section className="menu_box">
         <div>
           <h1 className="menu_logo">Better Life</h1>
@@ -40,10 +42,7 @@ function DashboardMenu() {
                 <MdGroups className="menu_icon_subMenu_group_icon" />
                 Grupos
               </span>
-              <span
-                onClick={() => logout}
-                className="sub_menu__link logout_menu"
-              >
+              <span onClick={logout} className="sub_menu__link logout_menu">
                 <MdLogout className="menu_icon_subMenu logout_icon" />
                 Logout
               </span>
@@ -69,7 +68,7 @@ function DashboardMenu() {
         </div>
 
         <span
-          onClick={() => logout}
+          onClick={logout}
           className="sub_menu__link_desktop logout_menu_desktop"
         >
           <MdLogout className="menu_icon_subMenu_desktop logout_icon" />
