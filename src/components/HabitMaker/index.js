@@ -25,6 +25,10 @@ export const HabitMaker = ({ closeFunction }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
+  const handleMaker = (data) => {
+    console.log("deu certo", data);
+  };
+
   return (
     <Card
       titulo="Criar Novo Habito"
@@ -32,7 +36,7 @@ export const HabitMaker = ({ closeFunction }) => {
       closeFunction={closeFunction}
     >
       <Container>
-        <Form className="card-form" onSubmit={() => handleSubmit()}>
+        <Form id={1} className="card-form" onSubmit={handleSubmit(handleMaker)}>
           <Input
             label="Titulo"
             nome="title"

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.li`
+  margin: 0px 10px;
   width: 270px;
   height: 216px;
   background: var(--dark-purple);
