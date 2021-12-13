@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { useAuth, UserContext } from "../../providers/user";
+import { useAuth } from "../../providers/user";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -53,12 +52,14 @@ const SingIn = () => {
           <Input
             register={register}
             nome={"username"}
+            error={errors.username?.message}
             label={"Nome de usuário"}
             placeholder={"jhondoe"}
           />
           <Input
             register={register}
             nome={"password"}
+            error={errors.password?.message}
             label={"Senha"}
             type="password"
           />
