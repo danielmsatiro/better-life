@@ -1,6 +1,7 @@
 // import { Container } from './styles';
 import { useMyGroups } from "../../providers/mygroups";
 import MiniCardGroup from "../../components/MiniCardGroup";
+import GoalBoxSide from "../../components/GoalBoxSide";
 
 const Groups = () => {
   /* const { myGroups } = useMyGroups(); */
@@ -21,6 +22,7 @@ const Groups = () => {
         numberOfMembers={5} //Aqui é um length do array de participantes
         numberOfActivies={12} //Aqui é um length do array de atividades
       />
+      <GoalBoxSide/>
     </div>
   );
 };

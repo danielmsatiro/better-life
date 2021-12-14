@@ -10,7 +10,7 @@ export const useMyHabits = () => useContext(MyHabitsContext);
 export const MyHabitsProvider = ({ children }) => {
   const { user } = useAuth();
   const [myHabits, setMyHabits] = useState([]);
-  console.log(myHabits, "provider");
+  
   const getMyHabits = () => {
     api
       .get("/habits/personal/", {
