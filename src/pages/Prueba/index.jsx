@@ -12,6 +12,11 @@ export const Prueba = () => {
     setOpenHabitMaker(!openHabitMaker);
   };
 
+  const [removeModal, setRemoveModal] = useState(false);
+  const [techModal, setTechModal] = useState(false);
+  const handleTechModal = () => {
+    setTechModal(!techModal);
+  };
 
   const groupTest = {
     name: "Grupo da ferrari",
@@ -29,7 +34,6 @@ export const Prueba = () => {
           identity={formId}
           group={groupTest}
         ></GroupEdit>
-
       </Modal>
     </Layout>
   );
