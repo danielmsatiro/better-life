@@ -1,15 +1,15 @@
 import { Container } from "./style";
 
-function Input({ label, register, nome, error, ...rest }) {
+function TextArea({ label, register, nome, error, ...rest }) {
   return (
     <Container isErrored={!!error}>
       <div>
         {label} {!!error && <span>: {error} </span>}
       </div>
 
-      <input {...register(nome)} {...rest} />
+      <textarea {...register(nome)} {...rest} />
     </Container>
   );
 }
 
-export default Input;
+export default TextArea;
