@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: space-evenly;
   align-items: flex-start;
 
-  input {
+  textarea {
     width: 90%;
     height: 40px;
     display: flex;

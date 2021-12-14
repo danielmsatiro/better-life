@@ -6,9 +6,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
+import { useState } from "react";
 import TextArea from "rc-textarea";
 
-export const GroupCreate = ({ closeFunction }) => {
+export const GroupEdit = ({ closeFunction, group }) => {
+  //O parâmetro group é um objeto com todas as informações
+
   const Category = [
     "Saúde",
     "Profissional",
@@ -30,24 +33,34 @@ export const GroupCreate = ({ closeFunction }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const handleMaker = (data) => {
-    console.log("Criar grupo", data);
+  const handleEditor = (data, id) => {
+    console.log("Editar grupo", data);
   };
+
+  const [currentGroup, setCurrentGroup] = useState(group);
 
   return (
     <Card
-      titulo="Criar Novo Grupo"
-      action="Criar"
+      titulo="Editar Novo Grupo"
+      action="Editar"
       closeFunction={closeFunction}
-      idForm={3}
+      idForm={4}
     >
       <Container>
-        <Form id={3} className="card-form" onSubmit={handleSubmit(handleMaker)}>
+        <Form
+          id={4}
+          className="card-form"
+          onSubmit={handleSubmit(handleEditor)}
+        >
           <Input
             label="Titulo"
             nome="title"
             register={register}
             error={errors.title?.message}
+            value={currentGroup.name}
+            onChange={(e) =>
+              setCurrentGroup({ ...currentGroup, name: e.target.value })
+            }
           />
 
           <Select
@@ -56,12 +69,17 @@ export const GroupCreate = ({ closeFunction }) => {
             register={register}
             error={errors.category?.message}
             options={Category}
+            selected={currentGroup.category}
           />
           <TextArea
             label="Descrição"
             nome="description"
             register={register}
             error={errors.description?.message}
+            value={currentGroup.description}
+            onChange={(e) =>
+              setCurrentGroup({ ...currentGroup, description: e.target.value })
+            }
           />
         </Form>
       </Container>
