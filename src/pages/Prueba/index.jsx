@@ -11,25 +11,16 @@ export const Prueba = () => {
     setTechModal(!techModal);
   };
 
-  const groupText = {
-    id: 2,
-    name: "Grupo de mães",
-    category: "profissional",
-    description: "kdklalalalla fahfua hfuahufah",
-  };
-
+  const formId = "conocido";
   return (
     <Layout>
       <button onClick={() => setTechModal(true)}>Abrir modal de prueba</button>
       <Modal isOpen={techModal} setIsOpen={handleTechModal}>
-        {/* <GroupEdit
+
+        <HabitMaker
           closeFunction={handleTechModal}
-          group={groupText}
-        ></GroupEdit> */}
-        <GroupCreate
-          closeFunction={handleTechModal}
-          group={groupText}
-        ></GroupCreate>
+          identity={formId}
+        ></HabitMaker>
       </Modal>
     </Layout>
   );

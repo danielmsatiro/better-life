@@ -6,11 +6,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
+import { useMyHabits } from "../../providers/myHabits";
+import Button from "../Button";
+import { useState } from "react";
 
-export const HabitMaker = ({ closeFunction }) => {
+export const HabitMaker = ({ closeFunction, identity }) => {
   const Difficulty = ["Fácil", "Médio", "Díficil"];
   const Category = ["Saude", "Leitura"];
   const Frequency = ["Diário", "Semanal", "Mensal", "Anual"];
+  const [how_much_achieved, setHow_much_achieved] = useState(0);
 
   const Schema = yup.object().shape({
     title: yup.string().required("name is required"),
@@ -25,8 +29,22 @@ export const HabitMaker = ({ closeFunction }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const handleMaker = (data) => {
-    console.log("deu certo", data);
+
+  const { createHabit } = useMyHabits();
+
+  const Sender = (data) => {
+    const complete = { ...data, how_much_achieved };
+    createHabit(complete);
+    console.log(complete);
+  };
+
+  const disminuye = () => {
+    how_much_achieved > 0 && setHow_much_achieved(how_much_achieved - 1);
+  };
+
+  const aumenta = () => {
+    setHow_much_achieved(how_much_achieved + 1);
+
   };
 
   return (
@@ -34,9 +52,16 @@ export const HabitMaker = ({ closeFunction }) => {
       titulo="Criar Novo Habito"
       action="Criar"
       closeFunction={closeFunction}
+      identity={identity}
     >
       <Container>
-        <Form id={1} className="card-form" onSubmit={handleSubmit(handleMaker)}>
+
+        <Form
+          id={identity}
+          className="card-form"
+          onSubmit={handleSubmit(Sender)}
+        >
+
           <Input
             label="Titulo"
             nome="title"
@@ -64,6 +89,16 @@ export const HabitMaker = ({ closeFunction }) => {
             error={errors.frequency?.message}
             options={Frequency}
           />
+          <p>Progresso</p>
+          <div className="quantificador">
+            <Button className="btnMinus" onClick={() => disminuye()}>
+              -
+            </Button>
+            <p>{how_much_achieved}</p>
+            <Button className="btnPlus" onClick={() => aumenta()}>
+              +
+            </Button>
+          </div>
         </Form>
       </Container>
     </Card>
