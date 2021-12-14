@@ -1,7 +1,7 @@
 import { CardHeader, Container } from "./style";
 import Button from "../Button";
 
-const Card = ({ children, titulo, action, closeFunction }) => {
+const Card = ({ children, titulo, action, closeFunction, idForm }) => {
   return (
     <Container>
       <CardHeader>
@@ -9,7 +9,7 @@ const Card = ({ children, titulo, action, closeFunction }) => {
           <span>{titulo}</span>
         </div>
         <div className="button-holder">
-          <Button className="exec" submit form={1}>
+          <Button className="exec" submit form={idForm}>
             {action}
           </Button>
           <Button className="close" onClick={closeFunction}>
