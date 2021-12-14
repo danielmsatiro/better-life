@@ -13,4 +13,35 @@ export const Container = styled.div`
     background-color: var(--light-gray);
     text-align: center;
   }
+
+  p {
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .quantificador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      width: 50px;
+      height: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+    Button {
+      width: 50px;
+      height: 30px;
+      margin: 0;
+      padding: 0;
+      border-radius: 3px;
+      &.btnMinus {
+        background: var(--error);
+      }
+      &.btnPlus {
+        background: var(--success);
+      }
+    }
+  }
 `;
