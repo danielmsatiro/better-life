@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
+import { useMyGroups } from "../../providers/mygroups";
 
 export const GroupCreate = ({ closeFunction, identity }) => {
   const Category = [
@@ -19,7 +20,7 @@ export const GroupCreate = ({ closeFunction, identity }) => {
   ];
 
   const Schema = yup.object().shape({
-    title: yup.string().required("Name obrigatório"),
+    name: yup.string().required("Nome obrigatório"),
     category: yup.string().required("Categoria obrigatória"),
     description: yup.string().required("Descrição obrigatória"),
   });
@@ -30,8 +31,10 @@ export const GroupCreate = ({ closeFunction, identity }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
+  const { createGroup } = useMyGroups();
+
   const handleMaker = (data) => {
-    console.log("Criar grupo", data);
+    createGroup(data);
   };
 
   return (
@@ -48,8 +51,8 @@ export const GroupCreate = ({ closeFunction, identity }) => {
           onSubmit={handleSubmit(handleMaker)}
         >
           <Input
-            label="Titulo"
-            nome="title"
+            label="Nome"
+            nome="name"
             register={register}
             error={errors.title?.message}
           />

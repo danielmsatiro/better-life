@@ -7,44 +7,64 @@ import {
   Footer,
   Box,
 } from "./styles";
+import Modal from "../../components/Modal";
+import { GroupEdit } from "../../components/GroupEdit";
 import { MdCreate, MdDoubleArrow } from "react-icons/md";
+import { useState } from "react/cjs/react.development";
 
-const MiniCardGroup = ({
-  own,
-  name,
-  category,
-  edit,
-  unSubscribe,
-  description,
-  numberOfMembers,
-  numberOfActivies,
-}) => {
+const MiniCardGroup = ({ own, group }) => {
+  //abre card de edição de grupo
+  const [openEditGroup, setOpenEditGroup] = useState(false);
+  const handleEditGroup = () => {
+    setOpenEditGroup(!openEditGroup);
+  };
+
+  const formIdEditGroup = "idEditGroup";
+
+  /* own
+              group={item}
+              description={item.description}
+              numberOfMembers={item.users_on_group.length}
+              numberOfActivies={item.activities.length} */
+
+  const unsubscribe = () => {};
+
   return (
     <Container>
       <Header>
         {own ? (
-          <MdCreate style={{ cursor: "pointer" }} onClick={() => edit} />
+          <MdCreate
+            style={{ cursor: "pointer" }}
+            onClick={() => setOpenEditGroup(true)}
+          />
         ) : (
           <MdDoubleArrow />
         )}
-        <h3>{name}</h3>
+        <h3>{group.name}</h3>
       </Header>
       <Box>
         <Content>
           <SubContent1>
-            <h4>{category}</h4>
-            {!own && <span onClick={() => unSubscribe}>Sair do grupo</span>}
+            <h4>{group.category}</h4>
+            {!own && <span onClick={() => unsubscribe}>Sair do grupo</span>}
           </SubContent1>
           <SubContent2>
             <h5>Descrição</h5>
-            <p>{description}</p>
+            <p>{group.description}</p>
           </SubContent2>
         </Content>
         <Footer>
-          <span>Participantes: {numberOfMembers}</span>
-          <span>Atividades: {numberOfActivies}</span>
+          <span>Participantes: {group.users_on_group.length}</span>
+          <span>Atividades: {group.activities.length}</span>
         </Footer>
       </Box>
+      <Modal isOpen={openEditGroup} setIsOpen={handleEditGroup}>
+        <GroupEdit
+          closeFunction={handleEditGroup}
+          identity={formIdEditGroup}
+          group={group}
+        ></GroupEdit>
+      </Modal>
     </Container>
   );
 };

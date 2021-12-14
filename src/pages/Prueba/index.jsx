@@ -9,16 +9,19 @@ export const Prueba = () => {
   const handleModal = () => {
     setOpen(!open);
   };
-  const { user } = useAuth();
-  const getMyGroups = () => {
-    api
-      .get(`/groups/847/`, {
-        headers: {
-          authorization: `Bearer ${user.token}`,
-        },
-      })
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
+
+
+  const [removeModal, setRemoveModal] = useState(false);
+  const [techModal, setTechModal] = useState(false);
+  const handleTechModal = () => {
+    setTechModal(!techModal);
+  };
+
+  const groupTest = {
+    name: "Grupo da ferrari",
+    category: "Lazer",
+    description: "Ganhei na mega",
+
   };
 
   useEffect(() => {
@@ -28,8 +31,18 @@ export const Prueba = () => {
   const formId = "conocido";
   return (
     <Layout>
-      <button onClick={() => setOpen(true)}>Abrir modal de prueba</button>
-      <Modal isOpen={open} setIsOpen={handleModal}></Modal>
+
+      <button onClick={() => setOpenHabitMaker(true)}>
+        Abrir modal de prueba
+      </button>
+      <Modal isOpen={openHabitMaker} setIsOpen={handleHabitMaker}>
+        <GroupEdit
+          closeFunction={handleHabitMaker}
+          identity={formId}
+          group={groupTest}
+        ></GroupEdit>
+      </Modal>
+
     </Layout>
   );
 };
