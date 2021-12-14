@@ -26,7 +26,7 @@ export const Container = styled.div`
     font-family: "Ubuntu", sans-serif;
     font-style: italic;
     font-size: 0.9rem;
-    background-color: var(--claro);
+    background-color: var(--light-gray);
 
     &:focus {
       outline: none;

@@ -1,12 +1,12 @@
 import Form from "../Form";
 import Input from "../Input";
+import TextArea from "../TextArea";
 import Card from "../Card";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
-import TextArea from "rc-textarea";
 
 export const GroupCreate = ({ closeFunction }) => {
   const Category = [
