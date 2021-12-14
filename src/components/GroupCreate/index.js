@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
 
-export const GroupCreate = ({ closeFunction }) => {
+export const GroupCreate = ({ closeFunction, identity }) => {
   const Category = [
     "Saúde",
     "Profissional",
@@ -39,10 +39,14 @@ export const GroupCreate = ({ closeFunction }) => {
       titulo="Criar Novo Grupo"
       action="Criar"
       closeFunction={closeFunction}
-      idForm={3}
+      identity={identity}
     >
       <Container>
-        <Form id={3} className="card-form" onSubmit={handleSubmit(handleMaker)}>
+        <Form
+          id={identity}
+          className="card-form"
+          onSubmit={handleSubmit(handleMaker)}
+        >
           <Input
             label="Titulo"
             nome="title"
