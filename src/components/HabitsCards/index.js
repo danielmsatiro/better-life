@@ -45,6 +45,26 @@ const myHabits = [
     how_much_achieved: 30,
     user: 673,
   },
+  {
+    id: 2610,
+    title: "Jogar Tênis",
+    category: "Esporte",
+    difficulty: "Difícil",
+    frequency: "Semanalmente",
+    achieved: true,
+    how_much_achieved: 30,
+    user: 673,
+  },
+  {
+    id: 2610,
+    title: "Jogar Tênis",
+    category: "Esporte",
+    difficulty: "Difícil",
+    frequency: "Semanalmente",
+    achieved: true,
+    how_much_achieved: 30,
+    user: 673,
+  },
 ];
 
 const HabitsCards = () => {
@@ -54,22 +74,24 @@ const HabitsCards = () => {
         <h3>Hábitos</h3>
         <button>+</button>
       </div>
-      <Content>
-        {myHabits.map((habit) => (
-          <tr key={habit.id}>
-            <td id="title">{habit.title}</td>
-            <td>
-              <MdDoneOutline />
-            </td>
-            <td>
-              <MdEdit />
-            </td>
-            <td>
-              <MdClose />
-            </td>
-          </tr>
-        ))}
-      </Content>
+      <table>
+        <Content>
+          {myHabits.map((habit) => (
+            <tr key={habit.id}>
+              <td id="title">{habit.title}</td>
+              <td>
+                <MdDoneOutline />
+              </td>
+              <td>
+                <MdEdit />
+              </td>
+              <td>
+                <MdClose />
+              </td>
+            </tr>
+          ))}
+        </Content>
+      </table>
     </Container>
   );
 };

@@ -5,6 +5,7 @@ export const Container = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px 10px;
   text-align: center;
   h2 {
@@ -26,18 +27,41 @@ export const Container = styled.div`
   }
 
   @media (min-width: 769px) {
-    color: black;
-    width: 265px;
-    border: 1px solid var(--dark-purple);
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    left: 70.1%;
+    top: 13%;
+    width: 200px;
+    color: var(--dark-purple);
+
     background-color: var(--light-green);
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border-radius: 5px;
+    }
+
     h2,
     h4 {
-      font-size: 20px;
+      font-size: 15px;
     }
     h4 {
       white-space: pre-wrap;
     }
+  }
+
+  @media (min-width: 1280px) {
+    left: 77%;
+    top: 15.5%;
+
+    height: 400px;
   }
 `;
 
