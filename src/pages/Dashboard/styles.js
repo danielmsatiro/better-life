@@ -54,10 +54,11 @@ const Header = styled.div`
 
 const InfoContainer = styled.div`
   margin: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (min-width: 769px) {
-    display: flex;
-    flex-direction: column;
     width: 300px;
     margin: 20px 20px;
   }
@@ -69,7 +70,7 @@ const InfoContainer = styled.div`
   @media (min-width: 1280px) {
     flex-direction: row;
     align-items: center;
-    width: 520px;
+    width: 490px;
 
     margin-left: 60px;
   }
