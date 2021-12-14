@@ -1,15 +1,17 @@
 import { Layout } from "../../styles/layout";
 import Modal from "../../components/Modal";
 import { useState } from "react";
+import { HabitEditor } from "../../components/HabitEditor";
 import { HabitMaker } from "../../components/HabitMaker";
 import { GroupCreate } from "../../components/GroupCreate";
 import { GroupEdit } from "../../components/GroupEdit";
 
 export const Prueba = () => {
-  const [techModal, setTechModal] = useState(false);
-  const handleTechModal = () => {
-    setTechModal(!techModal);
+  const [openHabitMaker, setOpenHabitMaker] = useState(false);
+  const handleHabitMaker = () => {
+    setOpenHabitMaker(!openHabitMaker);
   };
+
 
   const groupTest = {
     name: "Grupo da ferrari",
@@ -27,6 +29,7 @@ export const Prueba = () => {
           identity={formId}
           group={groupTest}
         ></GroupEdit>
+
       </Modal>
     </Layout>
   );
