@@ -1,12 +1,16 @@
 import { Container } from "./style";
 
-function Input({ label, register, nome, error, ...rest }) {
+function Input({ label, register, nome, error, textarea, ...rest }) {
   return (
     <Container isErrored={!!error}>
       <div>
         {label} {!!error && <span>: {error} </span>}
       </div>
-      <input {...register(nome)} {...rest} />
+      {!textarea ? (
+        <input {...register(nome)} {...rest} />
+      ) : (
+        <textarea {...register(nome)} {...rest} />
+      )}
     </Container>
   );
 }
