@@ -22,9 +22,11 @@ const Container = styled.div`
 `;
 
 const Main = styled.div`
+  text-align: center;
+
   @media (min-width: 769px) {
-    width: 340px;
-    padding: 20px;
+    width: 100%;
+    padding-bottom: 20px;
   }
 `;
 
@@ -42,4 +44,24 @@ const Header = styled.div`
   }
 `;
 
-export { Layout, Container, Main, Aside, Header };
+const InfoContainer = styled.div`
+  margin: 0px 20px;
+
+  @media (min-width: 769px) {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 20px 20px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+`;
+
+const TextContainer = styled.div`
+  @media (min-width: 769px) {
+  }
+`;
+
+export { Layout, Container, Main, Aside, Header, InfoContainer, TextContainer };

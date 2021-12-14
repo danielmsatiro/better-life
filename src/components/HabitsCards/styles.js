@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   background: #73e5e2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 14px;
+
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
@@ -13,9 +13,13 @@ export const Container = styled.div`
   line-height: 21px;
   overflow: auto;
 
+  table {
+    border-collapse: collapse;
+  }
+
   div {
     background: #1f161e;
-    border-radius: 10px 10px 0px 0px;
+
     color: #ffffff;
     display: flex;
     flex-direction: row;
@@ -26,16 +30,34 @@ export const Container = styled.div`
 
   @media (min-width: 769px) {
     font-size: 0.8rem;
+    border: none;
+    border-radius: 14px;
+
+    margin: 0 20px;
 
     div {
       height: 30px;
+      border-radius: 10px 10px 0px 0px;
     }
   }
 `;
 
-export const Content = styled.table`
+export const Content = styled.tbody`
   display: flex;
   flex-direction: column;
+
+  height: 150px;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    background-color: var(--green);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--light-green);
+    border-radius: 5px;
+  }
 
   border-radius: 0px 0px 0px 0px;
   tr {
@@ -62,5 +84,8 @@ export const Content = styled.table`
   #title {
     flex-grow: 4;
     text-align: left;
+  }
+
+  @media (min-width: 769px) {
   }
 `;

@@ -27,14 +27,27 @@ export const Container = styled.div`
   }
 
   @media (min-width: 769px) {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     position: absolute;
-    left: 70%;
+    left: 70.1%;
+    top: 13%;
     width: 200px;
 
     color: black;
 
     background-color: var(--light-green);
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border-radius: 5px;
+    }
 
     h2,
     h4 {

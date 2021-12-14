@@ -19,7 +19,7 @@ body{
     width: 100vw;
     height: 100vh;
     color: var();
-    background-color: #A5A6F6;
+    background-color: #fff;
 }
 
 li {
@@ -50,5 +50,11 @@ li {
 #root {
     width: 100%;
     height: 100%;
+}
+
+@media (min-width: 769px) {
+    body {
+        background-color: #A5A6F6;
+    }
 }
 `;
