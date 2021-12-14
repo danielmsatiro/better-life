@@ -11,16 +11,22 @@ export const Prueba = () => {
     setTechModal(!techModal);
   };
 
+  const groupTest = {
+    name: "Grupo da ferrari",
+    category: "Lazer",
+    description: "Ganhei na mega",
+  };
+
   const formId = "conocido";
   return (
     <Layout>
       <button onClick={() => setTechModal(true)}>Abrir modal de prueba</button>
       <Modal isOpen={techModal} setIsOpen={handleTechModal}>
-
-        <HabitMaker
+        <GroupEdit
           closeFunction={handleTechModal}
           identity={formId}
-        ></HabitMaker>
+          group={groupTest}
+        ></GroupEdit>
       </Modal>
     </Layout>
   );

@@ -7,9 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
 import { useState } from "react";
-import TextArea from "rc-textarea";
+import TextArea from "../TextArea";
 
-export const GroupEdit = ({ closeFunction, group }) => {
+export const GroupEdit = ({ closeFunction, identity, group }) => {
   //O parâmetro group é um objeto com todas as informações
 
   const Category = [
@@ -33,7 +33,7 @@ export const GroupEdit = ({ closeFunction, group }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const handleEditor = (data, id) => {
+  const handleEditor = (data, group_id) => {
     console.log("Editar grupo", data);
   };
 
@@ -44,11 +44,11 @@ export const GroupEdit = ({ closeFunction, group }) => {
       titulo="Editar Novo Grupo"
       action="Editar"
       closeFunction={closeFunction}
-      idForm={4}
+      identity={identity}
     >
       <Container>
         <Form
-          id={4}
+          id={identity}
           className="card-form"
           onSubmit={handleSubmit(handleEditor)}
         >
