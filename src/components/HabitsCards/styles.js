@@ -19,7 +19,6 @@ export const Container = styled.div`
 
   div {
     background: #1f161e;
-
     color: #ffffff;
     display: flex;
     flex-direction: row;
@@ -39,6 +38,10 @@ export const Container = styled.div`
       height: 30px;
       border-radius: 10px 10px 0px 0px;
     }
+  }
+
+  @media (min-width: 1280px) {
+    width: 520px;
   }
 `;
 

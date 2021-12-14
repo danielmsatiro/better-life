@@ -34,8 +34,7 @@ export const Container = styled.div`
     left: 70.1%;
     top: 13%;
     width: 200px;
-
-    color: black;
+    color: var(--dark-purple);
 
     background-color: var(--light-green);
     border-radius: 10px 0 0 10px;
@@ -56,6 +55,13 @@ export const Container = styled.div`
     h4 {
       white-space: pre-wrap;
     }
+  }
+
+  @media (min-width: 1280px) {
+    left: 77%;
+    top: 15.5%;
+
+    height: 400px;
   }
 `;
 

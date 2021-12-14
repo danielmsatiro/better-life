@@ -19,6 +19,10 @@ const Container = styled.div`
     width: 740px;
     border-radius: 0 0 15px 15px;
   }
+
+  @media (min-width: 1280px) {
+    width: 960px;
+  }
 `;
 
 const Main = styled.div`
@@ -42,6 +46,10 @@ const Header = styled.div`
     border-radius: 15px 15px 0 0;
     background-color: var(--green);
   }
+
+  @media (min-width: 1280px) {
+    width: 960px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -56,6 +64,14 @@ const InfoContainer = styled.div`
 
   p {
     margin-top: 10px;
+  }
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    align-items: center;
+    width: 520px;
+
+    margin-left: 60px;
   }
 `;
 
