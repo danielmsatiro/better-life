@@ -29,6 +29,7 @@ export const HabitMaker = ({ closeFunction, identity }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
+
   const { createHabit } = useMyHabits();
 
   const Sender = (data) => {
@@ -43,6 +44,7 @@ export const HabitMaker = ({ closeFunction, identity }) => {
 
   const aumenta = () => {
     setHow_much_achieved(how_much_achieved + 1);
+
   };
 
   return (
@@ -53,11 +55,13 @@ export const HabitMaker = ({ closeFunction, identity }) => {
       identity={identity}
     >
       <Container>
+
         <Form
           id={identity}
           className="card-form"
           onSubmit={handleSubmit(Sender)}
         >
+
           <Input
             label="Titulo"
             nome="title"
