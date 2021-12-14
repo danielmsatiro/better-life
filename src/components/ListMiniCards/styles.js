@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div``;
+
+export const ButtonAdd = styled.button`
+  cursor: pointer;
+`;
+
+export const Box = styled.div`
   display: flex;
   padding: 10px;
   overflow-x: auto;

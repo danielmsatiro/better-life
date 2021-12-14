@@ -5,8 +5,8 @@ import { ListMiniCards } from "../../components/ListMiniCards";
 const Groups = () => {
   return (
     <div>
-      <GoalBoxSide/>
       <ListMiniCards />
+      <GoalBoxSide />
     </div>
   );
 };

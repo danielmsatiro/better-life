@@ -27,10 +27,12 @@ export const Prueba = () => {
   const formId = "conocido";
   return (
     <Layout>
-      <button onClick={() => setTechModal(true)}>Abrir modal de prueba</button>
-      <Modal isOpen={techModal} setIsOpen={handleTechModal}>
+      <button onClick={() => setOpenHabitMaker(true)}>
+        Abrir modal de prueba
+      </button>
+      <Modal isOpen={openHabitMaker} setIsOpen={handleHabitMaker}>
         <GroupEdit
-          closeFunction={handleTechModal}
+          closeFunction={handleHabitMaker}
           identity={formId}
           group={groupTest}
         ></GroupEdit>
