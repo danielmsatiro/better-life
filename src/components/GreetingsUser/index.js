@@ -10,8 +10,7 @@ function Greetings() {
 
   return (
     <GreetingStyle>
-      <h1>Hello, {userName}</h1>
-      <span>👋</span>
+      <h1>Hello, {userName} 👋</h1>
     </GreetingStyle>
   );
 }

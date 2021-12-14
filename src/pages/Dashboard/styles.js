@@ -72,7 +72,7 @@ const InfoContainer = styled.div`
     align-items: center;
     width: 490px;
 
-    margin-left: 60px;
+    margin-left: 50px;
   }
 `;
 
