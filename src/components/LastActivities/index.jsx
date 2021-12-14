@@ -4,7 +4,7 @@ import ButtonGroup from "../ButtonGroup";
 import { Content } from "./styles";
 
 import { useMyGroups } from "../../providers/mygroups";
-/* ARRAY FIXO DE TESTE
+// ARRAY FIXO DE TESTE
 const myGroups = [
   {
     id: 847,
@@ -89,10 +89,10 @@ const myGroups = [
       },
     ],
   },
-]; */
+];
 
 const LastActivities = () => {
-  const { myGroups } = useMyGroups();
+  // const { myGroups } = useMyGroups();
 
   const handleGroup = (id) => {
     /* Faz uma requisição usando um Provider de Grupo Específico */
