@@ -106,7 +106,7 @@ const LastActivities = () => {
       <ul>
         {myGroups.map((item) => (
           <Content key={item.id}>
-            <h4>{item.activities[item.activities.length - 1].title}</h4>
+            <h4>{item.activities[item.activities.length - 1]?.title}</h4>
             <ButtonGroup onClick={() => handleGroup(item.id)}>
               {item.name}
             </ButtonGroup>
