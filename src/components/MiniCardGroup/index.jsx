@@ -11,6 +11,7 @@ import Modal from "../../components/Modal";
 import { GroupEdit } from "../../components/GroupEdit";
 import { MdCreate, MdDoubleArrow } from "react-icons/md";
 import { useState } from "react/cjs/react.development";
+import { useHistory } from "react-router";
 
 const MiniCardGroup = ({ own, group }) => {
   //abre card de edição de grupo
@@ -29,18 +30,21 @@ const MiniCardGroup = ({ own, group }) => {
 
   const unsubscribe = () => {};
 
+  const history = useHistory();
+
   return (
     <Container>
       <Header>
         {own ? (
           <MdCreate
+            className="button"
             style={{ cursor: "pointer" }}
             onClick={() => setOpenEditGroup(true)}
           />
         ) : (
           <MdDoubleArrow />
         )}
-        <h3>{group.name}</h3>
+        <h3 onClick={() => history.push(`/group/${group.id}`)}>{group.name}</h3>
       </Header>
       <Box>
         <Content>
