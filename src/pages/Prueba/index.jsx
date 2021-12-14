@@ -1,36 +1,35 @@
 import { Layout } from "../../styles/layout";
 import Modal from "../../components/Modal";
-import { useState } from "react";
-import { HabitEditor } from "../../components/HabitEditor";
-import { HabitMaker } from "../../components/HabitMaker";
-import { GroupCreate } from "../../components/GroupCreate";
-import { GroupEdit } from "../../components/GroupEdit";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+import { useAuth } from "../../providers/user";
 
 export const Prueba = () => {
-  const [openHabitMaker, setOpenHabitMaker] = useState(false);
-  const handleHabitMaker = () => {
-    setOpenHabitMaker(!openHabitMaker);
+  const [open, setOpen] = useState(false);
+  const handleModal = () => {
+    setOpen(!open);
+  };
+  const { user } = useAuth();
+  const getMyGroups = () => {
+    api
+      .get(`/groups/847/`, {
+        headers: {
+          authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
   };
 
-
-  const groupTest = {
-    name: "Grupo da ferrari",
-    category: "Lazer",
-    description: "Ganhei na mega",
-  };
+  useEffect(() => {
+    getMyGroups();
+  }, []);
 
   const formId = "conocido";
   return (
     <Layout>
-      <button onClick={() => setTechModal(true)}>Abrir modal de prueba</button>
-      <Modal isOpen={techModal} setIsOpen={handleTechModal}>
-        <GroupEdit
-          closeFunction={handleTechModal}
-          identity={formId}
-          group={groupTest}
-        ></GroupEdit>
-
-      </Modal>
+      <button onClick={() => setOpen(true)}>Abrir modal de prueba</button>
+      <Modal isOpen={open} setIsOpen={handleModal}></Modal>
     </Layout>
   );
 };
