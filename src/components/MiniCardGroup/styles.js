@@ -23,11 +23,22 @@ export const Header = styled.div`
   color: black;
   font-size: 24px;
   padding: 0 10px 0 10px;
+  .button {
+    transition: all 0.3s;
+    :hover {
+      transform: scale(1.7);
+    }
+  }
   h3 {
     margin-left: 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    :hover {
+      transform: scale(1.2);
+    }
   }
 `;
 

@@ -1,4 +1,4 @@
-import { Layout } from "../../styles/layout";
+/* import { Layout } from "../../styles/layout";
 import Modal from "../../components/Modal";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
@@ -46,3 +46,4 @@ export const Prueba = () => {
     </Layout>
   );
 };
+ */

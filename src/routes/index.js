@@ -16,7 +16,7 @@ export const Routes = () => {
       <Route path="/signup" component={SignUp} />
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/groups" component={Groups} isPrivate />
-      <Route path="/group" component={Group} isPrivate />
+      <Route path="/group/:id" component={Group} isPrivate />
     </Switch>
   );
 };
