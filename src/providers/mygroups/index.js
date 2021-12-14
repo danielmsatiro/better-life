@@ -10,6 +10,8 @@ export const useMyGroups = () => useContext(MyGroupsContext);
 export const MyGroupsProvider = ({ children }) => {
   const { user } = useAuth();
   const [myGroups, setMyGroups] = useState(() => []);
+  const GroupsReverse = myGroups.reverse()
+  console.log(GroupsReverse)
 
   const getMyGroups = () => {
     api

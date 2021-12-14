@@ -12,29 +12,24 @@ export const Prueba = () => {
     setOpenHabitMaker(!openHabitMaker);
   };
 
-  const [openHabitEditor, setOpenHabitEditor] = useState(false);
-  const handleHabitEditor = () => {
-    setOpenHabitEditor(!openHabitEditor);
+
+  const groupTest = {
+    name: "Grupo da ferrari",
+    category: "Lazer",
+    description: "Ganhei na mega",
   };
 
-  const habitMakerId = "habitMakerId";
-  const habitEditorId = "habitEditorId";
-
+  const formId = "conocido";
   return (
     <Layout>
-      <button onClick={() => setOpenHabitMaker(true)}>criar</button>
-      <button onClick={() => setOpenHabitEditor(true)}>editar</button>
-      <Modal isOpen={openHabitEditor} setIsOpen={handleHabitEditor}>
-        <HabitEditor
-          closeFunction={handleHabitEditor}
-          identity={habitEditorId}
-        ></HabitEditor>
-      </Modal>
-      <Modal isOpen={openHabitMaker} setIsOpen={handleHabitMaker}>
-        <HabitMaker
-          closeFunction={handleHabitMaker}
-          identity={habitMakerId}
-        ></HabitMaker>
+      <button onClick={() => setTechModal(true)}>Abrir modal de prueba</button>
+      <Modal isOpen={techModal} setIsOpen={handleTechModal}>
+        <GroupEdit
+          closeFunction={handleTechModal}
+          identity={formId}
+          group={groupTest}
+        ></GroupEdit>
+
       </Modal>
     </Layout>
   );

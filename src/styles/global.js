@@ -19,7 +19,7 @@ body{
     width: 100vw;
     height: 100vh;
     color: var();
-    background-color: #A5A6F6;
+    background-color: #fff;
 }
 
 li {
@@ -44,11 +44,18 @@ li {
     --purple-shadow: rgba(93,95,239,0.5);
     --green-shadow: rgba(85,183,157,0.5);
     --dark-shadow: rgba(31,22,30, 0.5);
-
+    --opaque-dark-green: #354642;
+    --opaque-light-green: #809791;
 }
 
 #root {
     width: 100%;
     height: 100%;
+}
+
+@media (min-width: 769px) {
+    body {
+        background-color: #A5A6F6;
+    }
 }
 `;
