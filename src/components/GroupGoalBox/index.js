@@ -18,6 +18,7 @@ function GroupGoalBox({ groupId }) {
   const [openCreateGoal, setOpenCreateGoal] = useState(false);
   const handleCreateGoal = () => {
     setOpenCreateGoal(!openCreateGoal);
+    getGoalsGroup();
   };
 
   const formIdCreateGoal = "idCreateGoal";
@@ -36,8 +37,6 @@ function GroupGoalBox({ groupId }) {
   useEffect(() => {
     getGoalsGroup();
   }, []);
-
-  console.log(groupId);
 
   return (
     <GoalBoxContainer>
