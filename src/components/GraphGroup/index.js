@@ -12,7 +12,6 @@ function GroupGraph({groupId}) {
   const { user } = useAuth();
   const [track, setTrack] = useState(false);
   const [GoalGroup, setGoalGroup] = useState([])
-  console.log(GoalGroup, "group")
 
   const getGoalsGroup = () => {
     api
@@ -32,7 +31,6 @@ function GroupGraph({groupId}) {
   const FacilInitial = findDifficulty("Fácil");
   const MedioInitial = findDifficulty("Médio");
   const DificilInitial = findDifficulty("Díficil");
-  console.log(DificilInitial, "inicial")
 
   const [FacilDifficulty, setFacilDifficulty] = useState([]);
   const [MedioDifficulty, setMedioDifficulty] = useState([]);
