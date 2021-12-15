@@ -17,11 +17,14 @@ const Container = styled.div`
     display: flex;
     background-color: var(--white);
     width: 740px;
+    height: 590px;
+
     border-radius: 0 0 15px 15px;
   }
 
   @media (min-width: 1280px) {
     width: 960px;
+    height: 500px;
   }
 `;
 
@@ -54,10 +57,11 @@ const Header = styled.div`
 
 const InfoContainer = styled.div`
   margin: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (min-width: 769px) {
-    display: flex;
-    flex-direction: column;
     width: 300px;
     margin: 20px 20px;
   }
@@ -69,9 +73,9 @@ const InfoContainer = styled.div`
   @media (min-width: 1280px) {
     flex-direction: row;
     align-items: center;
-    width: 520px;
+    width: 490px;
 
-    margin-left: 60px;
+    margin-left: 50px;
   }
 `;
 

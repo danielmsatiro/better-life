@@ -45,8 +45,8 @@ function HabitsGraph() {
     <div>
       {myHabits.length === 0 ? (
         <Chart
-          width={"auto"}
-          height={"auto"}
+          width={"200px"}
+          height={"200px"}
           chartType="PieChart"
           loader={<div>Loading Chart</div>}
           data={[
@@ -66,8 +66,8 @@ function HabitsGraph() {
         />
       ) : (
         <Chart
-          width={"auto"}
-          height={"auto"}
+          width={"200px"}
+          height={"200px"}
           chartType="PieChart"
           loader={<div>Loading Chart</div>}
           data={[
