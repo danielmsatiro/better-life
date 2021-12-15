@@ -17,11 +17,14 @@ const Container = styled.div`
     display: flex;
     background-color: var(--white);
     width: 740px;
+    height: 590px;
+
     border-radius: 0 0 15px 15px;
   }
 
   @media (min-width: 1280px) {
     width: 960px;
+    height: 500px;
   }
 `;
 
