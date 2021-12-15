@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { api } from "../../services/api";
 
 import { useAuth } from "../user";
@@ -10,7 +11,7 @@ export const useMyHabits = () => useContext(MyHabitsContext);
 export const MyHabitsProvider = ({ children }) => {
   const { user } = useAuth();
   const [myHabits, setMyHabits] = useState([]);
-  
+
   const getMyHabits = () => {
     api
       .get("/habits/personal/", {
@@ -35,8 +36,15 @@ export const MyHabitsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyHabits())
-      .catch((err) => console.log("Requisição createHabit:", err));
+      .then((_) => {
+        getMyHabits();
+        toast.success("Habito criado com sucesso");
+      })
+      .catch((err) =>
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        )
+      );
   };
 
   /* Edição de hábito */
@@ -48,8 +56,15 @@ export const MyHabitsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyHabits())
-      .catch((err) => console.log("Requisição editHabit:", err));
+      .then((_) => {
+        getMyHabits();
+        toast.success("Habito modificado com sucesso!");
+      })
+      .catch((err) =>
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        )
+      );
   };
 
   /* Exclusão de hábito */
@@ -60,8 +75,15 @@ export const MyHabitsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyHabits())
-      .catch((err) => console.log("Requisição deleteHabit:", err));
+      .then((_) => {
+        getMyHabits();
+        toast.success("Hábito deletado");
+      })
+      .catch((err) =>
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        )
+      );
   };
 
   return (

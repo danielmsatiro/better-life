@@ -24,7 +24,7 @@ export const GroupEdit = ({ closeFunction, identity, group }) => {
   ];
 
   const Schema = yup.object().shape({
-    title: yup.string().required("Name obrigatório"),
+    title: yup.string().required("Nome obrigatório"),
     category: yup.string().required("Categoria obrigatória"),
     description: yup.string().required("Descrição obrigatória"),
   });

@@ -7,26 +7,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
 import { useState } from "react";
-import TextArea from "../TextArea";
 import { useMyGroups } from "../../providers/mygroups";
 
-export const GoalEdit = ({ closeFunction, identity, group }) => {
-  //O parâmetro group é um objeto com todas as informações
-  const { editGroup } = useMyGroups();
+export const GoalEdit = ({ closeFunction, identity, goal }) => {
+  //O parâmetro goal é um objeto com todas as informações
+  const { editGoal } = useMyGroups();
 
-  const Category = [
-    "Saúde",
-    "Profissional",
-    "Intelectual",
-    "Lazer",
-    "Espiritual",
-    "Domésticos",
-  ];
+  const difficulty = ["Fácil", "Médio", "Difícil"];
 
   const Schema = yup.object().shape({
-    title: yup.string().required("Name obrigatório"),
-    category: yup.string().required("Categoria obrigatória"),
-    description: yup.string().required("Descrição obrigatória"),
+    title: yup.string().required("Título obrigatório"),
+    difficulty: yup.string().required("Dificuldade obrigatória"),
   });
 
   const {
@@ -36,14 +27,14 @@ export const GoalEdit = ({ closeFunction, identity, group }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const handleEditor = (data) => {
-    editGroup(data, currentGroup.id);
+    editGoal(data, currentGoal.id);
   };
 
-  const [currentGroup, setCurrentGroup] = useState(group);
+  const [currentGoal, setCurrentGoal] = useState(goal);
 
   return (
     <Card
-      titulo="Editar Grupo"
+      titulo="Editar Meta"
       action="Editar"
       closeFunction={closeFunction}
       identity={identity}
@@ -59,29 +50,19 @@ export const GoalEdit = ({ closeFunction, identity, group }) => {
             nome="title"
             register={register}
             error={errors.title?.message}
-            value={currentGroup.name}
+            value={currentGoal.name}
             onChange={(e) =>
-              setCurrentGroup({ ...currentGroup, name: e.target.value })
+              setCurrentGoal({ ...currentGoal, title: e.target.value })
             }
           />
 
           <Select
-            label="Categoria"
-            nome="category"
+            label="Dificuldade"
+            nome="difficulty"
             register={register}
-            error={errors.category?.message}
-            options={Category}
-            selected={currentGroup.category}
-          />
-          <TextArea
-            label="Descrição"
-            nome="description"
-            register={register}
-            error={errors.description?.message}
-            value={currentGroup.description}
-            onChange={(e) =>
-              setCurrentGroup({ ...currentGroup, description: e.target.value })
-            }
+            error={errors.difficulty?.message}
+            options={difficulty}
+            selected={currentGoal.difficulty}
           />
         </Form>
       </Container>

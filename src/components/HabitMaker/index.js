@@ -97,11 +97,11 @@ export const HabitMaker = ({ closeFunction, identity }) => {
           />
           <p>Progresso</p>
           <div className="quantificador">
-            <Button className="btnMinus" onClick={() => disminuye()}>
+            <Button type="button" className="btnMinus" onClick={disminuye}>
               -
             </Button>
             <p>{how_much_achieved}</p>
-            <Button className="btnPlus" onClick={() => aumenta()}>
+            <Button type="button" className="btnPlus" onClick={aumenta}>
               +
             </Button>
           </div>

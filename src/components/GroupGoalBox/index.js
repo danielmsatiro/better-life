@@ -18,6 +18,7 @@ function GroupGoalBox({ groupId }) {
   const [openCreateGoal, setOpenCreateGoal] = useState(false);
   const handleCreateGoal = () => {
     setOpenCreateGoal(!openCreateGoal);
+    getGoalsGroup();
   };
 
   const formIdCreateGoal = "idCreateGoal";
@@ -36,8 +37,6 @@ function GroupGoalBox({ groupId }) {
   useEffect(() => {
     getGoalsGroup();
   }, []);
-
-  console.log(groupId);
 
   return (
     <GoalBoxContainer>
@@ -67,6 +66,7 @@ function GroupGoalBox({ groupId }) {
             first_data_data={goal.difficulty}
             second_data_title={"Pessoas que atingiram a meta"}
             second_data_data={goal.how_much_achieved}
+            goal={goal}
           />
         ))}
     </GoalBoxContainer>
