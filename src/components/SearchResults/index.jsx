@@ -1,5 +1,4 @@
 import { useSearchGroups } from "../../providers/searchGroups";
-import { useAuth } from "../../providers/user";
 import { useMyGroups } from "../../providers/mygroups";
 import { IoMdOpen } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -20,11 +19,9 @@ import {
   SubscribingNest,
   PaginationNest,
 } from "./styles";
-import { useEffect, useState } from "react";
 
 const SearchResults = ({ setResults }) => {
   const { finded, pageCount, nextPage, prevPage, count } = useSearchGroups();
-  const { user } = useAuth();
   const { myGroups, subscribeGroup, unsubscribeGroup } = useMyGroups();
 
   const isSubscribed = (group) => {

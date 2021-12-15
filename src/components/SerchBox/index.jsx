@@ -1,7 +1,4 @@
 import { useSearchGroups } from "../../providers/searchGroups";
-
-import { useState } from "react";
-
 import { Container, Button } from "./styles";
 
 const SearchBox = ({ setResults }) => {
