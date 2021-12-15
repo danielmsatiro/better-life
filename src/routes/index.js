@@ -1,4 +1,4 @@
-import Group from "../pages/Groups";
+import Group from "../pages/Group";
 import { Switch } from "react-router";
 import Dashboard from "../pages/Dashboard";
 import Groups from "../pages/Groups";

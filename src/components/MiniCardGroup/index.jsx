@@ -14,7 +14,6 @@ import { useState } from "react/cjs/react.development";
 import { useHistory } from "react-router";
 import ConfModal from "../ConfModal";
 import { useMyGroups } from "../../providers/mygroups";
-import { set } from "react-hook-form";
 
 const MiniCardGroup = ({ own, group }) => {
   //abre card de edição de grupo

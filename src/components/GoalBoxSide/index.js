@@ -3,12 +3,11 @@ import { GoalBoxSideNav } from "./styles"
 
 import {MdDashboard} from "react-icons/md";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MyGroupsContext } from "../../providers/mygroups";
 
 function GoalBoxSide( group ){
     const {myGroups} = useContext(MyGroupsContext)
-    console.log(myGroups.reverse())
 
     return (
         <GoalBoxSideNav>
@@ -20,9 +19,9 @@ function GoalBoxSide( group ){
 
             </div>
 
-            {myGroups.map((item) => (
+            {myGroups.map((item, index) => (
 
-                <GoalCardSide key={item.id}
+                <GoalCardSide key={index}
                     groupName={item.name}
                     goalTitle={item.goals.length > 0 ? item.goals[item.goals.length - 1].title : "Sem Metas"}
                 />
