@@ -4,27 +4,32 @@ import { useMyGroups } from "../../providers/mygroups";
 import { IoMdOpen } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
-
 import {
   Container,
   Results,
   BlackBar,
   Button,
-  ButtonPg,
+  ButtonNext,
+  ButtonPrev,
   Content,
   GroupContainer,
+  SubSpan,
   GroupInfo,
   GroupDescription,
   GroupCategory,
   SubscribingNest,
   PaginationNest,
 } from "./styles";
+import { useEffect, useState } from "react";
 
 const SearchResults = ({ setResults }) => {
   const { finded, pageCount, nextPage, prevPage, count } = useSearchGroups();
   const { user } = useAuth();
-  const { subscribeGroup } = useMyGroups();
+  const { myGroups, subscribeGroup, unsubscribeGroup } = useMyGroups();
+
+  const isSubscribed = (group) => {
+    return myGroups.find((myGroup) => myGroup.id === group.id);
+  };
 
   return (
     <Container>
@@ -35,13 +40,9 @@ const SearchResults = ({ setResults }) => {
       <Results>
         {count > 15 && (
           <PaginationNest>
-            <ButtonPg onClick={prevPage}>
-              <MdNavigateBefore />
-            </ButtonPg>
+            <ButtonNext onClick={prevPage}>&#60;</ButtonNext>
             <span>{pageCount}</span>
-            <ButtonPg onClick={nextPage}>
-              <MdNavigateNext />
-            </ButtonPg>
+            <ButtonPrev onClick={nextPage}>&#62;</ButtonPrev>
           </PaginationNest>
         )}
 
@@ -50,37 +51,47 @@ const SearchResults = ({ setResults }) => {
             <GroupContainer key={group.id}>
               <header>
                 <h3>{group.name}</h3>
-                <Link to={`/group/${group.id}`}>
-                  <IoMdOpen size={20} />
-                </Link>
+                {isSubscribed(group) && <SubSpan>{"inscrito"}</SubSpan>}
               </header>
               <GroupCategory>{group.category}</GroupCategory>
               <GroupInfo>
-                <h4>Descrição</h4>
-                <GroupDescription>{group.description}</GroupDescription>
+                <GroupDescription>
+                  <span>Descrição:</span> {group.description}
+                  <Link to={`/group/${group.id}`}>
+                    Ver mais <IoMdOpen />
+                  </Link>
+                </GroupDescription>
               </GroupInfo>
+
               <SubscribingNest>
-                <button
-                  onClick={() => {
-                    subscribeGroup(group.id);
-                  }}
-                >
-                  Inscrever-se
-                </button>
-                <span>Integrantes: {group.users_on_group.length}</span>
+                {isSubscribed(group) ? (
+                  <button
+                    style={{ backgroundColor: "#f00000" }}
+                    onClick={() => {
+                      unsubscribeGroup(group.id);
+                    }}
+                  >
+                    Desinscrever-se
+                  </button>
+                ) : (
+                  <button
+                    style={{ backgroundColor: "#27a300" }}
+                    onClick={() => {
+                      subscribeGroup(group.id);
+                    }}
+                  >
+                    Inscrever-se
+                  </button>
+                )}
               </SubscribingNest>
             </GroupContainer>
           ))}
         </Content>
         {count > 15 && (
           <PaginationNest>
-            <ButtonPg onClick={prevPage}>
-              <MdNavigateBefore />
-            </ButtonPg>
+            <ButtonNext onClick={prevPage}>&#60;</ButtonNext>
             <span>{pageCount}</span>
-            <ButtonPg onClick={nextPage}>
-              <MdNavigateNext />
-            </ButtonPg>
+            <ButtonPrev onClick={nextPage}>&#62;</ButtonPrev>
           </PaginationNest>
         )}
       </Results>
