@@ -8,8 +8,4 @@ export const GreetingStyle = styled.div`
     font-weight: 500;
     font-size: 25px;
   }
-
-  span {
-    font-size: 30px;
-  }
 `;
