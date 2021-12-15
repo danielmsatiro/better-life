@@ -19,7 +19,6 @@ export const ListMiniCards = () => {
   };
 
   const formIdCreateGroup = "idCreateGroup";
-  console.log(user.id);
 
   return (
     <Container>
