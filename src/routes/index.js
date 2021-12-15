@@ -1,4 +1,4 @@
-import Group from "rc-image/lib/PreviewGroup";
+import Group from "../pages/Groups";
 import { Switch } from "react-router";
 import Dashboard from "../pages/Dashboard";
 import Groups from "../pages/Groups";
