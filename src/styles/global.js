@@ -46,6 +46,7 @@ li {
     --dark-shadow: rgba(31,22,30, 0.5);
     --opaque-dark-green: #354642;
     --opaque-light-green: #809791;
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #root {
