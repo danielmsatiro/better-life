@@ -66,15 +66,93 @@ const Button = styled.button`
 `;
 
 const Content = styled.div`
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const GroupContainer = styled.div`
-  width: 290px;
-  border: 1px solid var(--dark-purple);
+  position: relative;
+  width: 80%;
+  margin: 10px 0;
+
+  border-radius: 15px;
+  background-color: var(--purple);
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-radius: 15px 15px 0px 0px;
+    background-color: var(--dark-purple);
+  }
+
+  h3 {
+    text-align: left;
+    margin: 0;
+    padding: 0 10px;
+    color: var(--white);
+  }
+
+  h4 {
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--purple);
+    color: var(--white);
+  }
+
+  a {
+    color: var(--purple);
+    padding: 0 10px;
+  }
+
+  button {
+    width: 100px;
+    margin: 10px 0;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    font-family: "Ubuntu", sans-serif;
+  }
 `;
+
+const GroupInfo = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--light-purple);
+`;
+
+const GroupCategory = styled.p`
+  padding: 2px;
+  font-weight: 900;
+  background-color: var(--white);
+  color: var(--purple);
+`;
+
+const GroupDescription = styled.p`
+  width: auto;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+
+  background-color: var(--white);
+`;
+
+const SubscribingNest = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const PaginationNest = styled.div`
   margin: 10px 0;
 `;
@@ -93,5 +171,9 @@ export {
   ButtonPg,
   Content,
   GroupContainer,
+  GroupCategory,
+  GroupDescription,
+  GroupInfo,
+  SubscribingNest,
   PaginationNest,
 };

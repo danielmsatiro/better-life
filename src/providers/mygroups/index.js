@@ -82,7 +82,7 @@ Caso dê tudo certo:
 */
   const subscribeGroup = (group_id) => {
     api
-      .post(`/groups/${group_id}/subscribe`, {
+      .post(`/groups/${group_id}/subscribe/`, "", {
         headers: {
           authorization: `Bearer ${user.token}`,
         },

@@ -1,4 +1,6 @@
 import { useSearchGroups } from "../../providers/searchGroups";
+import { useAuth } from "../../providers/user";
+import { useMyGroups } from "../../providers/mygroups";
 import { IoMdOpen } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -12,11 +14,17 @@ import {
   ButtonPg,
   Content,
   GroupContainer,
+  GroupInfo,
+  GroupDescription,
+  GroupCategory,
+  SubscribingNest,
   PaginationNest,
 } from "./styles";
 
 const SearchResults = ({ setResults }) => {
   const { finded, pageCount, nextPage, prevPage, count } = useSearchGroups();
+  const { user } = useAuth();
+  const { subscribeGroup } = useMyGroups();
 
   return (
     <Container>
@@ -40,13 +48,27 @@ const SearchResults = ({ setResults }) => {
         <Content>
           {finded.map((group) => (
             <GroupContainer key={group.id}>
-              <h3>{group.name}</h3>
-              <p>{group.description}</p>
-              <p>{group.category}</p>
-              <button>Inscrever-se</button>
-              <Link to={`/group/${group.id}`}>
-                <IoMdOpen />
-              </Link>
+              <header>
+                <h3>{group.name}</h3>
+                <Link to={`/group/${group.id}`}>
+                  <IoMdOpen size={20} />
+                </Link>
+              </header>
+              <GroupCategory>{group.category}</GroupCategory>
+              <GroupInfo>
+                <h4>Descrição</h4>
+                <GroupDescription>{group.description}</GroupDescription>
+              </GroupInfo>
+              <SubscribingNest>
+                <button
+                  onClick={() => {
+                    subscribeGroup(group.id);
+                  }}
+                >
+                  Inscrever-se
+                </button>
+                <span>Integrantes: {group.users_on_group.length}</span>
+              </SubscribingNest>
             </GroupContainer>
           ))}
         </Content>
