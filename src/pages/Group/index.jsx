@@ -7,16 +7,15 @@ import { ActivityCreate } from "../../components/ActivityCreate";
 import { useParams } from "react-router-dom";
 
 const Group = () => {
-  const params = useParams()
+  const params = useParams();
 
   return (
     <div>
-      <ActivityCreate group_id={params.id} identity={"createActivity"}/>
-      <GroupGraph groupId={params.id}/>
-      <GroupGoalBox groupId={params.id}/>
-      <GroupActivitiesBox groupId={params.id}/>
+      <GroupGraph groupId={params.id} />
+      <GroupGoalBox groupId={params.id} />
+      <GroupActivitiesBox groupId={params.id} />
     </div>
-  )
+  );
 };
 
 export default Group;
