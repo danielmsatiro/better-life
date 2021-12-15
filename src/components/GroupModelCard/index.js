@@ -19,11 +19,16 @@ function GroupModelCard({
   goal,
   activity,
   card,
+  update
 }) {
+  //Para atualizar a página
+  const [att, setAtt] = useState() 
+
   //Para criação e edição:
   const [openEditGoal, setOpenEditGoal] = useState(false);
   const handleEditGoal = () => {
     setOpenEditGoal(!openEditGoal);
+    setAtt(update)
   };
   const formIdEditGoal = "idEditGoal";
 
@@ -75,6 +80,7 @@ function GroupModelCard({
             action={() => {
               deleteGoal(id);
               setRemoveModal(false);
+              setAtt(update)
             }}
             isOpen={removeModal}
             setIsOpen={setRemoveModal}
@@ -85,6 +91,7 @@ function GroupModelCard({
             action={() => {
               deleteActivity(id);
               setRemoveModal(false);
+              setAtt(update)
             }}
             isOpen={removeModal}
             setIsOpen={setRemoveModal}
