@@ -12,9 +12,19 @@ import ConfModal from "../ConfModal";
 
 const HabitsCards = () => {
   const { myHabits, deleteHabit } = useMyHabits();
-  console.log(myHabits);
+  const [openHabitMaker, setOpenHabitMaker] = useState(false);
+  const [openHabitEditor, setOpenHabitEditor] = useState(false);
   const [removeModal, setRemoveModal] = useState(false);
   const [techModal, setTechModal] = useState(false);
+
+  const handleHabitMaker = () => {
+    setOpenHabitMaker(!openHabitMaker);
+  };
+
+  const handleHabitEditor = () => {
+    setOpenHabitEditor(!openHabitEditor);
+  };
+
   const handleTechModal = () => {
     setTechModal(!techModal);
   };
@@ -26,16 +36,18 @@ const HabitsCards = () => {
     console.log(id);
   };
 
-  const formId = "conocido";
+  const habitMakerId = "habitMakerId";
+  const habitEditorId = "habitEditorId";
+
   return (
     <Container>
       <div>
         <h3>Hábitos</h3>
-        <button onClick={() => setTechModal(true)}>+</button>
-        <Modal isOpen={techModal} setIsOpen={handleTechModal}>
+        <button onClick={() => setOpenHabitMaker(true)}>+</button>
+        <Modal isOpen={openHabitMaker} setIsOpen={handleHabitMaker}>
           <HabitMaker
-            closeFunction={handleTechModal}
-            identity={formId}
+            closeFunction={handleHabitMaker}
+            identity={habitMakerId}
           ></HabitMaker>
         </Modal>
       </div>
@@ -47,9 +59,13 @@ const HabitsCards = () => {
               {habit.achieved ? <MdDoneOutline /> : <MdOutlineDoNotDisturb />}
             </td>
             <td>
-              <MdEdit onClick={() => setTechModal(true)} />
-              <Modal isOpen={techModal} setIsOpen={handleTechModal}>
-                <HabitEditor closeFunction={handleTechModal}></HabitEditor>
+              <MdEdit onClick={() => setOpenHabitEditor(true)} />
+              <Modal isOpen={openHabitEditor} setIsOpen={handleHabitEditor}>
+                <HabitEditor
+                  closeFunction={handleHabitEditor}
+                  identity={habitEditorId}
+                  habit={habit}
+                ></HabitEditor>
               </Modal>
             </td>
             <td>

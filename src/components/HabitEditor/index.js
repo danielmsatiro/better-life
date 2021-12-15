@@ -7,10 +7,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
 import Button from "../Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMyHabits } from "../../providers/myHabits";
 
 export const HabitEditor = ({ closeFunction, identity, habit }) => {
+  console.log(habit);
   const Difficulty = ["Fácil", "Médio", "Díficil"];
   const Category = [
     "Saúde",
@@ -26,6 +27,10 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
     currentHabit.how_much_achieved
   );
 
+  console.log(how_much_achieved);
+  // useEffect(() => {
+  //   setCurrentHabit(currentHabit);
+  // }, []);
   const Schema = yup.object().shape({
     title: yup.string().required("title is required"),
     difficulty: yup.string().required("difficulty is required"),
@@ -42,6 +47,7 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
   const { editHabit } = useMyHabits();
 
   const Sender = (data, id) => {
+    console.log(data);
     id = currentHabit.id;
     const user = currentHabit.user;
     const complete = { ...data, how_much_achieved, user, id };
@@ -103,11 +109,11 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
           />
           <p>Progresso</p>
           <div className="quantificador">
-            <Button className="btnMinus" onClick={() => disminuye()}>
+            <Button type="button" className="btnMinus" onClick={disminuye}>
               -
             </Button>
             <p>{how_much_achieved}</p>
-            <Button className="btnPlus" onClick={() => aumenta()}>
+            <Button type="button" className="btnPlus" onClick={aumenta}>
               +
             </Button>
           </div>
