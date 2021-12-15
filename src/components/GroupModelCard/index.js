@@ -4,6 +4,7 @@ import { MdOutlineClear, MdCreate, MdCheck } from "react-icons/md";
 
 import Modal from "../../components/Modal";
 import { GoalEdit } from "../../components/GoalEdit";
+import { ActivityEdit } from "../ActivityEdit";
 import { useState } from "react";
 
 function GroupModelCard({
@@ -14,6 +15,8 @@ function GroupModelCard({
   first_data_data,
   second_data_data,
   goal,
+  activity,
+  card
 }) {
   const [openEditGoal, setOpenEditGoal] = useState(false);
   const handleEditGoal = () => {
@@ -30,11 +33,19 @@ function GroupModelCard({
             className="GoalCard_header_title_edit"
           />
           <Modal isOpen={openEditGoal} setIsOpen={handleEditGoal}>
-            <GoalEdit
+            {card === "goal" ? 
+              <GoalEdit
               closeFunction={handleEditGoal}
               identity={formIdEditGoal}
               goal={goal}
             ></GoalEdit>
+          :
+            <ActivityEdit
+            closeFunction={handleEditGoal}
+            identity={formIdEditGoal}
+            activity={activity}
+            ></ActivityEdit>
+            }
           </Modal>
           <h4>{title}</h4>
           <MdCheck className="GoalCard_header_title_check" />
