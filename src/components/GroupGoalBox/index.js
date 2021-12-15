@@ -67,6 +67,7 @@ function GroupGoalBox({ groupId }) {
             first_data_data={goal.difficulty}
             second_data_title={"Pessoas que atingiram a meta"}
             second_data_data={goal.how_much_achieved}
+            goal={goal}
           />
         ))}
     </GoalBoxContainer>
