@@ -9,7 +9,12 @@ const Card = ({ children, titulo, action, closeFunction, identity }) => {
           <span>{titulo}</span>
         </div>
         <div className="button-holder">
-          <Button className="exec" submit form={identity}>
+          <Button
+            className="exec"
+            submit
+            form={identity}
+            onClick={() => setTimeout(closeFunction)}
+          >
             {action}
           </Button>
           <Button className="close" onClick={closeFunction}>

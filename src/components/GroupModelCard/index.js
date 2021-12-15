@@ -6,6 +6,8 @@ import Modal from "../../components/Modal";
 import { GoalEdit } from "../../components/GoalEdit";
 import { ActivityEdit } from "../ActivityEdit";
 import { useState } from "react";
+import ConfModal from "../ConfModal";
+import { useMyGroups } from "../../providers/mygroups";
 
 function GroupModelCard({
   title,
@@ -16,14 +18,24 @@ function GroupModelCard({
   second_data_data,
   goal,
   activity,
-  card
+  card,
 }) {
+  //Para criação e edição:
   const [openEditGoal, setOpenEditGoal] = useState(false);
   const handleEditGoal = () => {
     setOpenEditGoal(!openEditGoal);
   };
-
   const formIdEditGoal = "idEditGoal";
+
+  //Para deletar:
+  const [removeModal, setRemoveModal] = useState(false);
+  const [id, setID] = useState();
+  const registerid = (id) => {
+    setRemoveModal(true);
+    setID(id);
+  };
+  const { deleteGoal, deleteActivity } = useMyGroups();
+
   return (
     <GoalCardContainer>
       <div className="GoalCard_header">
@@ -33,25 +45,52 @@ function GroupModelCard({
             className="GoalCard_header_title_edit"
           />
           <Modal isOpen={openEditGoal} setIsOpen={handleEditGoal}>
-            {card === "goal" ? 
+            {card === "goal" ? (
               <GoalEdit
-              closeFunction={handleEditGoal}
-              identity={formIdEditGoal}
-              goal={goal}
-            ></GoalEdit>
-          :
-            <ActivityEdit
-            closeFunction={handleEditGoal}
-            identity={formIdEditGoal}
-            activity={activity}
-            ></ActivityEdit>
-            }
+                closeFunction={handleEditGoal}
+                identity={formIdEditGoal}
+                goal={goal}
+              ></GoalEdit>
+            ) : (
+              <ActivityEdit
+                closeFunction={handleEditGoal}
+                identity={formIdEditGoal}
+                activity={activity}
+              ></ActivityEdit>
+            )}
           </Modal>
           <h4>{title}</h4>
           <MdCheck className="GoalCard_header_title_check" />
         </div>
 
-        <MdOutlineClear className="GoalCard_header_delete" />
+        <MdOutlineClear
+          className="GoalCard_header_delete"
+          onClick={() =>
+            card === "goal" ? registerid(goal.id) : registerid(activity.id)
+          }
+        />
+
+        {card === "goal" ? (
+          <ConfModal
+            action={() => {
+              deleteGoal(id);
+              setRemoveModal(false);
+            }}
+            isOpen={removeModal}
+            setIsOpen={setRemoveModal}
+            text={"Deseja remover esta meta?"}
+          />
+        ) : (
+          <ConfModal
+            action={() => {
+              deleteActivity(id);
+              setRemoveModal(false);
+            }}
+            isOpen={removeModal}
+            setIsOpen={setRemoveModal}
+            text={"Deseja remover esta atividade?"}
+          />
+        )}
       </div>
 
       <div className="GoalCard_content">
