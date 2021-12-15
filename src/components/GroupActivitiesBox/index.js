@@ -4,6 +4,8 @@ import { MdOutlineAddCircle} from "react-icons/md"
 
 import GroupGoalCard from "../GroupGoalCard"
 
+import { useParams } from "react-router-dom"
+
 function GroupActivitiesBox(){
     return (
         <ActivitiesContainer>

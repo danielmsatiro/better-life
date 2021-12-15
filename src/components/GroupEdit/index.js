@@ -8,9 +8,11 @@ import Select from "../Select";
 import { Container } from "./style";
 import { useState } from "react";
 import TextArea from "../TextArea";
+import { useMyGroups } from "../../providers/mygroups";
 
 export const GroupEdit = ({ closeFunction, identity, group }) => {
   //O parâmetro group é um objeto com todas as informações
+  const { editGroup } = useMyGroups();
 
   const Category = [
     "Saúde",
@@ -33,15 +35,15 @@ export const GroupEdit = ({ closeFunction, identity, group }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const handleEditor = (data, group_id) => {
-    console.log("Editar grupo", data);
+  const handleEditor = (data) => {
+    editGroup(data, currentGroup.id);
   };
 
   const [currentGroup, setCurrentGroup] = useState(group);
 
   return (
     <Card
-      titulo="Editar Novo Grupo"
+      titulo="Editar Grupo"
       action="Editar"
       closeFunction={closeFunction}
       identity={identity}
