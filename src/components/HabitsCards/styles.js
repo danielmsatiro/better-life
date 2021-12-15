@@ -30,7 +30,7 @@ export const Container = styled.div`
   @media (min-width: 769px) {
     font-size: 0.8rem;
     border: none;
-    border-radius: 14px;
+    border-radius: 5px;
 
     margin: 0 20px;
 
