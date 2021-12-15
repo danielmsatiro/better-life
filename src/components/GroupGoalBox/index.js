@@ -1,5 +1,5 @@
 import { GoalBoxContainer } from "./styles"
-import GroupGoalCard from "../GroupGoalCard"
+import GroupModelCard from "../GroupModelCard"
 
 import { MdOutlineAddCircle} from "react-icons/md"
 
@@ -41,7 +41,7 @@ function GroupGoalBox( {groupId} ){
 
             {
              myGoals.length > 0 && myGoals.map((goal, index) => (
-                <GroupGoalCard
+                <GroupModelCard
                 key={index}
                 title={"Meta"}
                 description={goal.title}

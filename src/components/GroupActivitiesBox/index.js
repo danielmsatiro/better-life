@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { useAuth } from "../../providers/user";
 
-import GroupGoalCard from "../GroupGoalCard"
+import GroupModelCard from "../GroupModelCard"
 
 import { MdOutlineAddCircle} from "react-icons/md"
 
@@ -40,7 +40,7 @@ function GroupActivitiesBox( {groupId} ){
 
             {
             myActivities.length > 0 && myActivities.map((activity, index) => (             
-                <GroupGoalCard 
+                <GroupModelCard 
                 key={index}
                 title={"Atividade"}
                 description={activity.title}

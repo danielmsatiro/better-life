@@ -2,7 +2,7 @@ import { GoalCardContainer } from "./styles"
 
 import {MdOutlineClear, MdCreate, MdCheck} from "react-icons/md"
 
-function GroupGoalCard( {
+function GroupModelCard( {
     title, 
     description, 
     first_data_title, 
@@ -43,4 +43,4 @@ function GroupGoalCard( {
     )
 }
 
-export default GroupGoalCard
+export default GroupModelCard
