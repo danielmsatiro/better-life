@@ -2,11 +2,14 @@
 import GroupGoalBox from "../../components/GroupGoalBox";
 import GroupActivitiesBox from "../../components/GroupActivitiesBox";
 
+import { useParams } from "react-router-dom";
 const Group = () => {
+  const params = useParams()
+
   return (
     <div>
-      <GroupGoalBox/>
-      <GroupActivitiesBox/>
+      <GroupGoalBox groupId={params.id}/>
+      <GroupActivitiesBox groupId={params.id}/>
     </div>
   )
 };

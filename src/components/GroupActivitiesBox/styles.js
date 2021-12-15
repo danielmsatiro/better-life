@@ -5,6 +5,7 @@ export const ActivitiesContainer = styled.section`
     width: 270px;
     padding: 10px;
     border-radius: 10px;
+    min-height: 100px;
 
     .Goal_Activities_container_title{
         color: white;
