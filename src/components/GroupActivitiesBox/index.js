@@ -70,6 +70,7 @@ function GroupActivitiesBox( {groupId} ){
                 second_data_data={activity.realization_time.substring(11, 16)}
                 activity={activity}
                 card={"activity"}
+                update={getActivitiesGroup}
                 />
             )) }
 
