@@ -11,7 +11,7 @@ const Group = () => {
 
   return (
     <div>
-      <ActivityCreate/>
+      <ActivityCreate group_id={params.id} identity={"createActivity"}/>
       <GroupGraph groupId={params.id}/>
       <GroupGoalBox groupId={params.id}/>
       <GroupActivitiesBox groupId={params.id}/>

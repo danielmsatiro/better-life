@@ -20,4 +20,15 @@ export const Container = styled.div`
     background-color: var(--light-gray);
     text-align: center;
   }
+
+  .Date_box{
+    display: flex;
+    padding: 0 10px;
+    width: 90%;
+  }
+
+  .Date_box Select{
+    width: 80%;
+    margin: ;
+  }
 `;

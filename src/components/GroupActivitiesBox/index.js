@@ -1,17 +1,27 @@
 import { ActivitiesContainer } from "./styles"
-
-import { useState, useEffect } from "react";
-import { api } from "../../services/api";
-import { useAuth } from "../../providers/user";
-
 import GroupModelCard from "../GroupModelCard"
 
 import { MdOutlineAddCircle} from "react-icons/md"
 
+import { useState, useEffect } from "react";
+
+import { api } from "../../services/api";
+import { useAuth } from "../../providers/user";
+
+import Modal from "../../components/Modal";
+import { ActivityCreate } from "../ActivityCreate";
+
 function GroupActivitiesBox( {groupId} ){
-    const { user } = useAuth();
-    
+    const { user } = useAuth();    
     const [myActivities, setMyActivities] = useState([])
+
+    const [openCreateActivity, setOpenCreateActivity] = useState(false);
+    const handleCreateActivity = () => {
+        setOpenCreateActivity(!openCreateActivity);
+        getActivitiesGroup()
+    };
+
+    const formIdCreateAct = "idCreateAct";
 
     const getActivitiesGroup = () => {
         api
@@ -27,7 +37,6 @@ function GroupActivitiesBox( {groupId} ){
     useEffect(() => {
         getActivitiesGroup();
     }, []);
-    console.log(myActivities)
 
     return (
         <ActivitiesContainer>
@@ -35,7 +44,18 @@ function GroupActivitiesBox( {groupId} ){
             <h2 className="Goal_Activities_container_title"> Atividades </h2>
 
             <div className="create_Activities">
-                <MdOutlineAddCircle className="create_Activities_icon"/>
+                <MdOutlineAddCircle 
+                    onClick={() => setOpenCreateActivity(true)}
+                    className="create_Activities_icon"
+                />
+                <Modal isOpen={openCreateActivity} setIsOpen={handleCreateActivity}>
+                    <ActivityCreate
+                        closeFunction={handleCreateActivity}
+                        identity={formIdCreateAct}
+                        group_id={groupId}
+                    >
+                    </ActivityCreate>
+                </Modal>
             </div>
 
             {

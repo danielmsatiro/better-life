@@ -34,7 +34,7 @@ function GroupModelCard( {
 
                     <p>{first_data_title}: {first_data_data}</p>
 
-                    <p>{second_data_title}: {second_data_data}</p>
+                    <p>{second_data_title} {second_data_data}</p>
 
                 </div>
 
