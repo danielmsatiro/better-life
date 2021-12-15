@@ -7,10 +7,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "../Select";
 import { Container } from "./style";
 import Button from "../Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMyHabits } from "../../providers/myHabits";
 
-export const HabitEditor = ({ closeFunction, identity, habit }) => {
+export const HabitEditor = ({ closeFunction, identity, item }) => {
+  // console.log(item);
   const Difficulty = ["Fácil", "Médio", "Díficil"];
   const Category = [
     "Saúde",
@@ -21,16 +22,22 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
     "Domésticos",
   ];
   const Frequency = ["Diário", "Semanal", "Mensal", "Anual"];
-  const [currentHabit, setCurrentHabit] = useState(habit);
+  const Booleano = ["false", "true"];
+  const [currentHabit, setCurrentHabit] = useState(item);
   const [how_much_achieved, setHow_much_achieved] = useState(
     currentHabit.how_much_achieved
   );
 
+  // console.log(how_much_achieved);
+  // useEffect(() => {
+  //   setCurrentHabit(currentHabit);
+  // }, []);
   const Schema = yup.object().shape({
     title: yup.string().required("title is required"),
     difficulty: yup.string().required("difficulty is required"),
     category: yup.string().required("category is required"),
     frequency: yup.string().required("frequency is required"),
+    achieved: yup.string().required("achieved is required"),
   });
 
   const {
@@ -46,7 +53,6 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
     const user = currentHabit.user;
     const complete = { ...data, how_much_achieved, user, id };
     editHabit(complete, id);
-    console.log(currentHabit.how_much_achieved);
   };
 
   const disminuye = () => {
@@ -75,10 +81,7 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
             nome="title"
             register={register}
             error={errors.title?.message}
-            value={currentHabit.title}
-            onChange={(e) =>
-              setCurrentHabit({ ...currentHabit, title: e.target.value })
-            }
+            defaultValue={item.title}
           />
           <Select
             label="Dificuldade"
@@ -86,6 +89,7 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
             register={register}
             error={errors.difficulty?.message}
             options={Difficulty}
+            defaultValue={currentHabit.difficulty}
           />
           <Select
             label="Categoria"
@@ -93,6 +97,7 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
             register={register}
             error={errors.category?.message}
             options={Category}
+            defaultValue={currentHabit.category}
           />
           <Select
             label="Frequência"
@@ -100,14 +105,23 @@ export const HabitEditor = ({ closeFunction, identity, habit }) => {
             register={register}
             error={errors.frequency?.message}
             options={Frequency}
+            defaultValue={currentHabit.frequency}
+          />
+          <Select
+            label="Completado"
+            nome="achieved"
+            register={register}
+            error={errors.frequency?.message}
+            options={Booleano}
+            defaultValue={currentHabit.achieved}
           />
           <p>Progresso</p>
           <div className="quantificador">
-            <Button className="btnMinus" onClick={() => disminuye()}>
+            <Button type="button" className="btnMinus" onClick={disminuye}>
               -
             </Button>
             <p>{how_much_achieved}</p>
-            <Button className="btnPlus" onClick={() => aumenta()}>
+            <Button type="button" className="btnPlus" onClick={aumenta}>
               +
             </Button>
           </div>
