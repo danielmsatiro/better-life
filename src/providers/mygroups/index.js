@@ -176,7 +176,7 @@ GET /goals/?group=4 - FORMATO DA RESPOSTA - STATUS 200
       .then((response) => setMyGroups(response.data))
       .catch((err) => console.log("Requisição getGoalsOneGroup:", err));
   };
-
+  
   /* Atualizando metas
 Para atualizar uma meta, é necessário enviar o id da meta que está dentro do seu objeto.
 PATCH /goals/:goal_id/ - FORMATO DA REQUISIÇÃO

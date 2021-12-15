@@ -1,4 +1,4 @@
-import Group from "rc-image/lib/PreviewGroup";
+import Group from "../pages/Group";
 import { Switch } from "react-router";
 import Dashboard from "../pages/Dashboard";
 import Groups from "../pages/Groups";
@@ -14,7 +14,7 @@ export const Routes = () => {
       <Route path="/signup" component={SignUp} />
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/groups" component={Groups} isPrivate />
-      <Route path="/group" component={Group} isPrivate />
+      <Route path="/group/:id" component={Group} isPrivate />
     </Switch>
   );
 };
