@@ -9,13 +9,13 @@ import Modal from "../Modal";
 import { useState } from "react";
 import { useMyHabits } from "../../providers/myHabits";
 import ConfModal from "../ConfModal";
+import HabitCard from "../HabitCard";
 
 const HabitsCards = () => {
   const { myHabits, deleteHabit } = useMyHabits();
   const [openHabitMaker, setOpenHabitMaker] = useState(false);
   const [openHabitEditor, setOpenHabitEditor] = useState(false);
   const [removeModal, setRemoveModal] = useState(false);
-  const [techModal, setTechModal] = useState(false);
 
   const handleHabitMaker = () => {
     setOpenHabitMaker(!openHabitMaker);
@@ -25,11 +25,13 @@ const HabitsCards = () => {
     setOpenHabitEditor(!openHabitEditor);
   };
 
-  const handleTechModal = () => {
-    setTechModal(!techModal);
-  };
   const [id, setID] = useState();
-
+  // const [item, setItem] = useState({});
+  // const regItem = (item) => {
+  //   setOpenHabitEditor(true);
+  //   setItem(item);
+  //   console.log("hola", item);
+  // };
   const registerid = (id) => {
     setRemoveModal(true);
     setID(id);
@@ -52,35 +54,8 @@ const HabitsCards = () => {
         </Modal>
       </div>
       <Content>
-        {myHabits.map((habit) => (
-          <tr id={habit.id}>
-            <td title="title">{habit.title}</td>
-            <td>
-              {habit.achieved ? <MdDoneOutline /> : <MdOutlineDoNotDisturb />}
-            </td>
-            <td>
-              <MdEdit onClick={() => setOpenHabitEditor(true)} />
-              <Modal isOpen={openHabitEditor} setIsOpen={handleHabitEditor}>
-                <HabitEditor
-                  closeFunction={handleHabitEditor}
-                  identity={habitEditorId}
-                  habit={habit}
-                ></HabitEditor>
-              </Modal>
-            </td>
-            <td>
-              <MdClose onClick={() => registerid(habit.id)} />
-              <ConfModal
-                action={() => {
-                  deleteHabit(id);
-                  setRemoveModal(false);
-                }}
-                isOpen={removeModal}
-                setIsOpen={setRemoveModal}
-                text={"deseja remover este hábito?"}
-              />
-            </td>
-          </tr>
+        {myHabits.map((habit, index) => (
+          <HabitCard key={index} habit={habit} />
         ))}
       </Content>
     </Container>
