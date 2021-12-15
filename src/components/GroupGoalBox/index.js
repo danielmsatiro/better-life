@@ -27,6 +27,7 @@ function GroupGoalBox( {groupId} ){
     useEffect(() => {
         getGoalsGroup();
     }, []);
+    console.log(groupId)
 
     return (
         <GoalBoxContainer>

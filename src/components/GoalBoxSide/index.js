@@ -3,12 +3,11 @@ import { GoalBoxSideNav } from "./styles"
 
 import {MdDashboard} from "react-icons/md";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MyGroupsContext } from "../../providers/mygroups";
 
 function GoalBoxSide( group ){
     const {myGroups} = useContext(MyGroupsContext)
-    console.log(myGroups.reverse())
 
     return (
         <GoalBoxSideNav>

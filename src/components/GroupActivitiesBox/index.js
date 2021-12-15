@@ -13,7 +13,7 @@ function GroupActivitiesBox( {groupId} ){
     
     const [myActivities, setMyActivities] = useState([])
 
-    const getGoalsGroup = () => {
+    const getActivitiesGroup = () => {
         api
           .get(`/activities/?group=${groupId}`, {
             headers: {
@@ -25,9 +25,8 @@ function GroupActivitiesBox( {groupId} ){
       };
 
     useEffect(() => {
-        getGoalsGroup();
+        getActivitiesGroup();
     }, []);
-
     console.log(myActivities)
 
     return (

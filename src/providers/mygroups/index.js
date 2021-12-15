@@ -25,6 +25,7 @@ export const MyGroupsProvider = ({ children }) => {
   useEffect(() => {
     getMyGroups();
   }, []);
+  console.log(myGroups)
 
   /*   Criar um grupo
 {
