@@ -2,7 +2,6 @@
 import GroupGoalBox from "../../components/GroupGoalBox";
 import GroupActivitiesBox from "../../components/GroupActivitiesBox";
 import GroupGraph from "../../components/GraphGroup";
-import { ActivityCreate } from "../../components/ActivityCreate";
 
 import { useParams } from "react-router-dom";
 
