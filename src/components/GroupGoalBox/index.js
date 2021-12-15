@@ -3,6 +3,9 @@ import GroupGoalCard from "../GroupGoalCard"
 
 import { MdOutlineAddCircle} from "react-icons/md"
 
+import { useContext } from "react"
+
+
 function GroupGoalBox(){
     return (
         <GoalBoxContainer>

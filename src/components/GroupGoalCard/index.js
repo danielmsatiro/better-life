@@ -2,7 +2,13 @@ import { GoalCardContainer } from "./styles"
 
 import {MdOutlineClear, MdCreate, MdCheck} from "react-icons/md"
 
-function GroupGoalCard( groupGoals ){
+function GroupGoalCard( {
+    title, 
+    description, 
+    first_data_title, 
+    second_data_title, 
+    first_data_data,
+    second_data_data } ){
     
     return (
         <GoalCardContainer>
@@ -11,7 +17,7 @@ function GroupGoalCard( groupGoals ){
                 <div className="GoalCard_header_title">
                     
                     <MdCreate className="GoalCard_header_title_edit"/>
-                    <h4>Meta</h4>
+                    <h4>{title}</h4>
                     <MdCheck className="GoalCard_header_title_check"/>
 
                 </div>
@@ -22,13 +28,13 @@ function GroupGoalCard( groupGoals ){
 
             <div className="GoalCard_content">
 
-                <p> {groupGoals.title} </p>
+                <p> {description} </p>
 
                 <div className="GoalCard_content_data">
 
-                    <p>Dificuldade: {groupGoals.difficulty}</p>
+                    <p>{first_data_title}: {first_data_data}</p>
 
-                    <p>Pessoas que atingiram a meta: {groupGoals.how_much_achieved}</p>
+                    <p>{second_data_title}: {second_data_data}</p>
 
                 </div>
 

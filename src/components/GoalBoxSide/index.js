@@ -20,9 +20,9 @@ function GoalBoxSide( group ){
 
             </div>
 
-            {myGroups.map((item) => (
+            {myGroups.map((item, index) => (
 
-                <GoalCardSide key={item.id}
+                <GoalCardSide key={index}
                     groupName={item.name}
                     goalTitle={item.goals.length > 0 ? item.goals[item.goals.length - 1].title : "Sem Metas"}
                 />
