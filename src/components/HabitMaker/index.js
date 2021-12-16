@@ -37,14 +37,18 @@ export const HabitMaker = ({ closeFunction, identity }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const { createHabit } = useMyHabits();
+  const { createHabit, getMyHabits } = useMyHabits();
   const { user } = useAuth();
   const { id } = user;
 
   const Sender = (data) => {
     const user = id;
     const complete = { ...data, how_much_achieved, user };
-    createHabit(complete);
+    createHabit(complete)
+      .then((_) => {
+        closeFunction();
+      })
+      .catch((_) => closeFunction());
   };
 
   const disminuye = () => {

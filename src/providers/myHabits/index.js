@@ -11,7 +11,7 @@ export const useMyHabits = () => useContext(MyHabitsContext);
 export const MyHabitsProvider = ({ children }) => {
   const { user } = useAuth();
   const [myHabits, setMyHabits] = useState([]);
-  console.log(myHabits, user)
+  console.log(myHabits, user);
 
   const getMyHabits = () => {
     api
@@ -30,8 +30,8 @@ export const MyHabitsProvider = ({ children }) => {
 
   /* Cadastro de novo hábito */
 
-  const createHabit = (data) => {
-    api
+  const createHabit = async (data) => {
+    const solicitation = await api
       .post(`/habits/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -50,8 +50,8 @@ export const MyHabitsProvider = ({ children }) => {
 
   /* Edição de hábito */
 
-  const editHabit = (data, habit_id) => {
-    api
+  const editHabit = async (data, habit_id) => {
+    const solicitation = await api
       .patch(`/habits/${habit_id}/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -89,7 +89,14 @@ export const MyHabitsProvider = ({ children }) => {
 
   return (
     <MyHabitsContext.Provider
-      value={{ myHabits, setMyHabits, createHabit, editHabit, deleteHabit }}
+      value={{
+        myHabits,
+        getMyHabits,
+        setMyHabits,
+        createHabit,
+        editHabit,
+        deleteHabit,
+      }}
     >
       {children}
     </MyHabitsContext.Provider>
