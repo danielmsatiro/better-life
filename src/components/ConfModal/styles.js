@@ -19,13 +19,11 @@ const Container = styled.div`
 const BlackBar1 = styled.div`
   padding: 20px;
   background-color: var(--dark-purple);
-  border-radius: 10px 10px 0 0;
 `;
 
 const BlackBar2 = styled.div`
   padding: 20px;
   background-color: var(--dark-purple);
-  border-radius: 0 0 10px 10px;
 `;
 
 const MainContent = styled.div`
