@@ -17,7 +17,6 @@ export const SearchGroupsProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [next, setNext] = useState(null);
   const [count, setCount] = useState(0);
-  const [openResults, setOpenResults] = useState(false);
 
   const searchGroups = (search) => {
     if (search !== "") {
@@ -64,8 +63,6 @@ export const SearchGroupsProvider = ({ children }) => {
         setSearch,
         count,
         loading,
-        openResults,
-        setOpenResults,
       }}
     >
       {children}

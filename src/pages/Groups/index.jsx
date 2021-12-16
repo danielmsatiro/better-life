@@ -1,13 +1,4 @@
-import {
-  Layout,
-  Container,
-  Main,
-  Aside,
-  Header,
-  InfoContainer,
-  TextContainer,
-  A,
-} from "./styles";
+import { Layout, Container, Main, Aside, Header, A } from "./styles";
 
 import DashboardMenu from "../../components/Menu";
 import SearchBox from "../../components/SearchBox";
@@ -15,10 +6,10 @@ import SearchResults from "../../components/SearchResults";
 import GoalBoxSide from "../../components/GoalBoxSide";
 
 import { ListMiniCards } from "../../components/ListMiniCards";
-import { useSearchGroups } from "../../providers/searchGroups";
+import { useState } from "react";
 
 const Groups = () => {
-  const { openResults, setOpenResults } = useSearchGroups();
+  const [results, setResults] = useState(false);
 
   return (
     <>
@@ -27,10 +18,10 @@ const Groups = () => {
         <Container>
           <DashboardMenu />
           <Main>
-            <SearchBox setResults={setOpenResults} />
-            {openResults ? (
+            <SearchBox setResults={setResults} />
+            {results ? (
               <SearchResults
-                setResults={setOpenResults}
+                setResults={setResults}
                 className="result_groups"
               />
             ) : (
