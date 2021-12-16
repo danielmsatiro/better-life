@@ -52,7 +52,8 @@ export const Box = styled.div`
   }
 
   @media (min-width: 769px) {
-    height: 360px;
+    margin-top: 10px;
+    height: 370px;
     width: 280px;
     padding-left: 0;
     overflow-x: hidden;

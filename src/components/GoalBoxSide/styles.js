@@ -19,7 +19,6 @@ export const GoalBoxSideNav = styled.section`
     align-items: center;
     color: white;
     width: 250px;
-
     margin-bottom: 20px;
   }
 
@@ -31,7 +30,7 @@ export const GoalBoxSideNav = styled.section`
   @media (min-width: 769px) {
     margin-top: 0;
     width: 220px;
-    height: 440px;
+    height: 460px;
 
     h2 {
       font-size: 1rem;
