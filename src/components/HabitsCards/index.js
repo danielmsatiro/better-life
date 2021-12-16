@@ -1,10 +1,10 @@
-import { Container } from "./styles";
-import { Content } from "./styles";
+import { Container, CardHeader, Content } from "./styles";
 import { HabitMaker } from "../HabitMaker";
 import Modal from "../Modal";
 import { useState } from "react";
 import { useMyHabits } from "../../providers/myHabits";
 import HabitCard from "../HabitCard";
+import Button from "../Button";
 
 const HabitsCards = () => {
   const { myHabits } = useMyHabits();
@@ -19,8 +19,17 @@ const HabitsCards = () => {
   return (
     <Container>
       <div>
-        <h3>Hábitos</h3>
-        <button onClick={() => setOpenHabitMaker(true)}>+</button>
+        <CardHeader>
+          <div className="titulo">
+            <h3>Hábitos</h3>
+          </div>
+          <div className="holder">
+            <Button className="opener" onClick={() => setOpenHabitMaker(true)}>
+              +
+            </Button>
+          </div>
+        </CardHeader>
+
         <Modal isOpen={openHabitMaker} setIsOpen={handleHabitMaker}>
           <HabitMaker
             closeFunction={handleHabitMaker}
