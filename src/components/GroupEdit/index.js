@@ -24,7 +24,7 @@ export const GroupEdit = ({ closeFunction, identity, group }) => {
   ];
 
   const Schema = yup.object().shape({
-    title: yup.string().required("Nome obrigatório"),
+    name: yup.string().required("Nome obrigatório"),
     category: yup.string().required("Categoria obrigatória"),
     description: yup.string().required("Descrição obrigatória"),
   });
@@ -55,10 +55,10 @@ export const GroupEdit = ({ closeFunction, identity, group }) => {
           onSubmit={handleSubmit(handleEditor)}
         >
           <Input
-            label="Titulo"
-            nome="title"
+            label="Name"
+            nome="name"
             register={register}
-            error={errors.title?.message}
+            error={errors.name?.message}
             value={currentGroup.name}
             onChange={(e) =>
               setCurrentGroup({ ...currentGroup, name: e.target.value })
