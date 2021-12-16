@@ -18,9 +18,10 @@ import {
   GroupCategory,
   SubscribingNest,
   PaginationNest,
+  NotFinded,
 } from "./styles";
 
-const SearchResults = ({ setResults }) => {
+const SearchResults = ({ setResults, className }) => {
   const { finded, pageCount, nextPage, prevPage, count } = useSearchGroups();
   const { myGroups, subscribeGroup, unsubscribeGroup } = useMyGroups();
 
@@ -34,7 +35,7 @@ const SearchResults = ({ setResults }) => {
         Grupos encontrados:
         <Button onClick={() => setResults(false)}>x</Button>
       </BlackBar>
-      <Results>
+      <Results className={className}>
         {count > 15 && (
           <PaginationNest>
             <ButtonNext onClick={prevPage}>&#60;</ButtonNext>
@@ -44,45 +45,50 @@ const SearchResults = ({ setResults }) => {
         )}
 
         <Content>
-          {finded.map((group) => (
-            <GroupContainer key={group.id}>
-              <header>
-                <h3>{group.name}</h3>
-                {isSubscribed(group) && <SubSpan>{"inscrito"}</SubSpan>}
-              </header>
-              <GroupCategory>{group.category}</GroupCategory>
-              <GroupInfo>
-                <GroupDescription>
-                  <span>Descrição:</span> {group.description}
+          {finded.length > 0 ? (
+            finded.map((group) => (
+              <GroupContainer key={group.id}>
+                <header>
+                  <h3>{group.name}</h3>
+                  {isSubscribed(group) && <SubSpan>{"inscrito"}</SubSpan>}
+                </header>
+                <GroupCategory>{group.category}</GroupCategory>
+                <GroupInfo>
+                  <span>Descrição</span> {group.description}
                   <Link to={`/group/${group.id}`}>
                     Ver mais <IoMdOpen />
                   </Link>
-                </GroupDescription>
-              </GroupInfo>
-
-              <SubscribingNest>
-                {isSubscribed(group) ? (
-                  <button
-                    style={{ backgroundColor: "#f00000" }}
-                    onClick={() => {
-                      unsubscribeGroup(group.id);
-                    }}
-                  >
-                    Desinscrever-se
-                  </button>
-                ) : (
-                  <button
-                    style={{ backgroundColor: "#27a300" }}
-                    onClick={() => {
-                      subscribeGroup(group.id);
-                    }}
-                  >
-                    Inscrever-se
-                  </button>
-                )}
-              </SubscribingNest>
-            </GroupContainer>
-          ))}
+                </GroupInfo>
+                <SubscribingNest>
+                  {isSubscribed(group) ? (
+                    <button
+                      style={{ backgroundColor: "#f00000" }}
+                      onClick={() => {
+                        unsubscribeGroup(group.id);
+                      }}
+                    >
+                      Desinscrever-se
+                    </button>
+                  ) : (
+                    <button
+                      style={{ backgroundColor: "#27a300" }}
+                      onClick={() => {
+                        subscribeGroup(group.id);
+                      }}
+                    >
+                      Inscrever-se
+                    </button>
+                  )}
+                </SubscribingNest>
+              </GroupContainer>
+            ))
+          ) : (
+            <NotFinded>
+              <p>
+                <span>Nenhum grupo encontrado</span> 😔
+              </p>
+            </NotFinded>
+          )}
         </Content>
         {count > 15 && (
           <PaginationNest>

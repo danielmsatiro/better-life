@@ -31,15 +31,23 @@ const Container = styled.div`
 
 const Main = styled.div`
   width: 100%;
+  height: 100%;
   text-align: center;
 
   @media (min-width: 769px) {
     padding-bottom: 20px;
+    .result_group {
+      height: 490px;
+    }
   }
 
   @media (min-width: 1280px) {
     width: 960px;
     height: 500px;
+
+    .result_group {
+      height: 420px;
+    }
   }
 `;
 
@@ -47,6 +55,7 @@ const Aside = styled.div`
   @media (min-width: 769px) {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   @media (min-width: 1280px) {
   }
@@ -82,6 +91,7 @@ const Header = styled.div`
 
 const InfoContainer = styled.div`
   margin: 0px 20px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

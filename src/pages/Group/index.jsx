@@ -39,24 +39,23 @@ const Group = () => {
       .then((response) => {
         setGroup(response.data);
       });
-  }, [group, params.id, user.token]);
+  }, [group]);
 
   return (
     <Layout>
       <Header />
-
       <Container>
         <DashboardMenu />
         <Main>
           <SearchBox setResults={setResults} />
           {results && <SearchResults /> ? (
-            <SearchResults setResults={setResults} />
+            <SearchResults setResults={setResults} className="result_group" />
           ) : (
             <Solver>
               <Aside>
                 <InfoContainer>
                   <TextContainer>
-                    <h1>{group.name}</h1>
+                    <h1>Bem-vindo(a)! Você está em: {group.name}</h1>
                     <p>{group.description}</p>
                   </TextContainer>
                   <GroupGraph groupId={params.id} />

@@ -36,6 +36,9 @@ export const GoalCardSideNav = styled.div`
     font-size: 12px;
   }
   @media (min-width: 769px) {
-    width: auto;
+    width: 200px;
+  }
+  @media (min-width: 1280px) {
+    width: 215px;
   }
 `;

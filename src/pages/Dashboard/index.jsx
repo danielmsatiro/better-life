@@ -29,7 +29,7 @@ const Dashboard = () => {
         <Main>
           <SearchBox setResults={setResults} />
           {results ? (
-            <SearchResults setResults={setResults} />
+            <SearchResults setResults={setResults} className="result_home" />
           ) : (
             <>
               <InfoContainer>

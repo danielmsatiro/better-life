@@ -29,7 +29,10 @@ const Groups = () => {
           <Main>
             <SearchBox setResults={setResults} />
             {results ? (
-              <SearchResults setResults={setResults} />
+              <SearchResults
+                setResults={setResults}
+                className="result_groups"
+              />
             ) : (
               <Aside>
                 <ListMiniCards />
