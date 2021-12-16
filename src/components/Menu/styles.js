@@ -23,6 +23,7 @@ export const ContainerMenu = styled.section`
     position: absolute;
     right: 20px;
     top: 10px;
+    transition: 0.2s;
   }
 
   .menu_details_summary {
@@ -43,18 +44,22 @@ export const ContainerMenu = styled.section`
   }
 
   .sub_menu {
-    width: 100vw;
+    width: 30vw;
+    height: 150px;
     background-color: #1f161e;
     color: white;
 
     margin-top: 50px;
     margin-right: -20px;
+    padding: 15px;
 
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    flex-direction: column ;
+    align-items: flex-start;
 
     font-size: 14px;
+    transition: 0.2s;
   }
 
   .sub_menu__link {
@@ -62,23 +67,25 @@ export const ContainerMenu = styled.section`
     align-items: center;
     cursor: pointer;
 
+    width: 100px;
+
     font-family: Ubuntu;
     font-size: 18px;
     font-weight: 500;
   }
 
   .menu_icon_subMenu {
-    width: 15px;
+    width: 19px;
     height: 30px;
     color: white;
-    margin-right: 5px;
+    margin-right: 20px;
   }
 
   .menu_icon_subMenu_group_icon {
-    width: 25px;
+    width: 18px;
     height: 30px;
     color: white;
-    margin-right: 5px;
+    margin-right: 20px;
   }
 
   .menu_dashboard_desktop {
