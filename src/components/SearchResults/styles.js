@@ -81,12 +81,15 @@ const Content = styled.div`
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 
   @media (min-width: 769px) {
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: flex-start;
   }
 `;
 
@@ -110,9 +113,14 @@ const GroupContainer = styled.div`
     padding: 10px 0;
     border-radius: 15px 15px 0px 0px;
     background-color: var(--dark-purple);
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   h3 {
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
     height: 19px;
     margin: 0;
     padding: 0 10px;
@@ -191,7 +199,7 @@ const GroupInfo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+
   margin-top: 5px;
   padding: 5px 10px;
   background-color: var(--white);
@@ -202,7 +210,17 @@ const GroupInfo = styled.div`
   }
 `;
 
-const GroupCategory = styled.p`
+const GroupDescription = styled.div`
+  margin: 5px 0;
+  max-width: 200px;
+  --webkit-line-clamp: 3;
+  --webkit-box-orient: vertical;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const GroupCategory = styled.div`
   padding: 2px;
   font-weight: 900;
   background-color: var(--purple);
@@ -284,6 +302,7 @@ export {
   GroupContainer,
   SubSpan,
   GroupCategory,
+  GroupDescription,
   GroupInfo,
   SubscribingNest,
   PaginationNest,

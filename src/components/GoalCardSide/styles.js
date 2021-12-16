@@ -23,12 +23,18 @@ export const GoalCardSideNav = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
   }
 
   h3 {
     margin: 0;
     font-family: "Ubuntu";
     color: white;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
   }
 
   p {

@@ -7,7 +7,7 @@ export const GoalBoxContainer = styled.section`
   overflow: auto;
   margin-top: 10px;
   padding: 5px;
-  border-radius: 10px 0 0 10px;
+  box-shadow: var(--box-shadow);
   min-height: 100px;
 
   ::-webkit-scrollbar {

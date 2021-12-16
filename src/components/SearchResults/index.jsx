@@ -2,6 +2,7 @@ import { useSearchGroups } from "../../providers/searchGroups";
 import { useMyGroups } from "../../providers/mygroups";
 import { IoMdOpen } from "react-icons/io";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
 
 import {
   Container,
@@ -22,7 +23,8 @@ import {
 } from "./styles";
 
 const SearchResults = ({ setResults, className }) => {
-  const { finded, pageCount, nextPage, prevPage, count } = useSearchGroups();
+  const { finded, pageCount, nextPage, prevPage, count, loading } =
+    useSearchGroups();
   const { myGroups, subscribeGroup, unsubscribeGroup } = useMyGroups();
 
   const isSubscribed = (group) => {
@@ -54,7 +56,8 @@ const SearchResults = ({ setResults, className }) => {
                 </header>
                 <GroupCategory>{group.category}</GroupCategory>
                 <GroupInfo>
-                  <span>Descrição</span> {group.description}
+                  <span>Descrição</span>
+                  <GroupDescription>{group.description}</GroupDescription>
                   <Link to={`/group/${group.id}`}>
                     Ver mais <IoMdOpen />
                   </Link>
@@ -89,6 +92,7 @@ const SearchResults = ({ setResults, className }) => {
               </p>
             </NotFinded>
           )}
+          {loading && <Loading />}
         </Content>
         {count > 15 && (
           <PaginationNest>

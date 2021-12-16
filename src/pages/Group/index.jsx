@@ -39,6 +39,7 @@ const Group = () => {
       .then((response) => {
         setGroup(response.data);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [group]);
 
   return (

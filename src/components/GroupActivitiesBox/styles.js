@@ -7,7 +7,7 @@ export const ActivitiesContainer = styled.section`
   overflow: auto;
   margin: 10px 0;
   padding: 5px;
-  border-radius: 10px 0 0 10px;
+  box-shadow: var(--box-shadow);
   min-height: 100px;
 
   ::-webkit-scrollbar {
