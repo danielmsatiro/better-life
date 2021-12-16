@@ -50,10 +50,7 @@ export const SignUp = ({ authenticated }) => {
       .catch((error) => {
         console.log(error.response.data);
         toast.error(
-          error.response.data.username && error.response.data.username[0]
-        );
-        toast.error(
-          error.response.data.password && error.response.data.password[0]
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
         );
       });
   };
@@ -76,7 +73,6 @@ export const SignUp = ({ authenticated }) => {
           </div>
 
           <Input
-
             label="Usuário"
             placeholder="jhondoe"
             nome="username"
@@ -85,7 +81,6 @@ export const SignUp = ({ authenticated }) => {
           />
 
           <Input
-
             label="Email"
             placeholder="jhondoe@mail.com"
             nome="email"
@@ -94,7 +89,6 @@ export const SignUp = ({ authenticated }) => {
           />
 
           <Input
-
             label="Senha"
             nome="password"
             register={register}
@@ -102,7 +96,6 @@ export const SignUp = ({ authenticated }) => {
             error={errors.password?.message}
           />
           <Input
-
             label="Confirmar senha"
             nome="password_confirmation"
             register={register}

@@ -34,17 +34,19 @@ export const Subscribers = ({ groupId }) => {
           <h1>Inscritos</h1>
           <MdDashboard />
         </div>
-        {subscribers.map((item) => (
-          <li key={item.id} className="subscribers">
-            <div className="ico">
-              <HiUsers />
-            </div>
-            <div className="info">
-              <p className="user">{item.username}</p>
-              <p className="email">{item.email}</p>
-            </div>
-          </li>
-        ))}
+        <ul>
+          {subscribers.map((item) => (
+            <li key={item.id} className="subscribers">
+              <div className="ico">
+                <HiUsers />
+              </div>
+              <div className="info">
+                <p className="user">{item.username}</p>
+                <p className="email">{item.email}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </Container>
     </Layout>
   );
