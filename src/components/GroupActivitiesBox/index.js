@@ -64,7 +64,7 @@ function GroupActivitiesBox({ groupId }) {
             description={activity.title}
             first_data_title={"Data"}
             first_data_data={activity.realization_time.substring(0, 10)}
-            second_data_title={"Hora"}
+            second_data_title={"Hora:"}
             second_data_data={activity.realization_time.substring(11, 16)}
             activity={activity}
             card={"activity"}

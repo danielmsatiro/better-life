@@ -20,7 +20,7 @@ export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
     year: yup.string().required("Data obrigatória"),
     month: yup.string().required("Data obrigatória"),
     day: yup.string().required("Data obrigatória"),
-    time: yup.string().required("Horário obrigatória"),
+    time: yup.string().required("Horário obrigatória").matches(/^[0-2][0-3]:[0-5][0-9]$/, "Horário inválido"),
   });
 
   const {
@@ -63,24 +63,24 @@ export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
                 label="Ano"
                 nome="year"
                 register={register}
-                error={errors.difficulty?.message}
                 options={yearOp}
+                error={errors.year?.message}
             />
 
             <Select
                 label="Mês"
                 nome="month"
                 register={register}
-                error={errors.difficulty?.message}
                 options={monthOp}
+                error={errors.month?.message}
             />
 
             <Select
                 label="Dia"
                 nome="day"
                 register={register}
-                error={errors.difficulty?.message}
                 options={dayOp}
+                error={errors.day?.message}
             />
 
         </div>
@@ -89,7 +89,8 @@ export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
             label="Horário | 00:00"
             nome="time"
             register={register}
-            error={errors?.message}
+            defaultValue="12:00"
+            error={errors.time?.message}
           />
         </Form>
       </Container>
