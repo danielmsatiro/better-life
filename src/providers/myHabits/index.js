@@ -11,6 +11,7 @@ export const useMyHabits = () => useContext(MyHabitsContext);
 export const MyHabitsProvider = ({ children }) => {
   const { user } = useAuth();
   const [myHabits, setMyHabits] = useState([]);
+  console.log(myHabits, user)
 
   const getMyHabits = () => {
     api
@@ -88,7 +89,7 @@ export const MyHabitsProvider = ({ children }) => {
 
   return (
     <MyHabitsContext.Provider
-      value={{ myHabits, createHabit, editHabit, deleteHabit }}
+      value={{ myHabits, setMyHabits, createHabit, editHabit, deleteHabit }}
     >
       {children}
     </MyHabitsContext.Provider>

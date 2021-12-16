@@ -9,7 +9,8 @@ import {
 
 import SearchResults from "../../components/SearchResults";
 
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../../providers/user";
 
 import HabitsCards from "../../components/HabitsCards";
 import LastActivities from "../../components/LastActivities";
@@ -17,9 +18,21 @@ import DashboardMenu from "../../components/Menu";
 import SearchBox from "../../components/SearchBox";
 import Greetings from "../../components/GreetingsUser";
 import HabitsGraph from "../../components/Graph";
+import { useAuth } from "../../providers/user";
 
 const Dashboard = () => {
   const [results, setResults] = useState(false);
+  const {att, setAtt, userName} = useContext(UserContext)
+
+  function refreshPage(){ 
+    window.location.reload(); 
+  }
+
+  if(att === true){
+    refreshPage()
+    setAtt(false)
+  }
+
 
   return (
     <Layout>
