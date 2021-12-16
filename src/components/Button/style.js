@@ -5,6 +5,7 @@ export const Container = styled.button`
   padding: 10px;
   background: var(--purple);
   color: white;
+  cursor: pointer;
 
   border-radius: 0.5rem;
   border: 0;
@@ -23,6 +24,5 @@ export const Container = styled.button`
   }
 
   @media (min-width: 769px) {
-    cursor: pointer;
   }
 `;

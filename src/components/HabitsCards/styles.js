@@ -10,7 +10,6 @@ export const Container = styled.div`
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 21px;
   overflow: auto;
 
   table {
@@ -24,7 +23,6 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 30px 5px 15px;
   }
 
   @media (min-width: 769px) {
@@ -36,7 +34,6 @@ export const Container = styled.div`
 
     div {
       height: 30px;
-      border-radius: 10px 10px 0px 0px;
     }
   }
 
@@ -62,7 +59,7 @@ export const Content = styled.tbody`
     border-radius: 5px;
   }
 
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 0px;
   tr {
     border-radius: 0px;
     display: flex;
@@ -90,5 +87,41 @@ export const Content = styled.tbody`
   }
 
   @media (min-width: 769px) {
+  }
+`;
+
+export const CardHeader = styled.div`
+  width: 100%;
+  height: 30px;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .titulo {
+    width: 70%;
+    padding-left: 30px;
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .holder {
+    width: 30%;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  Button {
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+
+    &.opener {
+      width: 20px;
+    }
   }
 `;
