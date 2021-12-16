@@ -6,9 +6,11 @@ import { useAuth } from "../../providers/user";
 import MiniCardGroup from "../MiniCardGroup";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { useState } from "react";
+import Loading from "../Loading";
 
 export const ListMiniCards = () => {
-  const { myGroups } = useMyGroups();
+  const { myGroups, loading } = useMyGroups();
+  console.log(loading);
 
   const { user } = useAuth();
 
@@ -51,6 +53,8 @@ export const ListMiniCards = () => {
           </div>
         ))}
       </Box>
+
+      {loading && <Loading />}
     </Container>
   );
 };
