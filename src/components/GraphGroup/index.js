@@ -30,7 +30,7 @@ function GroupGraph({groupId}) {
 
   const FacilInitial = findDifficulty("Fácil");
   const MedioInitial = findDifficulty("Médio");
-  const DificilInitial = findDifficulty("Díficil");
+  const DificilInitial = findDifficulty("Difícil");
 
   const [FacilDifficulty, setFacilDifficulty] = useState([]);
   const [MedioDifficulty, setMedioDifficulty] = useState([]);
@@ -46,7 +46,7 @@ function GroupGraph({groupId}) {
     getGoalsGroup()
     updateGraph();
     setTrack(true);
-  }, []);
+  }, [GoalGroup]);
 
   return (
     <div>
