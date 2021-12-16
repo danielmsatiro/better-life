@@ -23,7 +23,7 @@ export const ContainerMenu = styled.section`
     position: absolute;
     right: 20px;
     top: 10px;
-    transition: 0.2s;
+    z-index: 2;
   }
 
   .menu_details_summary {
@@ -59,7 +59,7 @@ export const ContainerMenu = styled.section`
     align-items: flex-start;
 
     font-size: 14px;
-    transition: 0.2s;
+    z-index: 2;
   }
 
   .sub_menu__link {
