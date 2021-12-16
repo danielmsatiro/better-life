@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { api } from "../../services/api";
 
 import { useAuth } from "../user";
@@ -45,9 +46,12 @@ export const MyGroupsProvider = ({ children }) => {
       })
       .then((_) => {
         getMyGroups();
+        toast.success("Grupo criado com sucesso!");
       })
       .catch((err) => {
-        console.log("Requisição createGroup:", err);
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
       });
   };
 
@@ -59,8 +63,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição editGroup:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Grupo modificado");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Se inscrevendo em um grupo */
@@ -71,8 +82,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição subscribeGroup:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Você agora faz parte deste grupo");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Se desinscrevendo de um grupo */
@@ -83,8 +101,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição unsubscribeGroup:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Você não participa mais deste grupo!");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Criando metas */
@@ -95,8 +120,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição createGoal:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Meta criada com sucesso!");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Buscando metas de um grupo específico */
@@ -124,8 +156,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição editGoal:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Meta modificada!");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Deletar uma meta */
@@ -136,8 +175,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição deleleGoal:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Meta deletada!");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Criando atividades */
@@ -148,8 +194,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição createActivity:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Atividade criada com succeso!");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Buscando atividades de um grupo específico */
@@ -178,8 +231,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição editActivity:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Atividade modificada com sucesso!");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   /* Deletar uma atividade */
@@ -190,8 +250,15 @@ export const MyGroupsProvider = ({ children }) => {
           authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => getMyGroups())
-      .catch((err) => console.log("Requisição deleleActivity:", err));
+      .then((_) => {
+        getMyGroups();
+        toast.success("Atividade deletada");
+      })
+      .catch((err) => {
+        toast.error(
+          "Alguma coisa deu errado. Por favor tente de novo. Obrigado!"
+        );
+      });
   };
 
   return (
