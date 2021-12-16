@@ -9,7 +9,6 @@ import { useState } from "react";
 import { useMyGroups } from "../../providers/mygroups";
 
 export const ActivityEdit = ({ closeFunction, identity, activity }) => {
-
   const { editActivity } = useMyGroups();
 
   const Schema = yup.object().shape({
@@ -23,7 +22,9 @@ export const ActivityEdit = ({ closeFunction, identity, activity }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const handleEditor = (data) => {
-    editActivity(data, currentAct.id);
+    editActivity(data, currentAct.id)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   const [currentAct, setCurrentAct] = useState(activity);
@@ -41,17 +42,16 @@ export const ActivityEdit = ({ closeFunction, identity, activity }) => {
           className="card-form"
           onSubmit={handleSubmit(handleEditor)}
         >
-        <Input
+          <Input
             label="Titulo"
             nome="title"
             register={register}
             error={errors.title?.message}
             value={currentAct.name}
             onChange={(e) =>
-                setCurrentAct({ ...currentAct, title: e.target.value })
-           }
-        />
-
+              setCurrentAct({ ...currentAct, title: e.target.value })
+            }
+          />
         </Form>
       </Container>
     </Card>
