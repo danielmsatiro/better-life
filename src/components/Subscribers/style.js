@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.ul`
+export const Container = styled.div`
   width: 320px;
+  max-height: 460px;
   background: var(--dark-purple);
   color: white;
   border-radius: 10px;
   padding: 10px;
+  margin-right: 20px;
   .encabezado {
     display: flex;
     justify-content: space-between;
@@ -13,6 +15,18 @@ export const Container = styled.ul`
     svg {
       width: auto;
       height: 50px;
+    }
+  }
+  ul {
+    overflow: auto;
+    max-height: 390px;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--light-green);
+      border-radius: 5px;
     }
   }
   .subscribers {
@@ -43,9 +57,15 @@ export const Container = styled.ul`
         height: 50%;
         font-size: 24px;
         font-weight: bold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
       .email {
         height: 50%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   }

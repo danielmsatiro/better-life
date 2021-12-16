@@ -9,11 +9,53 @@ import { Container } from "./styles";
 import { useMyGroups } from "../../providers/mygroups";
 
 export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
-
-    const yearOp = ["2021", "2022", "2023", "2024", "2025", "2025"];
-    const monthOp = ["1", "2","3","4","5","6","7","8","9","10","11","12"]
-    const dayOp = ["1", "2","3","4","5","6","7","8","9","10","11","12","13","14","15",
-    "16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"]
+  const yearOp = ["2021", "2022", "2023", "2024", "2025", "2025"];
+  const monthOp = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+  ];
+  const dayOp = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+  ];
 
   const Schema = yup.object().shape({
     title: yup.string().required("Nome obrigatório"),
@@ -32,8 +74,10 @@ export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
   const { createActivity } = useMyGroups();
 
   const handleMaker = (data) => {
-    const realization_time = `${data.year}-${data.month}-${data.day}T${data.time}:00Z`
-    const newData = { title: data.title, realization_time,  group: group_id};
+    console.log(data);
+    const realization_time = `${data.year}-${data.month}-${data.day}T${data.time}:00Z`;
+    const newData = { title: data.title, realization_time, group: group_id };
+    console.log(newData);
     createActivity(newData);
   };
 
@@ -57,33 +101,31 @@ export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
             error={errors.title?.message}
           />
 
-        <div className="Date_box">
-
+          <div className="Date_box">
             <Select
-                label="Ano"
-                nome="year"
-                register={register}
-                error={errors.difficulty?.message}
-                options={yearOp}
+              label="Ano"
+              nome="year"
+              register={register}
+              error={errors.difficulty?.message}
+              options={yearOp}
             />
 
             <Select
-                label="Mês"
-                nome="month"
-                register={register}
-                error={errors.difficulty?.message}
-                options={monthOp}
+              label="Mês"
+              nome="month"
+              register={register}
+              error={errors.difficulty?.message}
+              options={monthOp}
             />
 
             <Select
-                label="Dia"
-                nome="day"
-                register={register}
-                error={errors.difficulty?.message}
-                options={dayOp}
+              label="Dia"
+              nome="day"
+              register={register}
+              error={errors.difficulty?.message}
+              options={dayOp}
             />
-
-        </div>
+          </div>
 
           <Input
             label="Horário | 00:00"
