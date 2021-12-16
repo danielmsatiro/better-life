@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  .icon {
+    margin-left: 10px;
+  }
   @media (min-width: 769px) {
     .icon:hover {
       cursor: pointer;

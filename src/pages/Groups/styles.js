@@ -31,14 +31,22 @@ const Container = styled.div`
 
 const Main = styled.div`
   text-align: center;
+  width: 100%;
 
   @media (min-width: 769px) {
     padding-bottom: 20px;
+
+    .result_groups {
+      height: 450px;
+    }
   }
 
   @media (min-width: 1280px) {
     width: 960px;
     height: 500px;
+    .result_groups {
+      height: 360px;
+    }
   }
 `;
 

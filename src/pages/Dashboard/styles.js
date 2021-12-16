@@ -34,6 +34,16 @@ const Main = styled.div`
   @media (min-width: 769px) {
     width: 100%;
     padding-bottom: 20px;
+
+    .result_home {
+      height: 450px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .result_home {
+      height: 360px;
+    }
   }
 `;
 

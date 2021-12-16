@@ -10,20 +10,24 @@ export const useSearchGroups = () => useContext(SearchGroupsContext);
 
 export const SearchGroupsProvider = ({ children }) => {
   const { user } = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const [finded, setFinded] = useState([]);
   const [pageCount, setPageCount] = useState(1);
   const [search, setSearch] = useState("");
   const [next, setNext] = useState(null);
   const [count, setCount] = useState(0);
+  const [openResults, setOpenResults] = useState(false);
 
   const searchGroups = (search) => {
     if (search !== "") {
+      setLoading(true);
       api
         .get(`/groups/?page=${pageCount}&search=${search}`, "", {
           headers: { Authorization: `Bearer ${user.token}` },
         })
         .then((response) => {
+          setLoading(false);
           setFinded(response.data.results);
           console.log(response.data);
           setNext(response.data.next);
@@ -46,7 +50,7 @@ export const SearchGroupsProvider = ({ children }) => {
 
   useEffect(() => {
     searchGroups(search);
-  }, [pageCount]);
+  }, [pageCount, search]);
 
   return (
     <SearchGroupsContext.Provider
@@ -59,6 +63,9 @@ export const SearchGroupsProvider = ({ children }) => {
         search,
         setSearch,
         count,
+        loading,
+        openResults,
+        setOpenResults,
       }}
     >
       {children}

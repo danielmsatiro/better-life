@@ -6,9 +6,10 @@ import Modal from "../Modal";
 import ConfModal from "../ConfModal";
 import { useState } from "react";
 import { useMyHabits } from "../../providers/myHabits";
+import Loading from "../Loading";
 
 const HabitCard = ({ habit }) => {
-  const { deleteHabit } = useMyHabits();
+  const { deleteHabit, loading } = useMyHabits();
   const [openHabitEditor, setOpenHabitEditor] = useState(false);
   const [removeModal, setRemoveModal] = useState(false);
   const handleHabitEditor = () => {
@@ -48,6 +49,7 @@ const HabitCard = ({ habit }) => {
           text={"deseja remover este hábito?"}
         />
       </td>
+      {loading && <Loading />}
     </tr>
   );
 };
