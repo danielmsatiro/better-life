@@ -27,7 +27,9 @@ export const GoalEdit = ({ closeFunction, identity, goal }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const handleEditor = (data) => {
-    editGoal(data, currentGoal.id);
+    editGoal(data, currentGoal.id)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   const [currentGoal, setCurrentGoal] = useState(goal);

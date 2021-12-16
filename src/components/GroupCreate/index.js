@@ -34,7 +34,9 @@ export const GroupCreate = ({ closeFunction, identity }) => {
   const { createGroup } = useMyGroups();
 
   const handleMaker = (data) => {
-    createGroup(data);
+    createGroup(data)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   return (

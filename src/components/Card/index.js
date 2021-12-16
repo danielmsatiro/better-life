@@ -13,7 +13,7 @@ const Card = ({ children, titulo, action, closeFunction, identity }) => {
             className="exec"
             submit
             form={identity}
-            onClick={() => setTimeout(closeFunction)}
+            /* onClick={() => setTimeout(closeFunction)} */
           >
             {action}
           </Button>

@@ -36,7 +36,9 @@ export const GroupEdit = ({ closeFunction, identity, group }) => {
   } = useForm({ resolver: yupResolver(Schema) });
 
   const handleEditor = (data) => {
-    editGroup(data, currentGroup.id);
+    editGroup(data, currentGroup.id)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   const [currentGroup, setCurrentGroup] = useState(group);

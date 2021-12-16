@@ -57,7 +57,9 @@ export const HabitEditor = ({ closeFunction, identity, item }) => {
     id = currentHabit.id;
     const user = currentHabit.user;
     const complete = { ...data, how_much_achieved, user, id, achieved };
-    editHabit(complete, id);
+    editHabit(complete, id)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   const disminuye = () => {

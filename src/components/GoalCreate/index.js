@@ -26,7 +26,9 @@ export const GoalCreate = ({ closeFunction, identity, group_id }) => {
 
   const handleMaker = (data) => {
     const newData = { ...data, group: group_id, how_much_achieved: 0 };
-    createGoal(newData);
+    createGoal(newData)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   return (
