@@ -21,7 +21,7 @@ export const HabitMaker = ({ closeFunction, identity }) => {
     "Espiritual",
     "Domésticos",
   ];
-  const Frequency = ["Diário", "Semanal", "Mensal", "Anual"];
+  const Frequency = ["Diário", "Semanal"];
   const [how_much_achieved, setHow_much_achieved] = useState(0);
 
   const Schema = yup.object().shape({
