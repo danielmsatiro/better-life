@@ -1,13 +1,47 @@
-// import { Container } from './styles';
+import {
+  Layout,
+  Container,
+  Main,
+  Aside,
+  Header,
+  InfoContainer,
+  TextContainer,
+  A,
+} from "./styles";
+
+import DashboardMenu from "../../components/Menu";
+import SearchBox from "../../components/SearchBox";
+import SearchResults from "../../components/SearchResults";
 import GoalBoxSide from "../../components/GoalBoxSide";
+
 import { ListMiniCards } from "../../components/ListMiniCards";
+import { useState } from "react";
 
 const Groups = () => {
+  const [results, setResults] = useState(false);
+
   return (
-    <div>
-      <ListMiniCards />
-      <GoalBoxSide />
-    </div>
+    <>
+      <Layout>
+        <Header />
+        <Container>
+          <DashboardMenu />
+          <Main>
+            <SearchBox setResults={setResults} />
+            {results ? (
+              <SearchResults setResults={setResults} />
+            ) : (
+              <Aside>
+                <ListMiniCards />
+
+                <GoalBoxSide />
+              </Aside>
+            )}
+          </Main>
+        </Container>
+      </Layout>
+      <A />
+    </>
   );
 };
 

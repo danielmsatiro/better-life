@@ -13,13 +13,21 @@ export const Container = styled.li`
   h5 {
     margin: 0;
   }
+
+  @media (min-width: 769px) {
+    width: 260px;
+    height: 200px;
+  }
+
+  @media (min-width: 1280px) {
+  }
 `;
 
 export const Header = styled.div`
   display: flex;
   align-items: center;
   background: var(--green);
-  border-radius: 14px 14px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
   color: black;
   font-size: 24px;
   padding: 0 10px 0 10px;
@@ -38,6 +46,12 @@ export const Header = styled.div`
     cursor: pointer;
     :hover {
       transform: scale(1.2);
+    }
+  }
+
+  @media (min-width: 769px) {
+    h3 {
+      font-size: 1.5rem;
     }
   }
 `;
@@ -85,8 +99,9 @@ export const SubContent2 = styled.div`
     max-height: 88px;
     overflow: hidden;
     display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
 `;
 
 export const Footer = styled.div`
@@ -94,4 +109,8 @@ export const Footer = styled.div`
   color: var(--green);
   display: flex;
   justify-content: space-between;
+
+  @media (min-width: 769px) {
+    padding: 10px;
+  }
 `;

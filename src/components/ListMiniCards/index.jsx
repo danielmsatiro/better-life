@@ -1,4 +1,4 @@
-import { Container, Box, ButtonAdd } from "./styles";
+import { Container, Box, Info } from "./styles";
 import Modal from "../../components/Modal";
 import { GroupCreate } from "../../components/GroupCreate";
 import { useMyGroups } from "../../providers/mygroups";
@@ -24,16 +24,19 @@ export const ListMiniCards = () => {
 
   return (
     <Container>
-      <h1>
-        Grupos de que você faz parte
-        <ButtonAdd onClick={() => setOpenCreateGroup(true)}>
-          <MdOutlineAddCircle />
-        </ButtonAdd>
-      </h1>
-      <p>
-        Compartilhe metas e marque atividades com pessoas que possuem o mesmo
-        interesse que o seu.
-      </p>
+      <Info>
+        <h1>
+          Seus Grupos
+          <MdOutlineAddCircle
+            class="icon"
+            onClick={() => setOpenCreateGroup(true)}
+          />
+        </h1>
+        <p>
+          Compartilhe metas e marque atividades com pessoas que possuem o mesmo
+          interesse que o seu.
+        </p>
+      </Info>
       <Modal isOpen={openCreateGroup} setIsOpen={handleCreateGroup}>
         <GroupCreate
           closeFunction={handleCreateGroup}

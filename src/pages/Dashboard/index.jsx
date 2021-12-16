@@ -14,7 +14,7 @@ import { useState } from "react";
 import HabitsCards from "../../components/HabitsCards";
 import LastActivities from "../../components/LastActivities";
 import DashboardMenu from "../../components/Menu";
-import SearchBox from "../../components/SerchBox";
+import SearchBox from "../../components/SearchBox";
 import Greetings from "../../components/GreetingsUser";
 import HabitsGraph from "../../components/Graph";
 

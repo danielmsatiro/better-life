@@ -1,5 +1,4 @@
 import { useAuth } from "../user";
-import { useMyGroups } from "../mygroups";
 
 import { createContext, useContext, useEffect, useState } from "react";
 
