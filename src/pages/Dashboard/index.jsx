@@ -9,7 +9,7 @@ import {
 
 import SearchResults from "../../components/SearchResults";
 
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../../providers/user";
 
 import HabitsCards from "../../components/HabitsCards";
@@ -19,10 +19,8 @@ import SearchBox from "../../components/SearchBox";
 import Greetings from "../../components/GreetingsUser";
 import HabitsGraph from "../../components/Graph";
 
-import { useSearchGroups } from "../../providers/searchGroups";
-
 const Dashboard = () => {
-  const { openResults, setOpenResults } = useSearchGroups();
+  const [results, setResults] = useState(false);
   const { att, setAtt, userName } = useContext(UserContext);
 
   function refreshPage() {
@@ -40,9 +38,9 @@ const Dashboard = () => {
       <Container>
         <DashboardMenu />
         <Main>
-          <SearchBox setResults={setOpenResults} />
-          {openResults ? (
-            <SearchResults setResults={openResults} className="result_home" />
+          <SearchBox setResults={setResults} />
+          {results ? (
+            <SearchResults setResults={setResults} className="result_home" />
           ) : (
             <>
               <InfoContainer>
