@@ -36,9 +36,9 @@ export const MyGroupsProvider = ({ children }) => {
   }, []);
 
   /*   Criar um grupo   */
-  const createGroup = (data) => {
+  const createGroup = async (data) => {
     setLoading(!loading);
-    api
+    await api
       .post(`/groups/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -56,8 +56,8 @@ export const MyGroupsProvider = ({ children }) => {
   };
 
   /* Editar um grupo */
-  const editGroup = (data, group_id) => {
-    api
+  const editGroup = async (data, group_id) => {
+    await api
       .patch(`/groups/${group_id}/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -113,8 +113,8 @@ export const MyGroupsProvider = ({ children }) => {
   };
 
   /* Criando metas */
-  const createGoal = (data) => {
-    api
+  const createGoal = async (data) => {
+    await api
       .post(`/goals/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -133,6 +133,7 @@ export const MyGroupsProvider = ({ children }) => {
 
   /* Buscando metas de um grupo específico */
   const getGoalsOneGroup = (group_id) => {
+    setLoading(true);
     api
       .get(`/goals/?group=${group_id}`, {
         headers: {
@@ -149,8 +150,8 @@ export const MyGroupsProvider = ({ children }) => {
   };
 
   /* Atualizando metas */
-  const editGoal = (data, goal_id) => {
-    api
+  const editGoal = async (data, goal_id) => {
+    await api
       .patch(`/goals/${goal_id}/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -187,8 +188,8 @@ export const MyGroupsProvider = ({ children }) => {
   };
 
   /* Criando atividades */
-  const createActivity = (data) => {
-    api
+  const createActivity = async (data) => {
+    await api
       .post(`/activities/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,
@@ -224,8 +225,8 @@ export const MyGroupsProvider = ({ children }) => {
   };
 
   /* Atualizando atividades */
-  const editActivity = (data, activity_id) => {
-    api
+  const editActivity = async (data, activity_id) => {
+    await api
       .patch(`/activities/${activity_id}/`, data, {
         headers: {
           authorization: `Bearer ${user.token}`,

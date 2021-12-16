@@ -81,7 +81,9 @@ export const ActivityCreate = ({ closeFunction, identity, group_id }) => {
     const realization_time = `${data.year}-${data.month}-${data.day}T${data.time}:00Z`;
     const newData = { title: data.title, realization_time, group: group_id };
     console.log(newData);
-    createActivity(newData);
+    createActivity(newData)
+      .then((_) => closeFunction())
+      .catch((_) => closeFunction());
   };
 
   return (

@@ -45,9 +45,7 @@ export const HabitMaker = ({ closeFunction, identity }) => {
     const user = id;
     const complete = { ...data, how_much_achieved, user };
     createHabit(complete)
-      .then((_) => {
-        closeFunction();
-      })
+      .then((_) => closeFunction())
       .catch((_) => closeFunction());
   };
 
