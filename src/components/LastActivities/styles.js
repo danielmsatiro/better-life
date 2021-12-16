@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 20px 10px;
   text-align: center;
+  box-shadow: var(--box-shadow);
   h2 {
     font-size: 16px;
   }
