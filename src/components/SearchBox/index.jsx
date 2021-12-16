@@ -1,8 +1,8 @@
 import { useSearchGroups } from "../../providers/searchGroups";
-import { Container, Button } from "./styles";
+import { Container } from "./styles";
 
 const SearchBox = ({ setResults }) => {
-  const { searchGroups, search, setSearch } = useSearchGroups();
+  const { search, setSearch } = useSearchGroups();
 
   return (
     <Container>
@@ -12,16 +12,9 @@ const SearchBox = ({ setResults }) => {
         placeholder="Pesquisar Grupos"
         onChange={(e) => {
           setSearch(e.target.value);
-        }}
-      />
-      <Button
-        onClick={() => {
-          searchGroups(search);
           setResults(true);
         }}
-      >
-        Pesquisar
-      </Button>
+      />
     </Container>
   );
 };

@@ -12,7 +12,7 @@ const Container = styled.div`
     padding: 6px;
     padding-left: 10px;
     border: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     font-family: "Ubuntu", serif;
 
     background-color: var(--light-gray);
@@ -53,28 +53,4 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button`
-  width: 100px;
-  border: none;
-  border-radius: 0 10px 10px 0;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
-  background-color: var(--green);
-  color: var(--white);
-
-  &&:hover {
-    transition: 0.3s;
-    background-color: var(--light-green);
-    color: var(--dark-purple);
-  }
-
-  &&:not(:hover) {
-    transition: 0.3s;
-  }
-
-  @media (min-width: 769px) {
-    cursor: pointer;
-  }
-`;
-
-export { Container, Button };
+export { Container };

@@ -11,7 +11,6 @@ const Results = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  max-width: 500px;
   height: 70vh;
   border-radius: 0 0 0px 15px;
   background-color: var(--light-green);
@@ -30,11 +29,10 @@ const Results = styled.div`
 
   @media (min-width: 769px) {
     width: 90%;
-    height: 450px;
   }
 
   @media (min-width: 1280px) {
-    height: 360px;
+    width: 95%;
   }
 `;
 
@@ -44,7 +42,6 @@ const BlackBar = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
-  max-width: 500px;
   padding: 10px 15px;
   border-radius: 15px 15px 0px 0px;
   font-size: 1rem;
@@ -54,10 +51,10 @@ const BlackBar = styled.div`
   color: var(--white);
 
   @media (min-width: 769px) {
-    width: 90%;
   }
 
   @media (min-width: 1280px) {
+    width: 95%;
   }
 `;
 
@@ -81,20 +78,31 @@ const Button = styled.button`
 
 const Content = styled.div`
   margin: 10px 0;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
 `;
 
 const GroupContainer = styled.div`
   position: relative;
   display: inline-block;
   width: 90%;
+
   max-width: 350px;
   margin: 10px 0;
 
   border-radius: 15px;
-  background-color: var(--purple);
+  background-color: var(--white);
 
   header {
     width: 100%;
@@ -105,9 +113,14 @@ const GroupContainer = styled.div`
     padding: 10px 0;
     border-radius: 15px 15px 0px 0px;
     background-color: var(--dark-purple);
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   h3 {
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
     height: 19px;
     margin: 0;
     padding: 0 10px;
@@ -185,35 +198,33 @@ const GroupInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px 10px;
-  background-color: var(--purple);
-`;
+  justify-content: space-between;
 
-const GroupCategory = styled.p`
-  padding: 2px;
-  font-weight: 900;
-  background-color: var(--white);
-  color: var(--dark-purple);
-`;
-
-const GroupDescription = styled.p`
-  width: auto;
   margin-top: 5px;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  text-align: left;
+  padding: 5px 10px;
   background-color: var(--white);
 
   span {
-    padding: 2px;
+    font-size: 1.1rem;
     font-weight: 900;
-    border-radius: 5px;
-
-    background-color: var(--purple);
-    color: var(--white);
   }
+`;
+
+const GroupDescription = styled.div`
+  margin: 5px 0;
+  max-width: 200px;
+  --webkit-line-clamp: 3;
+  --webkit-box-orient: vertical;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const GroupCategory = styled.div`
+  padding: 2px;
+  font-weight: 900;
+  background-color: var(--purple);
+  color: var(--white);
 `;
 
 const SubscribingNest = styled.div`
@@ -263,6 +274,23 @@ const ButtonPrev = styled.button`
   border-radius: 0 5px 5px 0;
 `;
 
+const NotFinded = styled.div`
+  margin-top: 20px;
+
+  p {
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+  }
+
+  span {
+    font-style: italic;
+  }
+`;
+
 export {
   Container,
   Results,
@@ -278,4 +306,5 @@ export {
   GroupInfo,
   SubscribingNest,
   PaginationNest,
+  NotFinded,
 };
