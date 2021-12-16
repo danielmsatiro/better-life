@@ -12,6 +12,7 @@ export const useAuth = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
+  const [att,setAtt] = useState(false)
 
   const [user, setUser] = useState(() => {
     const token = localStorage.getItem("@betterlife:token");
@@ -41,10 +42,12 @@ export const UserProvider = ({ children }) => {
         console.log(error.response.data);
         toast.error("Usuário ou senha inválidos!");
       });
+      setAtt(true)
   };
 
   const logout = () => {
     localStorage.clear();
+    setUserName("");
     setUser("");
   };
 
@@ -59,7 +62,7 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, login, logout, userName }}>
+    <UserContext.Provider value={{ att,setAtt, user, setUser, login, logout, userName }}>
       {children}
     </UserContext.Provider>
   );

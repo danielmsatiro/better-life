@@ -65,7 +65,6 @@ function GroupModelCard({
             )}
           </Modal>
           <h4>{title}</h4>
-          <MdCheck className="GoalCard_header_title_check" />
         </div>
 
         <MdOutlineClear
@@ -109,7 +108,7 @@ function GroupModelCard({
           </p>
 
           <p>
-            {second_data_title}: {second_data_data}
+            {second_data_title} {second_data_data}
           </p>
         </div>
       </div>
