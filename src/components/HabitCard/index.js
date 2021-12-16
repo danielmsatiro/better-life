@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useMyHabits } from "../../providers/myHabits";
 
 const HabitCard = ({ habit }) => {
-  const { myHabits, deleteHabit } = useMyHabits();
+  const { deleteHabit } = useMyHabits();
   const [openHabitEditor, setOpenHabitEditor] = useState(false);
   const [removeModal, setRemoveModal] = useState(false);
   const handleHabitEditor = () => {
