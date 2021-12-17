@@ -28,7 +28,7 @@ export const ListMiniCards = () => {
         <h1>
           Seus Grupos
           <MdOutlineAddCircle
-            class="icon"
+            className="icon"
             onClick={() => setOpenCreateGroup(true)}
           />
         </h1>
