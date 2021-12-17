@@ -10,7 +10,7 @@ export const useMyGroups = () => useContext(MyGroupsContext);
 
 export const MyGroupsProvider = ({ children }) => {
   const { user } = useAuth();
-  const [myGroups, setMyGroups] = useState(() => []);
+  const [myGroups, setMyGroups] = useState([]);
   const [loading, setLoading] = useState([false]);
 
   const getMyGroups = () => {
