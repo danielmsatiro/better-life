@@ -56,7 +56,7 @@ export const GroupCreate = ({ closeFunction, identity }) => {
             label="Nome"
             nome="name"
             register={register}
-            error={errors.title?.message}
+            error={errors.name?.message}
           />
 
           <Select
