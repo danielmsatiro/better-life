@@ -10,7 +10,7 @@ import {
 import Modal from "../../components/Modal";
 import { GroupEdit } from "../../components/GroupEdit";
 import { MdCreate, MdDoubleArrow } from "react-icons/md";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { useHistory } from "react-router";
 import ConfModal from "../ConfModal";
 import { useMyGroups } from "../../providers/mygroups";
