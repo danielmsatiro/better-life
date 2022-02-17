@@ -27,7 +27,7 @@ Através de uma api já desenvolvida foi criada uma plataforma de gestão do há
 - `Toastify`
 - `react-google-charts`
 - `React Icons`
-- `Context API para os providers``
+- `Context API para os providers`
 - `react-router-dom@5`
 - `Vercel`
 
